@@ -2,7 +2,6 @@
 
 ## TODO
 
-- Form wrapper plugin, and rendering entire forms
 - Multi-Checkbox Plugin
 - Radio Plugin
 - Collections Plugin

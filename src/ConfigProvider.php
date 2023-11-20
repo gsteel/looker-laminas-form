@@ -35,6 +35,7 @@ final class ConfigProvider
                 Plugin\Button::class => Plugin\Factory\ButtonFactory::class,
                 Plugin\ElementErrorList::class => Plugin\Factory\ElementErrorListFactory::class,
                 Plugin\Fieldset::class => Plugin\Factory\FieldsetFactory::class,
+                Plugin\Form::class => Plugin\Factory\FormFactory::class,
                 Plugin\FormElement::class => Plugin\Factory\FormElementFactory::class,
                 Plugin\FormElementRow::class => Plugin\Factory\FormElementRowFactory::class,
                 Plugin\FormInput::class => Plugin\Factory\FormInputFactory::class,

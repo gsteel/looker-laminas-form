@@ -6,6 +6,8 @@ namespace Looker\Form\Plugin;
 
 use Laminas\Form;
 use Laminas\Form\ElementInterface;
+use Laminas\Form\Form as LaminasForm;
+use Looker\Form\Plugin\Form as FormPlugin;
 use Psr\Container\ContainerInterface;
 
 final readonly class FormElement
@@ -40,6 +42,7 @@ final readonly class FormElement
             Form\Element\Week::class => ($this->plugins->get(FormInput::class))($element, $attributes),
             Form\Element\Select::class => ($this->plugins->get(Select::class))($element, $attributes),
             Form\Element\Textarea::class => ($this->plugins->get(Textarea::class))($element, $attributes),
+            LaminasForm::class => ($this->plugins->get(FormPlugin::class))($element, $attributes),
             Form\Fieldset::class => ($this->plugins->get(Fieldset::class))($element, $attributes),
 
             //Element\MultiCheckbox::class
