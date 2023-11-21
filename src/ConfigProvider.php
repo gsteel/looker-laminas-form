@@ -42,6 +42,7 @@ final class ConfigProvider
                 Plugin\FormInput::class => Plugin\Factory\FormInputFactory::class,
                 Plugin\InvalidElementAttributeHandler::class => Plugin\Factory\InvalidElementAttributeHandlerFactory::class,
                 Plugin\Label::class => Plugin\Factory\LabelFactory::class,
+                Plugin\MultiCheckBox::class => Plugin\Factory\MultiCheckBoxFactory::class,
                 Plugin\Option::class => Plugin\Factory\OptionFactory::class,
                 Plugin\Select::class => Plugin\Factory\SelectFactory::class,
                 Plugin\Textarea::class => Plugin\Factory\TextareaFactory::class,

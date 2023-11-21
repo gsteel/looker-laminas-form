@@ -43,7 +43,6 @@ class FormInputTest extends TestCase
             [new Element\Month('foo'), '<input name="foo" type="month" value="">'],
             [new Element\Number('foo'), '<input name="foo" type="number" value="">'],
             [new Element\Password('foo'), '<input name="foo" type="password">'],
-            [new Element\Radio('foo'), '<input name="foo" type="radio" value="">'],
             [new Element\Range('foo'), '<input name="foo" type="range" value="">'],
             [new Element\Search('foo'), '<input name="foo" type="search" value="">'],
             [new Element\Submit('foo'), '<input name="foo" type="submit" value="">'],
