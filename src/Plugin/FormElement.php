@@ -44,9 +44,8 @@ final readonly class FormElement
             Form\Element\Textarea::class => ($this->plugins->get(Textarea::class))($element, $attributes),
             LaminasForm::class => ($this->plugins->get(FormPlugin::class))($element, $attributes),
             Form\Fieldset::class => ($this->plugins->get(Fieldset::class))($element, $attributes),
-
-            //Element\MultiCheckbox::class
-            //Element\Radio::class
+            Form\Element\MultiCheckbox::class,
+            Form\Element\Radio::class => ($this->plugins->get(MultiCheckBox::class))($element),
         };
     }
 }

@@ -32,7 +32,6 @@ final readonly class FormInput
         Element\Month::class => 'month',
         Element\Number::class => 'number',
         Element\Password::class => 'password',
-        Element\Radio::class => 'radio',
         Element\Range::class => 'range',
         Element\Search::class => 'search',
         Element\Submit::class => 'submit',

@@ -2,7 +2,5 @@
 
 ## TODO
 
-- Multi-Checkbox Plugin
-- Radio Plugin
 - Collections Plugin
 - Maybe, the date-time select elements
