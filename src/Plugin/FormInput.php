@@ -22,7 +22,6 @@ use function sprintf;
 final readonly class FormInput
 {
     private const TYPE_MAP = [
-        Element\Checkbox::class => 'checkbox',
         Element\Color::class => 'color',
         Element\Date::class => 'date',
         Element\DateTimeLocal::class => 'datetime-local',

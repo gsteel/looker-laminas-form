@@ -33,6 +33,7 @@ final class ConfigProvider
         return [
             'factories' => [
                 Plugin\Button::class => Plugin\Factory\ButtonFactory::class,
+                Plugin\CheckBox::class => Plugin\Factory\CheckBoxFactory::class,
                 Plugin\ElementErrorList::class => Plugin\Factory\ElementErrorListFactory::class,
                 Plugin\Fieldset::class => Plugin\Factory\FieldsetFactory::class,
                 Plugin\Form::class => Plugin\Factory\FormFactory::class,
