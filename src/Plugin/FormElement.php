@@ -21,7 +21,7 @@ final readonly class FormElement
     {
         return match ($element::class) {
             Form\Element\Button::class => ($this->plugins->get(Button::class))($element, null, true, $attributes),
-            Form\Element\Checkbox::class,
+            Form\Element\Checkbox::class => ($this->plugins->get(CheckBox::class))($element, $attributes),
             Form\Element\Color::class,
             Form\Element\Date::class,
             Form\Element\DateTimeLocal::class,

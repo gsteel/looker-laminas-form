@@ -33,7 +33,6 @@ class FormInputTest extends TestCase
     public static function elementProvider(): array
     {
         return [
-            [new Element\Checkbox('foo'), '<input name="foo" type="checkbox" value="">'],
             [new Element\Color('foo'), '<input name="foo" type="color" value="">'],
             [new Element\Date('foo'), '<input name="foo" type="date" value="">'],
             [new Element\DateTimeLocal('foo'), '<input name="foo" type="datetime-local" value="">'],
