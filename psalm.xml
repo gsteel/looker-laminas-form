@@ -22,6 +22,7 @@
         <PossiblyUnusedMethod>
             <errorLevel type="suppress">
                 <directory name="test" />
+                <file name="src/TemplateFile.php" />
             </errorLevel>
         </PossiblyUnusedMethod>
     </issueHandlers>
