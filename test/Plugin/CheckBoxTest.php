@@ -173,4 +173,18 @@ class CheckBoxTest extends TestCase
             $this->plugin->__invoke($element),
         );
     }
+
+    public function testThatTheCheckedAttributeWillBeSetWhenTheCurrentValueMatches(): void
+    {
+        $element = new CheckboxElement('foo');
+        $element->setValue(1);
+
+        self::assertSame(
+            <<<'HTML'
+            <input name="foo" type="hidden" value="0">
+            <input checked name="foo" type="checkbox" value="1">
+            HTML,
+            $this->plugin->__invoke($element),
+        );
+    }
 }
