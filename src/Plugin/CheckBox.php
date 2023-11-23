@@ -43,7 +43,12 @@ final readonly class CheckBox
         $attributes['value'] = $element->getCheckedValue();
         $closingBracket      = $this->doctype->isXhtml() ? ' />' : '>';
         $attributes          = ($this->invalidElementHandler)($element, $attributes);
-        $attributes          = AttributeNormaliser::normalise($attributes, new InputAttribute());
+
+        if ((string) $element->getValue() === $element->getCheckedValue()) {
+            $attributes['checked'] = true;
+        }
+
+        $attributes = AttributeNormaliser::normalise($attributes, new InputAttribute());
 
         $elementMarkup = sprintf('<input %s%s', ($this->attributePlugin)($attributes), $closingBracket);
 
@@ -51,7 +56,7 @@ final readonly class CheckBox
             return $elementMarkup;
         }
 
-        unset($attributes['id']);
+        unset($attributes['id'], $attributes['checked']);
         $attributes['value'] = $element->getUncheckedValue();
         $attributes['type']  = 'hidden';
         $hiddenMarkup        = sprintf('<input %s%s', ($this->attributePlugin)($attributes), $closingBracket);
