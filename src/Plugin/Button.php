@@ -44,7 +44,7 @@ final class Button
             $attributes['type'] = 'submit';
         }
 
-        $buttonContent = $buttonContent ?: $element->getLabel();
+        $buttonContent ??= $element->getLabel();
 
         if (! is_string($buttonContent) || $buttonContent === '') {
             throw ButtonsNeedADescriptiveLabel::forElement($element);

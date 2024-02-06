@@ -242,6 +242,7 @@ class MultiCheckBoxTest extends TestCase
     public function testWeirdValueOptionsCauseExceptions(): void
     {
         $element = new MultiCheckElement('foo');
+        /** @psalm-suppress InvalidArgument */
         $element->setValueOptions([
             (object) ['a' => 'b'],
         ]);
@@ -297,6 +298,7 @@ class MultiCheckBoxTest extends TestCase
     public function testExceptionThrownForInvalidOptionSpec(): void
     {
         $element = new MultiCheckElement('foo');
+        /** @psalm-suppress InvalidArgument */
         $element->setValueOptions([
             [
                 'label' => (object) ['a' => 'b'],
