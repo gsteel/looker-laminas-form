@@ -11,9 +11,7 @@ use Looker\Plugin\HtmlAttributes;
 use function array_map;
 use function array_merge;
 use function array_walk_recursive;
-use function assert;
 use function implode;
-use function is_array;
 use function sprintf;
 
 use const PHP_EOL;
@@ -34,7 +32,6 @@ final readonly class ElementErrorList
         $messages = $element->getMessages();
         $list     = [];
         array_walk_recursive($messages, static function (string $message) use (&$list): void {
-            assert(is_array($list));
             $list[] = $message;
         });
 

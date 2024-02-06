@@ -27,7 +27,6 @@ use function assert;
 use function implode;
 use function in_array;
 use function is_array;
-use function is_bool;
 use function is_scalar;
 use function is_string;
 use function sprintf;
@@ -88,7 +87,7 @@ final readonly class MultiCheckBox
             if (is_scalar($value)) {
                 $options[] = [
                     'value'            => (string) $key,
-                    'label'            => (string) $value,
+                    'label'            => $value,
                     'attributes'       => [
                         'value' => (string) $key,
                     ],
@@ -98,18 +97,15 @@ final readonly class MultiCheckBox
                 continue;
             }
 
+            /** @psalm-suppress DocblockTypeContradiction It is still possible for the value to be invalid */
             if (! is_array($value)) {
                 throw MultiCheckBoxCannotBeRendered::becauseOfAnInvalidOptionSpec($value);
             }
 
-            $disabled        = isset($value['disabled']) && is_bool($value['disabled']) && $value['disabled'];
-            $checked         = isset($value['selected']) && is_bool($value['selected']) && $value['selected'];
-            $attributes      = isset($value['attributes']) && is_array($value['attributes'])
-                             ? $value['attributes']
-                             : [];
-            $labelAttributes = isset($value['label_attributes']) && is_array($value['label_attributes'])
-                             ? $value['label_attributes']
-                             : [];
+            $disabled        = isset($value['disabled']) && $value['disabled'];
+            $checked         = isset($value['selected']) && $value['selected'];
+            $attributes      = $value['attributes'] ?? [];
+            $labelAttributes = $value['label_attributes'] ?? [];
 
             try {
                 Assert::scalar($value['value'] ?? null);
@@ -124,12 +120,12 @@ final readonly class MultiCheckBox
 
             $attributes['disabled'] = $disabled;
             $attributes['checked']  = $checked;
-            $attributes['value']    = (string) $value['value'];
+            $attributes['value']    = $value['value'];
 
             /** @psalm-var OptionSpec */
             $options[] = [
-                'value'            => (string) $value['value'],
-                'label'            => (string) $value['label'],
+                'value'            => $value['value'],
+                'label'            => $value['label'],
                 'attributes'       => $attributes,
                 'label_attributes' => $labelAttributes,
             ];
