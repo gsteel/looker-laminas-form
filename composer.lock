@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae0d3fb9d9605357d68a1c8120f5b667",
+    "content-hash": "1392b5433446f91fe44288756b70b939",
     "packages": [
         {
             "name": "gsteel/dot",
@@ -1737,16 +1737,16 @@
         },
         {
             "name": "maglnet/composer-require-checker",
-            "version": "4.9.0",
+            "version": "4.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maglnet/ComposerRequireChecker.git",
-                "reference": "0a6f7ba8fb130a601109f9d59356b7780c95f65c"
+                "reference": "36a4625dfabba4da1f053a93d3f13caf5eead543"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maglnet/ComposerRequireChecker/zipball/0a6f7ba8fb130a601109f9d59356b7780c95f65c",
-                "reference": "0a6f7ba8fb130a601109f9d59356b7780c95f65c",
+                "url": "https://api.github.com/repos/maglnet/ComposerRequireChecker/zipball/36a4625dfabba4da1f053a93d3f13caf5eead543",
+                "reference": "36a4625dfabba4da1f053a93d3f13caf5eead543",
                 "shasum": ""
             },
             "require": {
@@ -1756,16 +1756,17 @@
                 "php": "~8.2.0 || ~8.3.0",
                 "symfony/console": "^6.4.1 || ^7.0.1",
                 "webmozart/assert": "^1.11.0",
-                "webmozart/glob": "^4.6.0"
+                "webmozart/glob": "^4.7.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "^12.0.0",
                 "ext-zend-opcache": "*",
-                "mikey179/vfsstream": "^1.6.11",
                 "phing/phing": "^2.17.4",
-                "phpstan/phpstan": "^1.10.59",
+                "phpstan/phpstan": "^1.10.60",
                 "phpunit/phpunit": "^10.5.11",
+                "psalm/plugin-phpunit": "^0.18.4",
                 "roave/infection-static-analysis-plugin": "^1.34.0",
+                "spatie/temporary-directory": "^2.2.1",
                 "vimeo/psalm": "^5.22.2"
             },
             "bin": [
@@ -1811,9 +1812,9 @@
             ],
             "support": {
                 "issues": "https://github.com/maglnet/ComposerRequireChecker/issues",
-                "source": "https://github.com/maglnet/ComposerRequireChecker/tree/4.9.0"
+                "source": "https://github.com/maglnet/ComposerRequireChecker/tree/4.10.0"
             },
-            "time": "2024-03-05T10:02:59+00:00"
+            "time": "2024-03-08T14:34:41+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -4774,16 +4775,16 @@
         },
         {
             "name": "webmozart/glob",
-            "version": "4.6.0",
+            "version": "4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/glob.git",
-                "reference": "3c17f7dec3d9d0e87b575026011f2e75a56ed655"
+                "reference": "8a2842112d6916e61e0e15e316465b611f3abc17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/glob/zipball/3c17f7dec3d9d0e87b575026011f2e75a56ed655",
-                "reference": "3c17f7dec3d9d0e87b575026011f2e75a56ed655",
+                "url": "https://api.github.com/repos/webmozarts/glob/zipball/8a2842112d6916e61e0e15e316465b611f3abc17",
+                "reference": "8a2842112d6916e61e0e15e316465b611f3abc17",
                 "shasum": ""
             },
             "require": {
@@ -4817,9 +4818,9 @@
             "description": "A PHP implementation of Ant's glob.",
             "support": {
                 "issues": "https://github.com/webmozarts/glob/issues",
-                "source": "https://github.com/webmozarts/glob/tree/4.6.0"
+                "source": "https://github.com/webmozarts/glob/tree/4.7.0"
             },
-            "time": "2022-05-24T19:45:58+00:00"
+            "time": "2024-03-07T20:33:40+00:00"
         }
     ],
     "aliases": [],
