@@ -68,12 +68,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gsteel/looker.git",
-                "reference": "2902b81a0432ac62012d9b6f686c0f5dfadf2a41"
+                "reference": "e1981cba437d7c57fa792fa381207333376c0c29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gsteel/looker/zipball/2902b81a0432ac62012d9b6f686c0f5dfadf2a41",
-                "reference": "2902b81a0432ac62012d9b6f686c0f5dfadf2a41",
+                "url": "https://api.github.com/repos/gsteel/looker/zipball/e1981cba437d7c57fa792fa381207333376c0c29",
+                "reference": "e1981cba437d7c57fa792fa381207333376c0c29",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                 "issues": "https://github.com/gsteel/looker/issues",
                 "source": "https://github.com/gsteel/looker/tree/1.0.x"
             },
-            "time": "2024-04-29T01:26:29+00:00"
+            "time": "2024-05-06T00:20:19+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
