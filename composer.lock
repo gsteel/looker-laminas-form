@@ -68,12 +68,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gsteel/looker.git",
-                "reference": "3ba6b886dca3ef4ed032de654d34287ff674d298"
+                "reference": "aec92ead30764d1f65315004d912c9bfd19c6e62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gsteel/looker/zipball/3ba6b886dca3ef4ed032de654d34287ff674d298",
-                "reference": "3ba6b886dca3ef4ed032de654d34287ff674d298",
+                "url": "https://api.github.com/repos/gsteel/looker/zipball/aec92ead30764d1f65315004d912c9bfd19c6e62",
+                "reference": "aec92ead30764d1f65315004d912c9bfd19c6e62",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                 "issues": "https://github.com/gsteel/looker/issues",
                 "source": "https://github.com/gsteel/looker/tree/1.0.x"
             },
-            "time": "2024-07-08T00:07:09+00:00"
+            "time": "2024-07-22T02:45:08+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -655,16 +655,16 @@
         },
         {
             "name": "laminas/laminas-validator",
-            "version": "2.61.0",
+            "version": "2.62.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-validator.git",
-                "reference": "df77732fbfab331647a5e718d171507269e73b6c"
+                "reference": "83fbcf4a7986796261beb541bed09c06826446e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-validator/zipball/df77732fbfab331647a5e718d171507269e73b6c",
-                "reference": "df77732fbfab331647a5e718d171507269e73b6c",
+                "url": "https://api.github.com/repos/laminas/laminas-validator/zipball/83fbcf4a7986796261beb541bed09c06826446e9",
+                "reference": "83fbcf4a7986796261beb541bed09c06826446e9",
                 "shasum": ""
             },
             "require": {
@@ -735,7 +735,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2024-07-11T21:26:44+00:00"
+            "time": "2024-07-16T08:58:25+00:00"
         },
         {
             "name": "psr/container",
