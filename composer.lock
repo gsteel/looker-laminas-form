@@ -68,12 +68,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gsteel/looker.git",
-                "reference": "aec92ead30764d1f65315004d912c9bfd19c6e62"
+                "reference": "fc00e69f2c7fe62180f868a166883786e25fac06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gsteel/looker/zipball/aec92ead30764d1f65315004d912c9bfd19c6e62",
-                "reference": "aec92ead30764d1f65315004d912c9bfd19c6e62",
+                "url": "https://api.github.com/repos/gsteel/looker/zipball/fc00e69f2c7fe62180f868a166883786e25fac06",
+                "reference": "fc00e69f2c7fe62180f868a166883786e25fac06",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                 "issues": "https://github.com/gsteel/looker/issues",
                 "source": "https://github.com/gsteel/looker/tree/1.0.x"
             },
-            "time": "2024-07-22T02:45:08+00:00"
+            "time": "2024-07-29T00:26:31+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -655,22 +655,22 @@
         },
         {
             "name": "laminas/laminas-validator",
-            "version": "2.62.0",
+            "version": "2.64.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-validator.git",
-                "reference": "83fbcf4a7986796261beb541bed09c06826446e9"
+                "reference": "9db115056b666b7540c951b6d4477b8e0b52b9ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-validator/zipball/83fbcf4a7986796261beb541bed09c06826446e9",
-                "reference": "83fbcf4a7986796261beb541bed09c06826446e9",
+                "url": "https://api.github.com/repos/laminas/laminas-validator/zipball/9db115056b666b7540c951b6d4477b8e0b52b9ad",
+                "reference": "9db115056b666b7540c951b6d4477b8e0b52b9ad",
                 "shasum": ""
             },
             "require": {
                 "laminas/laminas-servicemanager": "^3.21.0",
-                "laminas/laminas-stdlib": "^3.13",
-                "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
+                "laminas/laminas-stdlib": "^3.19",
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
                 "psr/http-message": "^1.0.1 || ^2.0.0"
             },
             "conflict": {
@@ -735,7 +735,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2024-07-16T08:58:25+00:00"
+            "time": "2024-08-01T09:32:54+00:00"
         },
         {
             "name": "psr/container",
