@@ -85,4 +85,46 @@ class LabelTest extends TestCase
         $this->expectException(FormElementsMustBeNamed::class);
         $this->helper->__invoke(new Text(null, ['label' => 'Baz']));
     }
+
+    public function testThatEscapeCanBeDisabledWithLegacyLaminasOption(): void
+    {
+        $text = new Text('foo', [
+            'label' => '<span>Blip</span>',
+            'label_options' => ['disable_html_escape' => true],
+        ]);
+
+        self::assertSame(
+            '<label for="foo"><span>Blip</span></label>',
+            $this->helper->__invoke($text),
+        );
+    }
+
+    public function testThatEscapeCanBeDisabledWithEscapeOption(): void
+    {
+        $text = new Text('foo', [
+            'label' => '<span>Blip</span>',
+            'label_options' => ['escape' => false],
+        ]);
+
+        self::assertSame(
+            '<label for="foo"><span>Blip</span></label>',
+            $this->helper->__invoke($text),
+        );
+    }
+
+    public function testThatEscapeOptionOverridesLaminasOption(): void
+    {
+        $text = new Text('foo', [
+            'label' => '&',
+            'label_options' => [
+                'disable_html_escape' => true,
+                'escape' => true,
+            ],
+        ]);
+
+        self::assertSame(
+            '<label for="foo">&amp;</label>',
+            $this->helper->__invoke($text),
+        );
+    }
 }
