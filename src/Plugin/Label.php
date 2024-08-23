@@ -12,7 +12,9 @@ use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 
+use function array_key_exists;
 use function array_merge;
+use function is_bool;
 use function is_string;
 use function sprintf;
 
@@ -35,10 +37,26 @@ final readonly class Label
             return $this;
         }
 
+        $escape = true;
+        if ($element instanceof LabelAwareInterface) {
+            $labelOptions = $element->getLabelOptions();
+            // Laminas Form has historically used this option name for disabling escape of labels:
+            if (array_key_exists('disable_html_escape', $labelOptions)) {
+                $escape = $labelOptions['disable_html_escape'] !== true;
+            }
+
+            // This is an alternative way of enabling/disabling the escape option:
+            if (array_key_exists('escape', $labelOptions)) {
+                $escape = is_bool($labelOptions['escape']) ? $labelOptions['escape'] : $escape;
+            }
+        }
+
         return sprintf(
             '%s%s%s',
             $this->openTag($element, $attributes),
-            $this->escaper->escapeHtml((string) $element->getLabel()),
+            $escape
+                ? $this->escaper->escapeHtml((string) $element->getLabel())
+                : (string) $element->getLabel(),
             $this->closeTag($element),
         );
     }
