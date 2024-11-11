@@ -8,7 +8,6 @@ use Laminas\Form\Element;
 use Laminas\Form\Element\Password;
 use Laminas\Form\ElementInterface;
 use Looker\Form\HTML\InputAttribute;
-use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\Form\Plugin\Exception\InvalidElementType;
 use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
@@ -59,12 +58,12 @@ final readonly class FormInput
 
         $name = $attributes['name'] ?? null;
         $name = $element->getName() ?? $name;
-        if (! is_string($name) || $name === '') {
-            throw FormElementsMustBeNamed::with($element);
+        unset($attributes['name']);
+        if (is_string($name) && $name !== '') {
+            $attributes['name'] = $name;
         }
 
         $attributes          = array_merge($element->getAttributes(), $attributes);
-        $attributes['name']  = $name;
         $attributes['type']  = self::TYPE_MAP[$elementClass];
         $attributes['value'] = (string) $element->getValue();
         if ($element instanceof Password) {

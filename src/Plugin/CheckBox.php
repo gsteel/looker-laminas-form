@@ -6,7 +6,6 @@ namespace Looker\Form\Plugin;
 
 use Laminas\Form\Element\Checkbox as CheckboxElement;
 use Looker\Form\HTML\InputAttribute;
-use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\Value\Doctype;
@@ -33,12 +32,12 @@ final readonly class CheckBox
     ): string {
         $name = $attributes['name'] ?? null;
         $name = $element->getName() ?? $name;
-        if (! is_string($name) || $name === '') {
-            throw FormElementsMustBeNamed::with($element);
+        unset($attributes['name']);
+        if (is_string($name) && $name !== '') {
+            $attributes['name'] = $name;
         }
 
         $attributes          = array_merge($element->getAttributes(), $attributes);
-        $attributes['name']  = $name;
         $attributes['type']  = 'checkbox';
         $attributes['value'] = $element->getCheckedValue();
         $closingBracket      = $this->doctype->isXhtml() ? ' />' : '>';

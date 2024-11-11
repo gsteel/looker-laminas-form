@@ -7,7 +7,6 @@ namespace Looker\Form\Test\Plugin;
 use Laminas\Escaper\Escaper;
 use Laminas\Form\Element;
 use Laminas\Form\ElementInterface;
-use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\Form\Plugin\Exception\InvalidElementType;
 use Looker\Form\Plugin\FormInput;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
@@ -63,10 +62,11 @@ class FormInputTest extends TestCase
         );
     }
 
-    public function testThatAMissingNameIsExceptional(): void
+    public function testThatTheElementIsRenderedWithoutAName(): void
     {
-        $this->expectException(FormElementsMustBeNamed::class);
-        $this->helper->__invoke(new Element\Text());
+        $markup = $this->helper->__invoke(new Element\Text());
+
+        self::assertSame('<input type="text" value="">', $markup);
     }
 
     public function testThatFormInputOnlyAcceptsInputTypes(): void

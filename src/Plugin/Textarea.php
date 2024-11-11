@@ -7,7 +7,6 @@ namespace Looker\Form\Plugin;
 use Laminas\Escaper\Escaper;
 use Laminas\Form\Element\Textarea as TextareaInput;
 use Looker\Form\HTML\TextareaAttribute;
-use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 
@@ -30,8 +29,9 @@ final readonly class Textarea
         $attributes = array_merge($element->getAttributes(), $attributes);
         $name       = $attributes['name'] ?? null;
         $name       = $element->getName() ?? $name;
-        if (! is_string($name) || $name === '') {
-            throw FormElementsMustBeNamed::with($element);
+        unset($attributes['name']);
+        if (is_string($name) && $name !== '') {
+            $attributes['name'] = $name;
         }
 
         $attributes = ($this->invalidElementHandler)($element, $attributes);

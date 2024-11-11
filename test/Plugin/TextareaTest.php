@@ -6,7 +6,6 @@ namespace Looker\Form\Test\Plugin;
 
 use Laminas\Escaper\Escaper;
 use Laminas\Form\Element\Textarea as Element;
-use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Form\Plugin\Textarea;
 use Looker\Plugin\HtmlAttributes;
@@ -100,11 +99,11 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testANameIsRequired(): void
+    public function testTheElementIsRenderedWithoutAName(): void
     {
         $element = new Element();
-        $this->expectException(FormElementsMustBeNamed::class);
-        $this->helper->__invoke($element);
+        $markup  = $this->helper->__invoke($element);
+        self::assertSame('<textarea ></textarea>', $markup);
     }
 
     public function testValueIsEscaped(): void
