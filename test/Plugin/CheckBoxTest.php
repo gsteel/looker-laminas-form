@@ -7,11 +7,12 @@ namespace Looker\Form\Test\Plugin;
 use Laminas\Escaper\Escaper;
 use Laminas\Form\Element\Checkbox as CheckboxElement;
 use Looker\Form\Plugin\CheckBox;
-use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Plugin\HtmlAttributes;
 use Looker\Value\Doctype;
 use PHPUnit\Framework\TestCase;
+
+use const PHP_EOL;
 
 class CheckBoxTest extends TestCase
 {
@@ -54,11 +55,14 @@ class CheckBoxTest extends TestCase
         );
     }
 
-    public function testMissingElementNameIsExceptional(): void
+    public function testElementWithoutNameIsRendered(): void
     {
         $element = new CheckboxElement();
-        $this->expectException(FormElementsMustBeNamed::class);
-        $this->plugin->__invoke($element);
+        $markup  = $this->plugin->__invoke($element);
+        self::assertSame(
+            '<input type="hidden" value="0">' . PHP_EOL . '<input type="checkbox" value="1">',
+            $markup,
+        );
     }
 
     public function testThatNameTypeAndValueAreIgnoredInGivenAttributes(): void

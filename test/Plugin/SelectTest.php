@@ -6,7 +6,6 @@ namespace Looker\Form\Test\Plugin;
 
 use Laminas\Escaper\Escaper;
 use Laminas\Form\Element\Select as SelectElement;
-use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\Form\Plugin\Exception\SelectElementCannotBeRendered;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Form\Plugin\Option;
@@ -207,11 +206,11 @@ class SelectTest extends TestCase
         $this->helper->__invoke($element);
     }
 
-    public function testThatAnElementWithoutANameIsExceptional(): void
+    public function testThatAnElementWithoutANameIsRendered(): void
     {
         $element = new SelectElement();
-        $this->expectException(FormElementsMustBeNamed::class);
-        $this->helper->__invoke($element);
+        $markup  = $this->helper->__invoke($element);
+        self::assertSame("<select >\n\n</select>", $markup);
     }
 
     public function testThatAnElementNameWillBeGivenSquareBracketsWhenMultiple(): void
