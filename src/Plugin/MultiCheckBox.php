@@ -9,7 +9,6 @@ use Laminas\Form\Element\MultiCheckbox as MultiCheckboxElement;
 use Laminas\Form\Element\Radio;
 use Looker\Form\HTML\InputAttribute;
 use Looker\Form\HTML\LabelAttribute;
-use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\Form\Plugin\Exception\MultiCheckBoxCannotBeRendered;
 use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
@@ -28,7 +27,6 @@ use function implode;
 use function in_array;
 use function is_array;
 use function is_scalar;
-use function is_string;
 use function sprintf;
 use function str_ends_with;
 
@@ -59,11 +57,6 @@ final readonly class MultiCheckBox
         MultiCheckboxElement|Radio $element,
         string $labelPosition = self::APPEND,
     ): string {
-        $name = $element->getName();
-        if (! is_string($name) || $name === '') {
-            throw FormElementsMustBeNamed::with($element);
-        }
-
         $markup = [$this->renderOptions($element, $labelPosition)];
 
         if ($element->useHiddenElement()) {

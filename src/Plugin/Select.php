@@ -7,7 +7,6 @@ namespace Looker\Form\Plugin;
 use Laminas\Escaper\Escaper;
 use Laminas\Form\Element\Select as SelectElement;
 use Looker\Form\HTML\SelectAttribute;
-use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\Form\Plugin\Exception\SelectElementCannotBeRendered;
 use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
@@ -40,15 +39,14 @@ final readonly class Select
         $attributes = array_merge($element->getAttributes(), $attributes);
         $name       = $attributes['name'] ?? null;
         $name       = $element->getName() ?? $name;
-        if (! is_string($name) || $name === '') {
-            throw FormElementsMustBeNamed::with($element);
-        }
+        unset($attributes['name']);
+        if (is_string($name) && $name !== '') {
+            if ($element->isMultiple() && ! str_contains($name, '[]')) {
+                $name .= '[]';
+            }
 
-        if ($element->isMultiple() && ! str_contains($name, '[]')) {
-            $name .= '[]';
+            $attributes['name'] = $name;
         }
-
-        $attributes['name'] = $name;
 
         $attributes = ($this->invalidElementHandler)($element, $attributes);
 
