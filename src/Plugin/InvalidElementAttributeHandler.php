@@ -23,18 +23,20 @@ final class InvalidElementAttributeHandler
             return;
         }
 
-        $this->handlers = [
-            /**
-             * @param array<string, scalar|null> $attributes
-             *
-             * @return array<string, scalar|null>
-             */
-            static function (array $attributes): array {
-                $attributes['aria-invalid'] = 'true';
+        /**
+         * @param array<string, scalar|null> $attributes
+         *
+         * @return array<string, scalar|null>
+         *
+         * @psalm-var CallableSpec $handler
+         */
+        $handler = static function (array $attributes): array {
+            $attributes['aria-invalid'] = 'true';
 
-                return $attributes;
-            },
-        ];
+            return $attributes;
+        };
+
+        $this->handlers = [$handler];
     }
 
     /**

@@ -38,7 +38,7 @@ final class InMemoryContainer implements ContainerInterface
         return $this->services[$id];
     }
 
-    public function has(string $id): bool
+    public function has($id): bool // phpcs:ignore SlevomatCodingStandard.TypeHints
     {
         return array_key_exists($id, $this->services);
     }
