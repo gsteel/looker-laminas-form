@@ -12,7 +12,7 @@ use Looker\Form\Plugin\Exception\ButtonsNeedADescriptiveLabel;
 use Looker\Plugin\HtmlAttributes;
 use PHPUnit\Framework\TestCase;
 
-class ButtonTest extends TestCase
+final class ButtonTest extends TestCase
 {
     private Button $plugin;
 

@@ -15,7 +15,7 @@ use Looker\Value\Doctype;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-class FormInputTest extends TestCase
+final class FormInputTest extends TestCase
 {
     private FormInput $helper;
 

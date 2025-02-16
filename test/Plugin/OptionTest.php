@@ -11,7 +11,7 @@ use Looker\Form\Plugin\Option;
 use Looker\Plugin\HtmlAttributes;
 use PHPUnit\Framework\TestCase;
 
-class OptionTest extends TestCase
+final class OptionTest extends TestCase
 {
     private Option $helper;
     private Select $element;

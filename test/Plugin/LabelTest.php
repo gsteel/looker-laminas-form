@@ -11,7 +11,7 @@ use Looker\Form\Plugin\Label;
 use Looker\Plugin\HtmlAttributes;
 use PHPUnit\Framework\TestCase;
 
-class LabelTest extends TestCase
+final class LabelTest extends TestCase
 {
     private Label $helper;
 
