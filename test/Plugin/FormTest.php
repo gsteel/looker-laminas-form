@@ -11,7 +11,7 @@ use Looker\Form\Test\PluginManagerSetup;
 use Looker\PluginManager;
 use PHPUnit\Framework\TestCase;
 
-class FormTest extends TestCase
+final class FormTest extends TestCase
 {
     private Form $plugin;
 

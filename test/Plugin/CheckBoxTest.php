@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 use const PHP_EOL;
 
-class CheckBoxTest extends TestCase
+final class CheckBoxTest extends TestCase
 {
     private CheckBox $plugin;
 

@@ -11,7 +11,7 @@ use Looker\Form\Test\PluginManagerSetup;
 use Looker\PluginManager;
 use PHPUnit\Framework\TestCase;
 
-class FormElementRowTest extends TestCase
+final class FormElementRowTest extends TestCase
 {
     private FormElementRow $plugin;
 

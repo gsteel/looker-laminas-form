@@ -11,7 +11,7 @@ use Looker\Plugin\HtmlAttributes;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
 
-class ElementErrorListTest extends TestCase
+final class ElementErrorListTest extends TestCase
 {
     private ElementErrorList $plugin;
     private Text $element;

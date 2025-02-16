@@ -14,7 +14,7 @@ use Looker\Value\Doctype;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-class MultiCheckBoxTest extends TestCase
+final class MultiCheckBoxTest extends TestCase
 {
     private MultiCheckBox $plugin;
 

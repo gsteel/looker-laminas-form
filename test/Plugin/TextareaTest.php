@@ -11,7 +11,7 @@ use Looker\Form\Plugin\Textarea;
 use Looker\Plugin\HtmlAttributes;
 use PHPUnit\Framework\TestCase;
 
-class TextareaTest extends TestCase
+final class TextareaTest extends TestCase
 {
     private Textarea $helper;
 

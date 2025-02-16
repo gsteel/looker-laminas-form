@@ -11,7 +11,7 @@ use Looker\Form\Test\PluginManagerSetup;
 use Looker\PluginManager;
 use PHPUnit\Framework\TestCase;
 
-class FieldsetTest extends TestCase
+final class FieldsetTest extends TestCase
 {
     private FieldsetPlugin $plugin;
 

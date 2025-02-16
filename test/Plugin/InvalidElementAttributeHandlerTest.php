@@ -8,7 +8,7 @@ use Laminas\Form\Element\Text;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use PHPUnit\Framework\TestCase;
 
-class InvalidElementAttributeHandlerTest extends TestCase
+final class InvalidElementAttributeHandlerTest extends TestCase
 {
     public function testThatByDefaultAriaInvalidIsAddedToAttributes(): void
     {

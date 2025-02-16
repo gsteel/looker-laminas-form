@@ -13,7 +13,7 @@ use Looker\Form\Plugin\Select;
 use Looker\Plugin\HtmlAttributes;
 use PHPUnit\Framework\TestCase;
 
-class SelectTest extends TestCase
+final class SelectTest extends TestCase
 {
     private Select $helper;
 

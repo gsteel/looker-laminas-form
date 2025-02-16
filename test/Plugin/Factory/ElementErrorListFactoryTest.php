@@ -14,7 +14,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
-class ElementErrorListFactoryTest extends TestCase
+final class ElementErrorListFactoryTest extends TestCase
 {
     protected function setUp(): void
     {
