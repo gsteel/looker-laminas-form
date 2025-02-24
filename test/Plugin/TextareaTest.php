@@ -9,12 +9,14 @@ use Laminas\Form\Element\Textarea as Element;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Form\Plugin\Textarea;
 use Looker\Plugin\HtmlAttributes;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 final class TextareaTest extends TestCase
 {
     private Textarea $helper;
 
+    #[Override]
     protected function setUp(): void
     {
         $escaper      = new Escaper();

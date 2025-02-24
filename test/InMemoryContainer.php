@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Looker\Form\Test;
 
+use Override;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use RuntimeException;
@@ -26,6 +27,7 @@ final class InMemoryContainer implements ContainerInterface
      * @template T
      * @psalm-suppress MixedReturnStatement
      */
+    #[Override]
     public function get($id): mixed
     {
         if (! $this->has($id)) {
@@ -38,6 +40,7 @@ final class InMemoryContainer implements ContainerInterface
         return $this->services[$id];
     }
 
+    #[Override]
     public function has($id): bool // phpcs:ignore SlevomatCodingStandard.TypeHints
     {
         return array_key_exists($id, $this->services);

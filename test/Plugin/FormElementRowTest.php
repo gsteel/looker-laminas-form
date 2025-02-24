@@ -9,12 +9,14 @@ use Laminas\Form\Fieldset;
 use Looker\Form\Plugin\FormElementRow;
 use Looker\Form\Test\PluginManagerSetup;
 use Looker\PluginManager;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 final class FormElementRowTest extends TestCase
 {
     private FormElementRow $plugin;
 
+    #[Override]
     protected function setUp(): void
     {
         /**

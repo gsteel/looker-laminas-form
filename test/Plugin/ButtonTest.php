@@ -10,12 +10,14 @@ use Laminas\Form\Element\Submit;
 use Looker\Form\Plugin\Button;
 use Looker\Form\Plugin\Exception\ButtonsNeedADescriptiveLabel;
 use Looker\Plugin\HtmlAttributes;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 final class ButtonTest extends TestCase
 {
     private Button $plugin;
 
+    #[Override]
     protected function setUp(): void
     {
         $escaper      = new Escaper();
