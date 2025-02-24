@@ -12,6 +12,7 @@ use Looker\Form\Plugin\FormInput;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Plugin\HtmlAttributes;
 use Looker\Value\Doctype;
+use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
@@ -19,6 +20,7 @@ final class FormInputTest extends TestCase
 {
     private FormInput $helper;
 
+    #[Override]
     protected function setUp(): void
     {
         $this->helper = new FormInput(

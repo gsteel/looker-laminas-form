@@ -11,12 +11,14 @@ use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Form\Plugin\Option;
 use Looker\Form\Plugin\Select;
 use Looker\Plugin\HtmlAttributes;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 final class SelectTest extends TestCase
 {
     private Select $helper;
 
+    #[Override]
     protected function setUp(): void
     {
         $escaper         = new Escaper();

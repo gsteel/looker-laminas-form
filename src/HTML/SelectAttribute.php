@@ -6,6 +6,7 @@ namespace Looker\Form\HTML;
 
 use Looker\HTML\AttributeInformation;
 use Looker\HTML\GlobalAttribute;
+use Override;
 
 use function in_array;
 use function strtolower;
@@ -17,6 +18,7 @@ final class SelectAttribute implements AttributeInformation
     private const STRING  = ['autocomplete', 'form', 'name', 'size'];
 
     /** @param non-empty-string $name */
+    #[Override]
     public static function isBoolean(string $name): bool
     {
         $name = strtolower($name);
@@ -25,6 +27,7 @@ final class SelectAttribute implements AttributeInformation
     }
 
     /** @param non-empty-string $name */
+    #[Override]
     public static function exists(string $name): bool
     {
         $name = strtolower($name);

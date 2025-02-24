@@ -10,6 +10,7 @@ use Looker\Form\Plugin\CheckBox;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Plugin\HtmlAttributes;
 use Looker\Value\Doctype;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 use const PHP_EOL;
@@ -18,6 +19,7 @@ final class CheckBoxTest extends TestCase
 {
     private CheckBox $plugin;
 
+    #[Override]
     protected function setUp(): void
     {
         $this->plugin = new CheckBox(

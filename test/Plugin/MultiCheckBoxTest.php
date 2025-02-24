@@ -11,6 +11,7 @@ use Looker\Form\Plugin\Exception\MultiCheckBoxCannotBeRendered;
 use Looker\Form\Plugin\MultiCheckBox;
 use Looker\Plugin\HtmlAttributes;
 use Looker\Value\Doctype;
+use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
@@ -18,6 +19,7 @@ final class MultiCheckBoxTest extends TestCase
 {
     private MultiCheckBox $plugin;
 
+    #[Override]
     protected function setUp(): void
     {
         $escaper    = new Escaper();

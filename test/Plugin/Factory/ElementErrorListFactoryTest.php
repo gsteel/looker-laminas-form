@@ -10,12 +10,14 @@ use Looker\Form\Plugin\Factory\ElementErrorListFactory;
 use Looker\Form\Test\InMemoryContainer;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
+use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
 final class ElementErrorListFactoryTest extends TestCase
 {
+    #[Override]
     protected function setUp(): void
     {
     }

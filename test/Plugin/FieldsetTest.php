@@ -9,12 +9,14 @@ use Laminas\Form\Fieldset;
 use Looker\Form\Plugin\Fieldset as FieldsetPlugin;
 use Looker\Form\Test\PluginManagerSetup;
 use Looker\PluginManager;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 final class FieldsetTest extends TestCase
 {
     private FieldsetPlugin $plugin;
 
+    #[Override]
     protected function setUp(): void
     {
         /**

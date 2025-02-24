@@ -9,12 +9,14 @@ use Laminas\Form\Form as LaminasForm;
 use Looker\Form\Plugin\Form;
 use Looker\Form\Test\PluginManagerSetup;
 use Looker\PluginManager;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 final class FormTest extends TestCase
 {
     private Form $plugin;
 
+    #[Override]
     protected function setUp(): void
     {
         /**

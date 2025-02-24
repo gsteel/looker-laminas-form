@@ -9,6 +9,7 @@ use Laminas\Form\Element\Select;
 use Looker\Form\Plugin\Exception\SelectElementCannotBeRendered;
 use Looker\Form\Plugin\Option;
 use Looker\Plugin\HtmlAttributes;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 final class OptionTest extends TestCase
@@ -16,6 +17,7 @@ final class OptionTest extends TestCase
     private Option $helper;
     private Select $element;
 
+    #[Override]
     protected function setUp(): void
     {
         $escaper       = new Escaper();

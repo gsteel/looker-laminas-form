@@ -9,12 +9,14 @@ use Laminas\Form\Element\Text;
 use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\Form\Plugin\Label;
 use Looker\Plugin\HtmlAttributes;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 final class LabelTest extends TestCase
 {
     private Label $helper;
 
+    #[Override]
     protected function setUp(): void
     {
         $escaper      = new Escaper();

@@ -8,6 +8,7 @@ use Laminas\Escaper\Escaper;
 use Laminas\Form\Element\Text;
 use Looker\Form\Plugin\ElementErrorList;
 use Looker\Plugin\HtmlAttributes;
+use Override;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
 
@@ -16,6 +17,7 @@ final class ElementErrorListTest extends TestCase
     private ElementErrorList $plugin;
     private Text $element;
 
+    #[Override]
     protected function setUp(): void
     {
         $this->element = new Text();

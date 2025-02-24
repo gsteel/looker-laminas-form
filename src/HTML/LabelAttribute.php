@@ -6,6 +6,7 @@ namespace Looker\Form\HTML;
 
 use Looker\HTML\AttributeInformation;
 use Looker\HTML\GlobalAttribute;
+use Override;
 
 use function in_array;
 use function strtolower;
@@ -16,12 +17,14 @@ final class LabelAttribute implements AttributeInformation
     private const STRING = ['for'];
 
     /** @param non-empty-string $name */
+    #[Override]
     public static function isBoolean(string $name): bool
     {
         return GlobalAttribute::isBoolean($name);
     }
 
     /** @param non-empty-string $name */
+    #[Override]
     public static function exists(string $name): bool
     {
         $name = strtolower($name);

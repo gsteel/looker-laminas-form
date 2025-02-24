@@ -6,6 +6,7 @@ namespace Looker\Form\HTML;
 
 use Looker\HTML\AttributeInformation;
 use Looker\HTML\GlobalAttribute;
+use Override;
 
 use function array_key_exists;
 use function in_array;
@@ -32,6 +33,7 @@ final class ButtonAttribute implements AttributeInformation
     ];
 
     /** @param non-empty-string $name */
+    #[Override]
     public static function isBoolean(string $name): bool
     {
         $name = strtolower($name);
@@ -40,6 +42,7 @@ final class ButtonAttribute implements AttributeInformation
     }
 
     /** @param non-empty-string $name */
+    #[Override]
     public static function exists(string $name): bool
     {
         $name = strtolower($name);
