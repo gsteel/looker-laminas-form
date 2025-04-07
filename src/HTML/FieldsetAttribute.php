@@ -13,8 +13,8 @@ use function strtolower;
 
 final class FieldsetAttribute implements AttributeInformation
 {
-    private const BOOLEAN = ['disabled'];
-    private const STRING  = ['form', 'name'];
+    private const array BOOLEAN = ['disabled'];
+    private const array STRING  = ['form', 'name'];
 
     /** @param non-empty-string $name */
     #[Override]
