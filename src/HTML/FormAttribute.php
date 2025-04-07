@@ -14,9 +14,9 @@ use function strtolower;
 
 final class FormAttribute implements AttributeInformation
 {
-    private const BOOLEAN    = ['novalidate'];
-    private const STRING     = ['accept', 'accept-charset', 'name', 'rel', 'action', 'target'];
-    private const ENUMERATED = [
+    private const array BOOLEAN    = ['novalidate'];
+    private const array STRING     = ['accept', 'accept-charset', 'name', 'rel', 'action', 'target'];
+    private const array ENUMERATED = [
         'autocapitalize' => ['none', 'sentences', 'words', 'characters'],
         'autocomplete' => ['on', 'off'],
         'enctype' => ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain'],

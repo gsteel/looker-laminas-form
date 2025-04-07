@@ -14,7 +14,7 @@ use function strtolower;
 /** @psalm-internal Looker */
 final class LabelAttribute implements AttributeInformation
 {
-    private const STRING = ['for'];
+    private const array STRING = ['for'];
 
     /** @param non-empty-string $name */
     #[Override]

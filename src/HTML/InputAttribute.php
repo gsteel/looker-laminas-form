@@ -15,7 +15,7 @@ use function strtolower;
 /** @psalm-internal Looker */
 final class InputAttribute implements AttributeInformation
 {
-    private const STRING = [
+    private const array STRING = [
         'accept',
         'alt',
         'autocomplete', // Actually an enumeration, but values can be combined
@@ -42,7 +42,7 @@ final class InputAttribute implements AttributeInformation
         'width',
     ];
 
-    private const BOOLEAN = [
+    private const array BOOLEAN = [
         'disabled',
         'checked',
         'formnovalidate',
@@ -51,7 +51,7 @@ final class InputAttribute implements AttributeInformation
         'required',
     ];
 
-    private const ENUMERATED = [
+    private const array ENUMERATED = [
         'type' => [
             'button',
             'checkbox',

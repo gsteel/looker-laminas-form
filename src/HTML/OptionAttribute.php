@@ -14,8 +14,8 @@ use function strtolower;
 /** @psalm-internal Looker */
 final class OptionAttribute implements AttributeInformation
 {
-    private const BOOLEAN = ['disabled', 'selected'];
-    private const STRING  = ['value', 'label'];
+    private const array BOOLEAN = ['disabled', 'selected'];
+    private const array STRING  = ['value', 'label'];
 
     /** @param non-empty-string $name */
     #[Override]

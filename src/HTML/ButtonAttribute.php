@@ -15,8 +15,8 @@ use function strtolower;
 /** @psalm-internal Looker */
 final class ButtonAttribute implements AttributeInformation
 {
-    private const BOOLEAN    = ['disabled', 'formnovalidate'];
-    private const STRING     = [
+    private const array BOOLEAN    = ['disabled', 'formnovalidate'];
+    private const array STRING     = [
         'autocomplete',
         'form',
         'formaction',
@@ -27,7 +27,7 @@ final class ButtonAttribute implements AttributeInformation
         'popovertarget',
         'value',
     ];
-    private const ENUMERATED = [
+    private const array ENUMERATED = [
         'popovertargetaction' => ['hide', 'show', 'toggle'],
         'type' => ['submit', 'reset', 'button'],
     ];

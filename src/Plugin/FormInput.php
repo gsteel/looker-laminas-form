@@ -20,7 +20,7 @@ use function sprintf;
 
 final readonly class FormInput
 {
-    private const TYPE_MAP = [
+    private const array TYPE_MAP = [
         Element\Color::class => 'color',
         Element\Date::class => 'date',
         Element\DateTimeLocal::class => 'datetime-local',

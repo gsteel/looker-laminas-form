@@ -42,8 +42,8 @@ use const PHP_EOL;
  */
 final readonly class MultiCheckBox
 {
-    public const APPEND  = 'append';
-    public const PREPEND = 'prepend';
+    public const string APPEND  = 'append';
+    public const string PREPEND = 'prepend';
 
     public function __construct(
         private Escaper $escaper,

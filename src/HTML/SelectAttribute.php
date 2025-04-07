@@ -14,8 +14,8 @@ use function strtolower;
 /** @psalm-internal Looker */
 final class SelectAttribute implements AttributeInformation
 {
-    private const BOOLEAN = ['disabled', 'multiple', 'required'];
-    private const STRING  = ['autocomplete', 'form', 'name', 'size'];
+    private const array BOOLEAN = ['disabled', 'multiple', 'required'];
+    private const array STRING  = ['autocomplete', 'form', 'name', 'size'];
 
     /** @param non-empty-string $name */
     #[Override]

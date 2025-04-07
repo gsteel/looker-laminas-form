@@ -20,8 +20,8 @@ use const PHP_EOL;
 
 final readonly class FormElementRow
 {
-    public const PREPEND = 'prepend';
-    public const APPEND  = 'append';
+    public const string PREPEND = 'prepend';
+    public const string APPEND  = 'append';
 
     public function __construct(
         private Escaper $escaper,

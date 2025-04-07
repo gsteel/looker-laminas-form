@@ -15,9 +15,9 @@ use function strtolower;
 /** @psalm-internal Looker */
 final class TextareaAttribute implements AttributeInformation
 {
-    private const STRING     = ['cols', 'maxlength', 'minlength', 'name', 'placeholder', 'rows'];
-    private const BOOLEAN    = ['disabled', 'readonly', 'required'];
-    private const ENUMERATED = [
+    private const array STRING     = ['cols', 'maxlength', 'minlength', 'name', 'placeholder', 'rows'];
+    private const array BOOLEAN    = ['disabled', 'readonly', 'required'];
+    private const array ENUMERATED = [
         'autocomplete' => ['on', 'off'],
         'autocorrect' => ['on', 'off'],
         'dirname' => ['ltr', 'rtl'],
