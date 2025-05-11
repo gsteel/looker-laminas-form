@@ -31,9 +31,9 @@
     "require-dev": {
         "doctrine/coding-standard": "^13.0.0",
         "laminas/laminas-servicemanager": "^3.23.0",
-        "phpunit/phpunit": "^12.1.4",
+        "phpunit/phpunit": "^12.1.5",
         "psalm/plugin-phpunit": "^0.19.5",
-        "squizlabs/php_codesniffer": "^3.12.2",
+        "squizlabs/php_codesniffer": "^3.13.0",
         "vimeo/psalm": "^6.10.3"
     },
     "autoload": {
