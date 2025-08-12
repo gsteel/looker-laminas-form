@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f01d833e6298b97a4c111374361e7d92",
+    "content-hash": "3a916a23216baed19805003c90d5baa4",
     "packages": [
         {
             "name": "gsteel/dot",
@@ -508,16 +508,16 @@
         },
         {
             "name": "laminas/laminas-servicemanager",
-            "version": "3.23.0",
+            "version": "3.23.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-servicemanager.git",
-                "reference": "a8640182b892b99767d54404d19c5c3b3699f79b"
+                "reference": "06594db3a644447521eace9b5efdb12dc8446a33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-servicemanager/zipball/a8640182b892b99767d54404d19c5c3b3699f79b",
-                "reference": "a8640182b892b99767d54404d19c5c3b3699f79b",
+                "url": "https://api.github.com/repos/laminas/laminas-servicemanager/zipball/06594db3a644447521eace9b5efdb12dc8446a33",
+                "reference": "06594db3a644447521eace9b5efdb12dc8446a33",
                 "shasum": ""
             },
             "require": {
@@ -540,12 +540,12 @@
             "require-dev": {
                 "composer/package-versions-deprecated": "^1.11.99.5",
                 "friendsofphp/proxy-manager-lts": "^1.0.18",
-                "laminas/laminas-code": "^4.14.0",
+                "laminas/laminas-code": "^4.16.0",
                 "laminas/laminas-coding-standard": "~2.5.0",
                 "laminas/laminas-container-config-test": "^0.8",
                 "mikey179/vfsstream": "^1.6.12",
-                "phpbench/phpbench": "^1.3.1",
-                "phpunit/phpunit": "^10.5.36",
+                "phpbench/phpbench": "^1.4.1",
+                "phpunit/phpunit": "^10.5.51",
                 "psalm/plugin-phpunit": "^0.18.4",
                 "vimeo/psalm": "^5.26.1"
             },
@@ -594,7 +594,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2024-10-28T21:32:16+00:00"
+            "time": "2025-08-12T08:44:02+00:00"
         },
         {
             "name": "laminas/laminas-stdlib",
@@ -3461,16 +3461,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "12.3.3",
+            "version": "12.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "0b18fea9cc38c59147b85c9eeaca9531969a8cee"
+                "reference": "429095031bd38cb5070ca44166bd9dd5a9245dd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0b18fea9cc38c59147b85c9eeaca9531969a8cee",
-                "reference": "0b18fea9cc38c59147b85c9eeaca9531969a8cee",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/429095031bd38cb5070ca44166bd9dd5a9245dd6",
+                "reference": "429095031bd38cb5070ca44166bd9dd5a9245dd6",
                 "shasum": ""
             },
             "require": {
@@ -3538,7 +3538,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/12.3.3"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/12.3.4"
             },
             "funding": [
                 {
@@ -3562,7 +3562,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-11T05:34:32+00:00"
+            "time": "2025-08-12T07:35:30+00:00"
         },
         {
             "name": "psalm/plugin-phpunit",
