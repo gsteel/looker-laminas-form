@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: shivammathur/setup-php@2.35.3
+      - uses: shivammathur/setup-php@2.35.4
         with:
           php-version: ${{ env.default_php }}
           ini-values: memory_limit=-1
