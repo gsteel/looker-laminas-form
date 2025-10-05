@@ -4,31 +4,31 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5458aff87c99da8cf801fab615d79c3",
+    "content-hash": "2bf5ebf2909fed2220e9c0c21499d421",
     "packages": [
         {
             "name": "gsteel/dot",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gsteel/dot.git",
-                "reference": "86e78b42d166a6c8989f929ea3f473882c3901d5"
+                "reference": "3b583bfe370e477826b4d20ab17a5abc6a9aabc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gsteel/dot/zipball/86e78b42d166a6c8989f929ea3f473882c3901d5",
-                "reference": "86e78b42d166a6c8989f929ea3f473882c3901d5",
+                "url": "https://api.github.com/repos/gsteel/dot/zipball/3b583bfe370e477826b4d20ab17a5abc6a9aabc6",
+                "reference": "3b583bfe370e477826b4d20ab17a5abc6a9aabc6",
                 "shasum": ""
             },
             "require": {
-                "php": "~8.2.0 || ~8.3 || ~8.4"
+                "php": "~8.2.0 || ~8.3 || ~8.4 || ~8.5"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^12.0.0",
-                "phpunit/phpunit": "^11.5.4",
-                "psalm/plugin-phpunit": "^0.19.2",
-                "squizlabs/php_codesniffer": "^3.11.3",
-                "vimeo/psalm": "^6.0.0"
+                "doctrine/coding-standard": "^14.0.0",
+                "phpunit/phpunit": "^11.5.42",
+                "psalm/plugin-phpunit": "^0.19.5",
+                "squizlabs/php_codesniffer": "^4.0.0",
+                "vimeo/psalm": "^6.13.1"
             },
             "type": "library",
             "autoload": {
@@ -60,26 +60,26 @@
                 "rss": "https://github.com/gsteel/dot/releases.atom",
                 "source": "https://github.com/gsteel/dot"
             },
-            "time": "2025-01-29T12:39:53+00:00"
+            "time": "2025-10-05T20:50:53+00:00"
         },
         {
             "name": "gsteel/looker",
-            "version": "0.4.0",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gsteel/looker.git",
-                "reference": "1c9b131d769938046fb006acf9e1734b7507fefa"
+                "reference": "73657ebf6cd3f6f385ee5e01cf33e5ef7e611e75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gsteel/looker/zipball/1c9b131d769938046fb006acf9e1734b7507fefa",
-                "reference": "1c9b131d769938046fb006acf9e1734b7507fefa",
+                "url": "https://api.github.com/repos/gsteel/looker/zipball/73657ebf6cd3f6f385ee5e01cf33e5ef7e611e75",
+                "reference": "73657ebf6cd3f6f385ee5e01cf33e5ef7e611e75",
                 "shasum": ""
             },
             "require": {
                 "gsteel/dot": "^1.8",
                 "laminas/laminas-escaper": "^2.15",
-                "php": "~8.3 || ~8.4",
+                "php": "~8.3 || ~8.4 || ~8.5",
                 "psr/container": "^1.1.2 || ^2.0",
                 "webmozart/assert": "^1.11"
             },
@@ -88,12 +88,12 @@
                 "shish/safe": "<2.6.4"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^12.0",
-                "infection/infection": "^0.29.12",
-                "phpunit/phpunit": "^12.0.4",
-                "psalm/plugin-phpunit": "^0.19.2",
-                "squizlabs/php_codesniffer": "^3.11.3",
-                "vimeo/psalm": "^6.8.6"
+                "doctrine/coding-standard": "^14.0.0",
+                "infection/infection": "^0.31.2",
+                "phpunit/phpunit": "^12.4.0",
+                "psalm/plugin-phpunit": "^0.19.5",
+                "squizlabs/php_codesniffer": "^4.0.0",
+                "vimeo/psalm": "^6.13.1"
             },
             "type": "library",
             "autoload": {
@@ -113,9 +113,9 @@
             ],
             "support": {
                 "issues": "https://github.com/gsteel/looker/issues",
-                "source": "https://github.com/gsteel/looker/tree/0.4.0"
+                "source": "https://github.com/gsteel/looker/tree/0.5.0"
             },
-            "time": "2025-02-24T09:28:27+00:00"
+            "time": "2025-10-05T21:02:33+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -5954,7 +5954,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~8.3 || ~8.4"
+        "php": "~8.3 || ~8.4 || ~8.5"
     },
     "platform-dev": {},
     "platform-overrides": {
