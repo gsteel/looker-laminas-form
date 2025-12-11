@@ -31,10 +31,10 @@
     "require-dev": {
         "doctrine/coding-standard": "^14.0.0",
         "laminas/laminas-servicemanager": "^3.24.0",
-        "phpunit/phpunit": "^12.5.2",
+        "phpunit/phpunit": "^12.5.3",
         "psalm/plugin-phpunit": "^0.19.5",
         "squizlabs/php_codesniffer": "^4.0.1",
-        "vimeo/psalm": "^6.14.1"
+        "vimeo/psalm": "^6.14.2"
     },
     "autoload": {
         "psr-4": {
