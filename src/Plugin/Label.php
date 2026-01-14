@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Looker\Form\Plugin;
 
-use Laminas\Escaper\Escaper;
+use Laminas\Escaper\EscaperInterface;
 use Laminas\Form\ElementInterface;
 use Laminas\Form\LabelAwareInterface;
 use Looker\Form\HTML\LabelAttribute;
@@ -21,7 +21,7 @@ use function sprintf;
 final readonly class Label
 {
     public function __construct(
-        private Escaper $escaper,
+        private EscaperInterface $escaper,
         private HtmlAttributes $attributeHelper,
     ) {
     }

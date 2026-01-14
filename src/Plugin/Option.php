@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Looker\Form\Plugin;
 
-use Laminas\Escaper\Escaper;
+use Laminas\Escaper\EscaperInterface;
 use Laminas\Form\Element\Select as SelectElement;
 use Looker\Form\HTML\OptionAttribute;
 use Looker\Form\Plugin\Exception\SelectElementCannotBeRendered;
@@ -21,7 +21,7 @@ use function sprintf;
 final readonly class Option
 {
     public function __construct(
-        private Escaper $escaper,
+        private EscaperInterface $escaper,
         private HtmlAttributes $attributeHelper,
     ) {
     }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Looker\Form\Plugin;
 
-use Laminas\Escaper\Escaper;
+use Laminas\Escaper\EscaperInterface;
 use Laminas\Form\ElementInterface;
 use Laminas\Form\Fieldset as FormFieldset;
 use Looker\HTML\AttributeNormaliser;
@@ -24,7 +24,7 @@ final readonly class FormElementRow
     public const string APPEND  = 'append';
 
     public function __construct(
-        private Escaper $escaper,
+        private EscaperInterface $escaper,
         private Label $labelPlugin,
         private ElementErrorList $errorListPlugin,
         private FormElement $elementPlugin,

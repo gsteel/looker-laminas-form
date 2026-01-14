@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Looker\Form\Plugin;
 
-use Laminas\Escaper\Escaper;
+use Laminas\Escaper\EscaperInterface;
 use Laminas\Form\ElementInterface;
 use Laminas\Form\Fieldset as FormFieldset;
 use Looker\Form\HTML\FieldsetAttribute;
@@ -23,7 +23,7 @@ use const PHP_EOL;
 final readonly class Fieldset
 {
     public function __construct(
-        private Escaper $escaper,
+        private EscaperInterface $escaper,
         private HtmlAttributes $attributeHelper,
         private FormElementRow $elementHelper,
     ) {

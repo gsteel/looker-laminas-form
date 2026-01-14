@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Looker\Form\Plugin;
 
-use Laminas\Escaper\Escaper;
+use Laminas\Escaper\EscaperInterface;
 use Laminas\Form\Element\Textarea as TextareaInput;
 use Looker\Form\HTML\TextareaAttribute;
 use Looker\HTML\AttributeNormaliser;
@@ -17,7 +17,7 @@ use function sprintf;
 final readonly class Textarea
 {
     public function __construct(
-        private Escaper $escaper,
+        private EscaperInterface $escaper,
         private HtmlAttributes $attributeHelper,
         private InvalidElementAttributeHandler $invalidElementHandler,
     ) {

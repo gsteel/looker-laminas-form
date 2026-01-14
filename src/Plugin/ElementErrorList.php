@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Looker\Form\Plugin;
 
-use Laminas\Escaper\Escaper;
+use Laminas\Escaper\EscaperInterface;
 use Laminas\Form\ElementInterface;
 use Looker\Plugin\HtmlAttributes;
 
@@ -20,7 +20,7 @@ final readonly class ElementErrorList
 {
     /** @param array<string, scalar|null> $defaultAttributes */
     public function __construct(
-        private Escaper $escaper,
+        private EscaperInterface $escaper,
         private HtmlAttributes $attributeHelper,
         private array $defaultAttributes = [],
     ) {

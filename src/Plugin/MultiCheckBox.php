@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Looker\Form\Plugin;
 
-use Laminas\Escaper\Escaper;
+use Laminas\Escaper\EscaperInterface;
 use Laminas\Form\Element\MultiCheckbox as MultiCheckboxElement;
 use Laminas\Form\Element\Radio;
 use Looker\Form\HTML\InputAttribute;
@@ -49,7 +49,7 @@ final readonly class MultiCheckBox
     public const string PREPEND = 'prepend';
 
     public function __construct(
-        private Escaper $escaper,
+        private EscaperInterface $escaper,
         private HtmlAttributes $attributePlugin,
         private Doctype $doctype,
     ) {
