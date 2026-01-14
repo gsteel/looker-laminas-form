@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Looker\Form\Plugin;
 
-use Laminas\Escaper\Escaper;
+use Laminas\Escaper\EscaperInterface;
 use Laminas\Form\Element\Button as ButtonElement;
 use Laminas\Form\Element\Submit;
 use Looker\Form\HTML\ButtonAttribute;
@@ -19,7 +19,7 @@ use function sprintf;
 final readonly class Button
 {
     public function __construct(
-        private Escaper $escaper,
+        private EscaperInterface $escaper,
         private HtmlAttributes $attributesHelper,
     ) {
     }

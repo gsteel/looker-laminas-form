@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Looker\Form\Plugin\Factory;
 
 use Laminas\Escaper\Escaper;
+use Laminas\Escaper\EscaperInterface;
 use Looker\Form\Plugin\Fieldset;
 use Looker\Form\Plugin\FormElementRow;
 use Looker\Plugin\HtmlAttributes;
@@ -16,8 +17,8 @@ final class FieldsetFactory
     public function __invoke(ContainerInterface $container): Fieldset
     {
         $plugins = $container->get(PluginManager::class);
-        $escaper = $container->has(Escaper::class)
-            ? $container->get(Escaper::class)
+        $escaper = $container->has(EscaperInterface::class)
+            ? $container->get(EscaperInterface::class)
             : new Escaper();
 
         return new Fieldset(
