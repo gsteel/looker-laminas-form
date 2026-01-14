@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Looker\Form\Test\Plugin;
 
 use Laminas\Form\Element\Text;
+use Laminas\Form\Fieldset;
 use Laminas\Form\Form as LaminasForm;
 use Looker\Form\Plugin\Form;
 use Looker\Form\Test\PluginManagerSetup;
@@ -129,5 +130,26 @@ final class FormTest extends TestCase
             HTML,
             $this->plugin->__invoke($form),
         );
+    }
+
+    public function testEmptyElementMarkupIsFiltered(): void
+    {
+        $form = new LaminasForm('stuff');
+        $form->add(new Fieldset('foo'));
+
+        $markup = $this->plugin->__invoke($form);
+
+        self::assertSame(
+            <<<'HTML'
+            <form method="POST" name="stuff">
+            </form>
+            HTML,
+            $markup,
+        );
+    }
+
+    public function testCloseTagCanBeCalledPublicly(): void
+    {
+        self::assertSame('</form>', $this->plugin->closeTag());
     }
 }

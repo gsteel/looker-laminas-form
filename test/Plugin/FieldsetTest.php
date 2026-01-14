@@ -137,4 +137,19 @@ final class FieldsetTest extends TestCase
             $markup,
         );
     }
+
+    public function testAttributesAreMergedInTheExpectedWay(): void
+    {
+        $fieldset = new Fieldset('fields', [
+            'label' => 'Some Fields',
+            'data-baz' => 'bar',
+        ]);
+        $element  = new Text('foo', ['label' => 'Some Input']);
+        $fieldset->add($element);
+
+        $markup = $this->plugin->__invoke($fieldset, ['data-baz' => 'bing']);
+
+        self::assertStringContainsString('data-baz="bing"', $markup);
+        self::assertStringNotContainsString('data-baz="bar"', $markup);
+    }
 }

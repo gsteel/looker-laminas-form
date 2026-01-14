@@ -333,7 +333,8 @@ final class SelectTest extends TestCase
 
         $this->expectException(SelectElementCannotBeRendered::class);
         $this->expectExceptionMessage(
-            'Select value options must be key-value pairs, a spec that represents an optgroup, or',
+            'Select value options must be key-value pairs, a spec that represents an optgroup, or a spec that '
+            . 'represents an option, but invalid values were found for the element named "test"',
         );
         $this->helper->__invoke($element);
     }
