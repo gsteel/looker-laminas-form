@@ -1,5 +1,10 @@
 name: "Continuous Integration"
 
+permissions:
+  contents: read
+  security-events: write
+  checks: write
+
 on:
   pull_request:
   push:
@@ -7,7 +12,7 @@ on:
     tags:
 
 env:
-  php_extensions: ctype,intl,json,libxml,mbstring
+  php_extensions: bcmath,ctype,intl,json,libxml,mbstring
   default_php: 8.3
 
 jobs:
@@ -16,16 +21,71 @@ jobs:
 
   composer-require-checker:
     name: "Check for missing dependencies"
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.1
       - uses: shivammathur/setup-php@2.36.0
+
         with:
           php-version: ${{ env.default_php }}
           ini-values: memory_limit=-1
           extensions: ${{ env.php_extensions }}
-      - uses: "ramsey/composer-install@3.1.1"
-      - run: composer global config bin-dir /usr/local/bin
-      - run: composer global require -W maglnet/composer-require-checker
-      - run: /usr/local/bin/composer-require-checker check
+      - uses: ramsey/composer-install@3.1.1
+      - run: make require-checker-ci
+
+  composer-unused:
+    name: Check for Unused Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.1
+      - uses: shivammathur/setup-php@2.36.0
+        with:
+          php-version: ${{ env.default_php }}
+          extensions: ${{ env.php_extensions }}
+          tools: composer
+      - uses: ramsey/composer-install@3.1.1
+      - run: make unused-ci
+
+  psalm-security-report:
+    name: "Psalm Security Report"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.1
+      - uses: shivammathur/setup-php@2.36.0
+        with:
+          php-version: ${{ env.default_php }}
+          extensions: ${{ env.php_extensions }}
+      - uses: ramsey/composer-install@3.1.1
+      - name: "Psalm"
+        run: vendor/bin/psalm --report=results.sarif
+      - name: "Upload Security Analysis results to GitHub"
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: results.sarif
+
+  rector:
+    name: Rector on Default PHP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.1
+      - uses: shivammathur/setup-php@2.36.0
+        with:
+          php-version: ${{ env.default_php }}
+          extensions: ${{ env.php_extensions }}
+          tools: composer
+      - uses: ramsey/composer-install@3.1.1
+      - run: make rector-ci
+
+  infection:
+    name: Mutation Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.1
+      - uses: shivammathur/setup-php@2.36.0
+        with:
+          php-version: ${{ env.default_php }}
+          extensions: ${{ env.php_extensions }}
+          tools: composer
+      - uses: ramsey/composer-install@3.1.1
+      - run: make infection-ci

@@ -8,11 +8,8 @@
          failOnNotice="true"
          failOnDeprecation="true"
          failOnPhpunitDeprecation="true"
-         displayDetailsOnTestsThatTriggerWarnings="true"
-         displayDetailsOnTestsThatTriggerNotices="true"
-         displayDetailsOnTestsThatTriggerErrors="true"
-         displayDetailsOnTestsThatTriggerDeprecations="true"
-         displayDetailsOnPhpunitDeprecations="true"
+         failOnPhpunitNotice="true"
+         displayDetailsOnAllIssues="true"
 >
   <testsuites>
     <testsuite name="default">
