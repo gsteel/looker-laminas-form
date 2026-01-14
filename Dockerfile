@@ -1,0 +1,15 @@
+ARG PHP_VERSION=8.3
+
+FROM php:${PHP_VERSION}-alpine
+
+# Composer uses git to determine the root package version
+RUN apk add --no-cache git
+
+#
+# Install necessary PHP extensions (Including those for external tools)
+#
+COPY --from=ghcr.io/mlocati/php-extension-installer:2 /usr/bin/install-php-extensions /usr/local/bin/
+RUN install-php-extensions bcmath intl xdebug libxml mbstring
+
+# Install composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer

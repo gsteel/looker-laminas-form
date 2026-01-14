@@ -58,7 +58,7 @@ final class FormInputTest extends TestCase
     #[DataProvider('elementProvider')]
     public function testRenderOfBasicElement(ElementInterface $element, string $expect): void
     {
-        self::assertEquals(
+        self::assertSame(
             $expect,
             $this->helper->__invoke($element),
         );
@@ -82,7 +82,7 @@ final class FormInputTest extends TestCase
         $element = new Element\Text('foo');
         $element->setAttribute('maxlength', '10');
 
-        self::assertEquals(
+        self::assertSame(
             '<input maxlength="20" name="foo" type="text" value="">',
             $this->helper->__invoke($element, ['maxlength' => '20']),
         );

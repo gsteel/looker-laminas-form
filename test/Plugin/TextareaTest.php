@@ -33,7 +33,7 @@ final class TextareaTest extends TestCase
         $element->setAttribute('rows', 5);
         $element->setAttribute('cols', 6);
 
-        self::assertEquals(
+        self::assertSame(
             '<textarea cols="6" name="foo" rows="5"></textarea>',
             $this->helper->__invoke($element),
         );
@@ -45,7 +45,7 @@ final class TextareaTest extends TestCase
         $element->setAttribute('rows', 5);
         $element->setAttribute('cols', 6);
 
-        self::assertEquals(
+        self::assertSame(
             '<textarea cols="12" name="foo" rows="5"></textarea>',
             $this->helper->__invoke($element, ['cols' => '12']),
         );
@@ -55,7 +55,7 @@ final class TextareaTest extends TestCase
     {
         $element = new Element('foo');
 
-        self::assertEquals(
+        self::assertSame(
             '<textarea name="foo"></textarea>',
             $this->helper->__invoke($element, ['goats' => '12']),
         );
@@ -65,7 +65,7 @@ final class TextareaTest extends TestCase
     {
         $element = new Element('foo');
 
-        self::assertEquals(
+        self::assertSame(
             '<textarea lang="en" name="foo"></textarea>',
             $this->helper->__invoke($element, ['lang' => 'en']),
         );
@@ -75,7 +75,7 @@ final class TextareaTest extends TestCase
     {
         $element = new Element('foo');
 
-        self::assertEquals(
+        self::assertSame(
             '<textarea name="foo" readonly></textarea>',
             $this->helper->__invoke($element, ['readonly' => true]),
         );
@@ -85,7 +85,7 @@ final class TextareaTest extends TestCase
     {
         $element = new Element('foo');
 
-        self::assertEquals(
+        self::assertSame(
             '<textarea name="foo"></textarea>',
             $this->helper->__invoke($element, ['readonly' => false]),
         );
@@ -95,7 +95,7 @@ final class TextareaTest extends TestCase
     {
         $element = new Element('foo');
 
-        self::assertEquals(
+        self::assertSame(
             '<textarea name="foo" wrap="hard"></textarea>',
             $this->helper->__invoke($element, ['wrap' => 'hard']),
         );
@@ -112,7 +112,7 @@ final class TextareaTest extends TestCase
     {
         $element = new Element('foo');
         $element->setValue('Goats & Boats');
-        self::assertEquals(
+        self::assertSame(
             '<textarea name="foo">Goats &amp; Boats</textarea>',
             $this->helper->__invoke($element),
         );

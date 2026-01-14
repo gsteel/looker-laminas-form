@@ -16,7 +16,7 @@ use function array_merge;
 use function is_string;
 use function sprintf;
 
-final class Button
+final readonly class Button
 {
     public function __construct(
         private Escaper $escaper,
