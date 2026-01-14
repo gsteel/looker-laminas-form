@@ -38,34 +38,34 @@ final class OptionTest extends TestCase
         $this->element->setValue('a');
 
         $markup = $this->helper->__invoke($this->element, 'a', 'A', []);
-        self::assertEquals('<option selected value="a">A</option>', $markup);
+        self::assertSame('<option selected value="a">A</option>', $markup);
 
         $markup = $this->helper->__invoke($this->element, 'b', 'B', []);
-        self::assertEquals('<option value="b">B</option>', $markup);
+        self::assertSame('<option value="b">B</option>', $markup);
     }
 
     public function testThatAValidBooleanAttributeWillBePresentInTheMarkup(): void
     {
         $markup = $this->helper->__invoke($this->element, 'a', 'A', ['disabled' => true]);
-        self::assertEquals('<option disabled value="a">A</option>', $markup);
+        self::assertSame('<option disabled value="a">A</option>', $markup);
     }
 
     public function testThatABooleanFalseAttributesWillNotBePresentInTheMarkup(): void
     {
         $markup = $this->helper->__invoke($this->element, 'a', 'A', ['disabled' => false]);
-        self::assertEquals('<option value="a">A</option>', $markup);
+        self::assertSame('<option value="a">A</option>', $markup);
     }
 
     public function testThatInvalidAttributesAreIgnored(): void
     {
         $markup = $this->helper->__invoke($this->element, 'a', 'A', ['goats' => 'good']);
-        self::assertEquals('<option value="a">A</option>', $markup);
+        self::assertSame('<option value="a">A</option>', $markup);
     }
 
     public function testThatGlobalAttributesAreNotIgnored(): void
     {
         $markup = $this->helper->__invoke($this->element, 'a', 'A', ['tabindex' => 5, 'id' => 'foo']);
-        self::assertEquals('<option id="foo" tabindex="5" value="a">A</option>', $markup);
+        self::assertSame('<option id="foo" tabindex="5" value="a">A</option>', $markup);
     }
 
     public function testAnArrayValueOnANonMultipleSelectIsExceptional(): void
@@ -92,9 +92,9 @@ final class OptionTest extends TestCase
         $this->element->setValue(['a', 'b']);
 
         $markup = $this->helper->__invoke($this->element, 'a', 'A', []);
-        self::assertEquals('<option selected value="a">A</option>', $markup);
+        self::assertSame('<option selected value="a">A</option>', $markup);
         $markup = $this->helper->__invoke($this->element, 'b', 'B', []);
-        self::assertEquals('<option selected value="b">B</option>', $markup);
+        self::assertSame('<option selected value="b">B</option>', $markup);
     }
 
     public function testThatAScalarValueForAMultipleSelectIsSelected(): void
@@ -103,8 +103,8 @@ final class OptionTest extends TestCase
         $this->element->setValue('a');
 
         $markup = $this->helper->__invoke($this->element, 'a', 'A', []);
-        self::assertEquals('<option selected value="a">A</option>', $markup);
+        self::assertSame('<option selected value="a">A</option>', $markup);
         $markup = $this->helper->__invoke($this->element, 'b', 'B', []);
-        self::assertEquals('<option value="b">B</option>', $markup);
+        self::assertSame('<option value="b">B</option>', $markup);
     }
 }

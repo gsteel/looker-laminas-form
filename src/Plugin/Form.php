@@ -32,7 +32,7 @@ final readonly class Form
      */
     public function __invoke(FormInterface|null $form = null, array $attributes = []): string|self
     {
-        if ($form === null) {
+        if (! $form instanceof FormInterface) {
             return $this;
         }
 

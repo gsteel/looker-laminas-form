@@ -33,7 +33,7 @@ final readonly class Label
      */
     public function __invoke(ElementInterface|null $element = null, array $attributes = []): string|self
     {
-        if (! $element) {
+        if (! $element instanceof ElementInterface) {
             return $this;
         }
 
