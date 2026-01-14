@@ -14,10 +14,8 @@ use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\Value\Doctype;
 use Throwable;
-use Webmozart\Assert\Assert;
 
 use function array_filter;
-use function array_keys;
 use function array_map;
 use function array_merge;
 use function array_unshift;
@@ -27,6 +25,11 @@ use function implode;
 use function in_array;
 use function is_array;
 use function is_scalar;
+use function Psl\Type\dict;
+use function Psl\Type\null;
+use function Psl\Type\scalar;
+use function Psl\Type\string;
+use function Psl\Type\union;
 use function sprintf;
 use function str_ends_with;
 
@@ -101,12 +104,10 @@ final readonly class MultiCheckBox
             $labelAttributes = $value['label_attributes'] ?? [];
 
             try {
-                Assert::scalar($value['value'] ?? null);
-                Assert::scalar($value['label'] ?? null);
-                Assert::allNullOrScalar($attributes);
-                Assert::allNullOrScalar($labelAttributes);
-                Assert::allString(array_keys($attributes));
-                Assert::allString(array_keys($labelAttributes));
+                union(null(), scalar())->assert($value['value'] ?? null);
+                union(null(), scalar())->assert($value['label'] ?? null);
+                dict(string(), union(null(), scalar()))->assert($attributes);
+                dict(string(), union(null(), scalar()))->assert($labelAttributes);
             } catch (Throwable $e) {
                 throw MultiCheckBoxCannotBeRendered::becauseOfAnInvalidOptionSpec($value, $e);
             }

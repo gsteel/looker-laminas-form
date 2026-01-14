@@ -27,7 +27,7 @@ docker: build-php-image
 .PHONY: docker
 
 build-php-image: ## Build the PHP image with necessary dependencies
-	@$(if ${IMAGE_ID},, docker build --build-arg PHP_VERSION=${PHP_VERSION} -t ${IMAGE_NAME} .)
+	@$(if ${IMAGE_ID},, docker build --pull --build-arg PHP_VERSION=${PHP_VERSION} -t ${IMAGE_NAME} .)
 .PHONY: build-php-image
 
 rebuild-php-image: ## Forcefully rebuild the PHP image
@@ -168,6 +168,7 @@ rector-fix: docker ## Apply Rector changes
 .PHONY: rector-fix
 
 qa: cs test sa composer-require-checker unused rector docs-lint check-links mutants ## Run all QA checks
+.PHONY: qa
 
 clean: ## Delete caches and docs-build assets
 	@$(call MK_INFO,"Cleaning up")
@@ -176,6 +177,16 @@ clean: ## Delete caches and docs-build assets
 	@rm -rf .cache/phpunit
 	@rm -f .cache/infection.log.txt
 	@rm .markdownlint.json
+.PHONY: clean
+
+uninstall: clean
+	@$(call MK_INFO,"Removing dependencies")
+	@rm -rf ./vendor
+	@rm -rf ./tools/crc/vendor
+	@rm -rf ./tools/infection/vendor
+	@rm -rf ./tools/rector/vendor
+	@rm -rf ./tools/unused/vendor
+.PHONY: uninstall
 
 #
 # Targets for CI

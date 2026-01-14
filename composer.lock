@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ca83834b29b8923289ebe3b5d88cda3",
+    "content-hash": "3665c31eafb7021a617ae5a42c68cc2f",
     "packages": [
         {
             "name": "azjezz/psl",
@@ -81,62 +81,6 @@
                 }
             ],
             "time": "2025-10-25T08:31:40+00:00"
-        },
-        {
-            "name": "gsteel/dot",
-            "version": "1.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gsteel/dot.git",
-                "reference": "3b583bfe370e477826b4d20ab17a5abc6a9aabc6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gsteel/dot/zipball/3b583bfe370e477826b4d20ab17a5abc6a9aabc6",
-                "reference": "3b583bfe370e477826b4d20ab17a5abc6a9aabc6",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~8.2.0 || ~8.3 || ~8.4 || ~8.5"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^14.0.0",
-                "phpunit/phpunit": "^11.5.42",
-                "psalm/plugin-phpunit": "^0.19.5",
-                "squizlabs/php_codesniffer": "^4.0.0",
-                "vimeo/psalm": "^6.13.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "GSteel\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "George Steel",
-                    "email": "george@net-glue.co.uk"
-                }
-            ],
-            "description": "A Utility for retrieving typed values from nested arrays",
-            "homepage": "https://github.com/gsteel/dot",
-            "keywords": [
-                "array",
-                "config",
-                "configuration",
-                "dot",
-                "utility"
-            ],
-            "support": {
-                "issues": "https://github.com/gsteel/dot/issues",
-                "rss": "https://github.com/gsteel/dot/releases.atom",
-                "source": "https://github.com/gsteel/dot"
-            },
-            "time": "2025-10-05T20:50:53+00:00"
         },
         {
             "name": "gsteel/looker",
@@ -990,23 +934,23 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.12.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "9be6926d8b485f55b9229203f962b51ed377ba68"
+                "reference": "ce6a2f100c404b2d32a1dd1270f9b59ad4f57649"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/9be6926d8b485f55b9229203f962b51ed377ba68",
-                "reference": "9be6926d8b485f55b9229203f962b51ed377ba68",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/ce6a2f100c404b2d32a1dd1270f9b59ad4f57649",
+                "reference": "ce6a2f100c404b2d32a1dd1270f9b59ad4f57649",
                 "shasum": ""
             },
             "require": {
                 "ext-ctype": "*",
                 "ext-date": "*",
                 "ext-filter": "*",
-                "php": "^7.2 || ^8.0"
+                "php": "^8.2"
             },
             "suggest": {
                 "ext-intl": "",
@@ -1016,7 +960,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.10-dev"
+                    "dev-feature/2-0": "2.0-dev"
                 }
             },
             "autoload": {
@@ -1032,6 +976,10 @@
                 {
                     "name": "Bernhard Schussek",
                     "email": "bschussek@gmail.com"
+                },
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com"
                 }
             ],
             "description": "Assertions to validate method input/output with nice error messages.",
@@ -1042,9 +990,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/1.12.1"
+                "source": "https://github.com/webmozarts/assert/tree/2.1.2"
             },
-            "time": "2025-10-29T15:56:20+00:00"
+            "time": "2026-01-13T14:02:24+00:00"
         }
     ],
     "packages-dev": [
@@ -3054,6 +3002,60 @@
                 "source": "https://github.com/phar-io/version/tree/3.2.1"
             },
             "time": "2022-02-21T01:04:05+00:00"
+        },
+        {
+            "name": "php-standard-library/psalm-plugin",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-standard-library/psalm-plugin.git",
+                "reference": "bf6d560ae498966150bc66a42e02744b0ee242c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-standard-library/psalm-plugin/zipball/bf6d560ae498966150bc66a42e02744b0ee242c5",
+                "reference": "bf6d560ae498966150bc66a42e02744b0ee242c5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1",
+                "vimeo/psalm": ">=5.16"
+            },
+            "conflict": {
+                "azjezz/psl": "<2.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.18",
+                "roave/security-advisories": "dev-master",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "psalm-plugin",
+            "extra": {
+                "psalm": {
+                    "pluginClass": "Psl\\Psalm\\Plugin"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psl\\Psalm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "azjezz",
+                    "email": "azjezz@protonmail.com"
+                }
+            ],
+            "description": "Psalm plugin for the PHP Standard Library",
+            "support": {
+                "issues": "https://github.com/php-standard-library/psalm-plugin/issues",
+                "source": "https://github.com/php-standard-library/psalm-plugin/tree/2.3.0"
+            },
+            "time": "2023-11-28T12:22:48+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

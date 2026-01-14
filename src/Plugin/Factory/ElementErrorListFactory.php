@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace Looker\Form\Plugin\Factory;
 
-use GSteel\Dot;
 use Laminas\Escaper\Escaper;
 use Looker\Form\Plugin\ElementErrorList;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
 use Psr\Container\ContainerInterface;
-use Webmozart\Assert\Assert;
+
+use function Psl\Type\dict;
+use function Psl\Type\optional;
+use function Psl\Type\scalar;
+use function Psl\Type\shape;
+use function Psl\Type\string;
 
 final class ElementErrorListFactory
 {
@@ -21,10 +25,15 @@ final class ElementErrorListFactory
             ? $container->get(Escaper::class)
             : new Escaper();
 
-        $config = $container->get('config');
-        Assert::isArray($config);
-        /** @psalm-var array<string, scalar|null> $defaultAttributes */
-        $defaultAttributes = Dot::arrayDefault('looker.pluginConfig.formElementErrorListAttributes', $config, []);
+        $config = shape([
+            'looker' => optional(shape([
+                'pluginConfig' => optional(shape([
+                    'formElementErrorListAttributes' => optional(dict(string(), scalar())),
+                ], true)),
+            ], true)),
+        ])->assert($container->get('config'));
+
+        $defaultAttributes = $config['looker']['pluginConfig']['formElementErrorListAttributes'] ?? [];
 
         return new ElementErrorList(
             $escaper,
