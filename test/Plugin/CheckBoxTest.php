@@ -8,6 +8,7 @@ use Laminas\Escaper\Escaper;
 use Laminas\Form\Element\Checkbox as CheckboxElement;
 use Looker\Form\Plugin\CheckBox;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
+use Looker\Form\Test\Asset\StringableObject;
 use Looker\Plugin\HtmlAttributes;
 use Looker\Value\Doctype;
 use Override;
@@ -183,7 +184,7 @@ final class CheckBoxTest extends TestCase
     public function testThatTheCheckedAttributeWillBeSetWhenTheCurrentValueMatches(): void
     {
         $element = new CheckboxElement('foo');
-        $element->setValue(1);
+        $element->setValue(new StringableObject('1'));
 
         self::assertSame(
             <<<'HTML'

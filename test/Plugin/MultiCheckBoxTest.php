@@ -249,7 +249,21 @@ final class MultiCheckBoxTest extends TestCase
             (object) ['a' => 'b'],
         ]);
         $this->expectException(MultiCheckBoxCannotBeRendered::class);
-        $this->expectExceptionMessage('Value options should be simple scalar key-value pairs, or a specification');
+        $this->expectExceptionMessage(
+            'Value options should be simple scalar key-value pairs, or a specification that conforms to the following:'
+            . <<<'SPEC'
+            array{
+              value: scalar,
+              label: scalar,
+              disabled?: bool,
+              selected?: bool,
+              attributes?: array<string, scalar>,
+              label_attributes?: array<string, scalar>,
+            }
+            SPEC . 'but… stdClass was received',
+        );
+        $this->expectExceptionCode(0);
+
         $this->plugin->__invoke($element);
     }
 

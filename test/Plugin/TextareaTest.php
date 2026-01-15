@@ -117,4 +117,13 @@ final class TextareaTest extends TestCase
             $this->helper->__invoke($element),
         );
     }
+
+    public function testNameInAttributesIsUsedWhenElementUnnamed(): void
+    {
+        $element = new Element();
+        self::assertStringContainsString(
+            'name="fred"',
+            $this->helper->__invoke($element, ['name' => 'fred']),
+        );
+    }
 }

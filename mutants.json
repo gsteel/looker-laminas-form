@@ -9,10 +9,11 @@
         ]
     },
     "logs": {
-        "text": ".cache/infection.log.txt"
+        "text": ".cache/infection.log.txt",
+        "html": ".cache/mutants.html"
     },
     "mutators": {
         "@default": true
     },
-    "minMsi": 75
+    "minMsi": 87
 }

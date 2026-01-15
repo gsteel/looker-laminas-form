@@ -9,6 +9,7 @@ use Laminas\Form\Element\Button as ButtonElement;
 use Laminas\Form\Element\Submit;
 use Looker\Form\Plugin\Button;
 use Looker\Form\Plugin\Exception\ButtonsNeedADescriptiveLabel;
+use Looker\Form\Test\Asset\StringableObject;
 use Looker\Plugin\HtmlAttributes;
 use Override;
 use PHPUnit\Framework\TestCase;
@@ -53,6 +54,22 @@ final class ButtonTest extends TestCase
     public function testSubmitWithNoLabelAndNoContentIsExceptional(): void
     {
         $this->expectException(ButtonsNeedADescriptiveLabel::class);
+        $this->expectExceptionMessage(
+            'Buttons should have either a label, or you should pass some content into the plugin. The element named '
+            . '"fred" does not have a label and no content was provided',
+        );
+
+        ($this->plugin)(new Submit('fred'));
+    }
+
+    public function testMissingLabelExceptionWithUnNamedElement(): void
+    {
+        $this->expectException(ButtonsNeedADescriptiveLabel::class);
+        $this->expectExceptionMessage(
+            'Buttons should have either a label, or you should pass some content into the plugin. The element named '
+            . '"un-named" does not have a label and no content was provided',
+        );
+
         ($this->plugin)(new Submit());
     }
 
@@ -113,5 +130,15 @@ final class ButtonTest extends TestCase
             '<button type="button">Foo</button>',
             ($this->plugin)($button, 'Foo', true, ['disabled' => false]),
         );
+    }
+
+    public function testTheElementValueIsCastToString(): void
+    {
+        $button = new ButtonElement();
+        $button->setValue(new StringableObject('fred'));
+
+        $markup = $this->plugin->__invoke($button, 'Foo');
+
+        self::assertStringContainsString('value="fred"', $markup);
     }
 }

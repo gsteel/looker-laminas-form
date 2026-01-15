@@ -125,4 +125,37 @@ final class FormInputTest extends TestCase
             ($this->helper)(new Element\Text('foo'), ['id' => 'baz']),
         );
     }
+
+    public function testNameInAttributesIsUsedWhenTheElementHasNoName(): void
+    {
+        self::assertStringContainsString(
+            'name="fred"',
+            $this->helper->__invoke(new Element\Text(), ['name' => 'fred']),
+        );
+    }
+
+    public function testNameInAttributeMustBeAString(): void
+    {
+        self::assertStringNotContainsString(
+            'name="',
+            $this->helper->__invoke(new Element\Text(), ['name' => 42]),
+        );
+    }
+
+    public function testAttributesAreMerged(): void
+    {
+        $element = new Element\Text('foo');
+        $element->setAttributes(['data-baz' => 'bat', 'data-foo' => 'bar']);
+        $markup = $this->helper->__invoke($element, ['data-baz' => 'bing']);
+
+        self::assertStringContainsString(
+            'data-baz="bing"',
+            $markup,
+        );
+
+        self::assertStringContainsString(
+            'data-foo="bar"',
+            $markup,
+        );
+    }
 }
