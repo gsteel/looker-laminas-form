@@ -32,7 +32,7 @@ final class ElementErrorListFactory
                     'formElementErrorListAttributes' => optional(dict(string(), scalar())),
                 ], true)),
             ], true)),
-        ])->assert($container->get('config'));
+        ], true)->assert($container->get('config'));
 
         $defaultAttributes = $config['looker']['pluginConfig']['formElementErrorListAttributes'] ?? [];
 
