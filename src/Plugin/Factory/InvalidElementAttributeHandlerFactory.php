@@ -23,7 +23,7 @@ final class InvalidElementAttributeHandlerFactory
                     'invalidElementAttributeHandlers' => optional(vec(mixed())),
                 ], true)),
             ], true)),
-        ])->assert($container->has('config') ? $container->get('config') : []);
+        ], true)->assert($container->has('config') ? $container->get('config') : []);
 
         /**
          * Forcing this type - it cannot reasonably be verified

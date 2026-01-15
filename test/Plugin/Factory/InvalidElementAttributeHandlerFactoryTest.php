@@ -6,6 +6,7 @@ namespace Looker\Form\Test\Plugin\Factory;
 
 use Laminas\Form\Element\Text;
 use Looker\Form\Plugin\Factory\InvalidElementAttributeHandlerFactory;
+use Looker\Form\Test\InMemoryContainer;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
@@ -21,6 +22,18 @@ final class InvalidElementAttributeHandlerFactoryTest extends TestCase
             [['looker' => []]],
             [['looker' => ['pluginConfig' => []]]],
             [['looker' => ['pluginConfig' => ['invalidElementAttributeHandlers' => []]]]],
+            [
+                [
+                    'looker' => [
+                        'pluginConfig' => [
+                            'invalidElementAttributeHandlers' => [],
+                            'other-key' => 'foo',
+                        ],
+                        'other-key' => 'foo',
+                    ],
+                    'other-key' => 'foo',
+                ],
+            ],
         ];
     }
 
@@ -73,5 +86,35 @@ final class InvalidElementAttributeHandlerFactoryTest extends TestCase
         $factory = new InvalidElementAttributeHandlerFactory();
         $this->expectException(Throwable::class);
         $factory->__invoke($container);
+    }
+
+    public function testValidConfigIsUsedForThePlugin(): void
+    {
+        $container = new InMemoryContainer([
+            'config' => [
+                'looker' => [
+                    'pluginConfig' => [
+                        'invalidElementAttributeHandlers' => [
+                            static function (array $attribs): array {
+                                $attribs['data-baz'] = 'bing';
+
+                                return $attribs;
+                            },
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+
+        $handler = (new InvalidElementAttributeHandlerFactory())->__invoke($container);
+
+        $element = new Text('foo');
+        $element->setMessages(['bad' => 'news']);
+
+        $attribs = $handler->__invoke($element, []);
+
+        self::assertArrayHasKey('data-baz', $attribs);
+        self::assertSame('bing', $attribs['data-baz']);
+        self::assertArrayNotHasKey('aria-invalid', $attribs);
     }
 }
