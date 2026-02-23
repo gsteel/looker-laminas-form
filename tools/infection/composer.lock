@@ -480,16 +480,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.32.4",
+            "version": "0.32.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "a2b0a3e47b56bd2f27ca13caecae47baa7e5abe8"
+                "reference": "932fc7aa7a03bdbe387e42f8c8bd17d9d347653e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/a2b0a3e47b56bd2f27ca13caecae47baa7e5abe8",
-                "reference": "a2b0a3e47b56bd2f27ca13caecae47baa7e5abe8",
+                "url": "https://api.github.com/repos/infection/infection/zipball/932fc7aa7a03bdbe387e42f8c8bd17d9d347653e",
+                "reference": "932fc7aa7a03bdbe387e42f8c8bd17d9d347653e",
                 "shasum": ""
             },
             "require": {
@@ -600,7 +600,7 @@
             ],
             "support": {
                 "issues": "https://github.com/infection/infection/issues",
-                "source": "https://github.com/infection/infection/tree/0.32.4"
+                "source": "https://github.com/infection/infection/tree/0.32.5"
             },
             "funding": [
                 {
@@ -612,7 +612,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2026-02-09T13:24:18+00:00"
+            "time": "2026-02-20T07:59:31+00:00"
         },
         {
             "name": "infection/mutator",
@@ -2549,16 +2549,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "2.1.3",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "6976757ba8dd70bf8cbaea0914ad84d8b51a9f46"
+                "reference": "79155f94852fa27e2f73b459f6503f5e87e2c188"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/6976757ba8dd70bf8cbaea0914ad84d8b51a9f46",
-                "reference": "6976757ba8dd70bf8cbaea0914ad84d8b51a9f46",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/79155f94852fa27e2f73b459f6503f5e87e2c188",
+                "reference": "79155f94852fa27e2f73b459f6503f5e87e2c188",
                 "shasum": ""
             },
             "require": {
@@ -2605,9 +2605,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/2.1.3"
+                "source": "https://github.com/webmozarts/assert/tree/2.1.5"
             },
-            "time": "2026-02-13T21:01:40+00:00"
+            "time": "2026-02-18T14:09:36+00:00"
         }
     ],
     "aliases": [],
