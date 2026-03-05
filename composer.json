@@ -21,7 +21,7 @@
     },
     "require": {
         "php": "~8.3 || ~8.4 || ~8.5",
-        "azjezz/psl": "^4.2",
+        "azjezz/psl": "^4.2 || ^5.0",
         "gsteel/looker": "^0",
         "laminas/laminas-escaper": "^2.17",
         "laminas/laminas-form": "^3.19.1",
@@ -31,7 +31,7 @@
         "doctrine/coding-standard": "^14.0.0",
         "laminas/laminas-servicemanager": "^3.24.0",
         "php-standard-library/psalm-plugin": "^2.3",
-        "phpunit/phpunit": "^12.5.11",
+        "phpunit/phpunit": "^12.5.14",
         "psalm/plugin-phpunit": "^0.19.5",
         "squizlabs/php_codesniffer": "^4.0.1",
         "vimeo/psalm": "^6.15.1"
