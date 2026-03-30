@@ -21,7 +21,7 @@
     },
     "require": {
         "php": "~8.3 || ~8.4 || ~8.5",
-        "azjezz/psl": "^4.2 || ^5.0",
+        "azjezz/psl": "^4.2 || ^5.0 || ^6.0",
         "gsteel/looker": "^0",
         "laminas/laminas-escaper": "^2.17",
         "laminas/laminas-form": "^3.19.1",
