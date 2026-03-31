@@ -1,13 +1,13 @@
 {
     "config": {
         "platform": {
-            "php": "8.3.99"
+            "php": "8.4.99"
         }
     },
     "require": {
-        "php": "~8.3 || ~8.4 || ~8.5"
+        "php": "~8.4 || ~8.5"
     },
     "require-dev": {
-        "maglnet/composer-require-checker": "^4.20.0"
+        "maglnet/composer-require-checker": "^4.24.0"
     }
 }
