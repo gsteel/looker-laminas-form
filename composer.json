@@ -16,25 +16,25 @@
             "infection/extension-installer": true
         },
         "platform": {
-            "php": "8.3.99"
+            "php": "8.4.99"
         }
     },
     "require": {
-        "php": "~8.3 || ~8.4 || ~8.5",
-        "azjezz/psl": "^4.2 || ^5.0",
+        "php": "~8.4 || ~8.5",
         "gsteel/looker": "^0",
         "laminas/laminas-escaper": "^2.17",
         "laminas/laminas-form": "^3.19.1",
+        "php-standard-library/type": "^6.1",
         "psr/container": "^1.0 || ^2.0"
     },
     "require-dev": {
         "doctrine/coding-standard": "^14.0.0",
         "laminas/laminas-servicemanager": "^3.24.0",
-        "php-standard-library/psalm-plugin": "^2.3",
-        "phpunit/phpunit": "^12.5.14",
-        "psalm/plugin-phpunit": "^0.19.5",
+        "php-standard-library/psalm-plugin": "^2.4",
+        "phpunit/phpunit": "^13.0.6",
+        "psalm/plugin-phpunit": "^0.19.6",
         "squizlabs/php_codesniffer": "^4.0.1",
-        "vimeo/psalm": "^6.15.1"
+        "vimeo/psalm": "^6.16.1"
     },
     "autoload": {
         "psr-4": {

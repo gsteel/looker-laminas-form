@@ -13,7 +13,7 @@ on:
 
 env:
   php_extensions: bcmath,ctype,intl,json,libxml,mbstring
-  default_php: 8.3
+  default_php: 8.4
 
 jobs:
   ci:

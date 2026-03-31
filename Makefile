@@ -2,7 +2,7 @@
 # within this `Makefile`.
 
 SHELL=/bin/bash
-PHP_VERSION := 8.3
+PHP_VERSION := 8.4
 IMAGE_NAME := gsteel/looker-laminas-form
 IMAGE_ID := $(shell docker images -q ${IMAGE_NAME} | xargs)
 WORK = /app
