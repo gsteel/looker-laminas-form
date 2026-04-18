@@ -31,7 +31,7 @@
         "doctrine/coding-standard": "^14.0.0",
         "laminas/laminas-servicemanager": "^3.24.0",
         "php-standard-library/psalm-plugin": "^2.4",
-        "phpunit/phpunit": "^13.0.6",
+        "phpunit/phpunit": "^13.1.6",
         "psalm/plugin-phpunit": "^0.19.6",
         "squizlabs/php_codesniffer": "^4.0.1",
         "vimeo/psalm": "^6.16.1"
