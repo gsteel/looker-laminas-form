@@ -29,6 +29,7 @@ final readonly class FormElementRow
         private ElementErrorList $errorListPlugin,
         private FormElement $elementPlugin,
         private HtmlAttributes $attributePlugin,
+        private AttributeNormaliser $attributeNormaliser,
     ) {
     }
 
@@ -80,7 +81,7 @@ final readonly class FormElementRow
         }
 
         $wrapperAttributes = ($this->attributePlugin)(
-            AttributeNormaliser::normalise(
+            $this->attributeNormaliser->normalise(
                 $wrapperAttributes,
                 new GlobalAttribute(),
             ),

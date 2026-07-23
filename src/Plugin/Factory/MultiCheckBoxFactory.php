@@ -7,6 +7,7 @@ namespace Looker\Form\Plugin\Factory;
 use Laminas\Escaper\Escaper;
 use Laminas\Escaper\EscaperInterface;
 use Looker\Form\Plugin\MultiCheckBox;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\Factory\DefaultDoctype;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
@@ -25,6 +26,7 @@ final class MultiCheckBoxFactory
         return new MultiCheckBox(
             $escaper,
             $plugins->get(HtmlAttributes::class),
+            $container->get(AttributeNormaliser::class),
             DefaultDoctype::retrieve($container),
         );
     }

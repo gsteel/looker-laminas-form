@@ -59,10 +59,10 @@ final class FormTest extends TestCase
         );
     }
 
-    public function testUnknownAttributesAreIgnored(): void
+    public function testUnknownAttributesAreNotIgnored(): void
     {
         self::assertSame(
-            '<form method="POST">',
+            '<form foo="bar" method="POST">',
             $this->plugin->openTag(new LaminasForm(), ['foo' => 'bar']),
         );
     }

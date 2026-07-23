@@ -6,6 +6,7 @@ namespace Looker\Form\Plugin\Factory;
 
 use Looker\Form\Plugin\Form;
 use Looker\Form\Plugin\FormElementRow;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
 use Psr\Container\ContainerInterface;
@@ -18,6 +19,7 @@ final class FormFactory
 
         return new Form(
             $plugins->get(HtmlAttributes::class),
+            $container->get(AttributeNormaliser::class),
             $plugins->get(FormElementRow::class),
         );
     }

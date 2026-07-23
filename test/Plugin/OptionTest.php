@@ -8,6 +8,7 @@ use Laminas\Escaper\Escaper;
 use Laminas\Form\Element\Select;
 use Looker\Form\Plugin\Exception\SelectElementCannotBeRendered;
 use Looker\Form\Plugin\Option;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Override;
 use PHPUnit\Framework\TestCase;
@@ -24,6 +25,7 @@ final class OptionTest extends TestCase
         $this->helper  = new Option(
             $escaper,
             new HtmlAttributes($escaper),
+            new AttributeNormaliser(false),
         );
         $this->element = new Select('element', [
             'value_options' => [

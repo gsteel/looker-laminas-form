@@ -23,6 +23,7 @@ final readonly class Label
     public function __construct(
         private EscaperInterface $escaper,
         private HtmlAttributes $attributeHelper,
+        private AttributeNormaliser $attributeNormaliser,
     ) {
     }
 
@@ -82,7 +83,7 @@ final readonly class Label
 
         $attributes['for'] = $id;
 
-        $attributes = AttributeNormaliser::normalise($attributes, new LabelAttribute());
+        $attributes = $this->attributeNormaliser->normalise($attributes, new LabelAttribute());
 
         return sprintf(
             '<label %s>',

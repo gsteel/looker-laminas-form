@@ -8,6 +8,7 @@ use Laminas\Escaper\Escaper;
 use Laminas\Form\Element\Textarea as Element;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Form\Plugin\Textarea;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Override;
 use PHPUnit\Framework\TestCase;
@@ -23,6 +24,7 @@ final class TextareaTest extends TestCase
         $this->helper = new Textarea(
             $escaper,
             new HtmlAttributes($escaper),
+            new AttributeNormaliser(false),
             new InvalidElementAttributeHandler(),
         );
     }

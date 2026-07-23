@@ -21,7 +21,7 @@
     },
     "require": {
         "php": "~8.4 || ~8.5",
-        "gsteel/looker": "^0",
+        "gsteel/looker": "~0.12.0",
         "laminas/laminas-escaper": "^2.17",
         "laminas/laminas-form": "^3.19.1",
         "php-standard-library/type": "^6.1",

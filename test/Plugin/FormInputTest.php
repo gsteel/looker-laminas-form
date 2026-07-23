@@ -10,6 +10,7 @@ use Laminas\Form\ElementInterface;
 use Looker\Form\Plugin\Exception\InvalidElementType;
 use Looker\Form\Plugin\FormInput;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\Value\Doctype;
 use Override;
@@ -26,6 +27,7 @@ final class FormInputTest extends TestCase
         $this->helper = new FormInput(
             Doctype::HTML5,
             new HtmlAttributes(new Escaper()),
+            new AttributeNormaliser(false),
             new InvalidElementAttributeHandler(),
         );
     }
@@ -93,6 +95,7 @@ final class FormInputTest extends TestCase
         $helper = new FormInput(
             Doctype::XHTML1Strict,
             new HtmlAttributes(new Escaper()),
+            new AttributeNormaliser(false),
             new InvalidElementAttributeHandler(),
         );
 

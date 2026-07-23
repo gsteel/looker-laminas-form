@@ -51,6 +51,7 @@ final readonly class MultiCheckBox
     public function __construct(
         private EscaperInterface $escaper,
         private HtmlAttributes $attributePlugin,
+        private AttributeNormaliser $attributeNormaliser,
         private Doctype $doctype,
     ) {
     }
@@ -173,10 +174,10 @@ final readonly class MultiCheckBox
 
         foreach ($this->prepareValueOptions($element) as $spec) {
             $labelAttributes   = ($this->attributePlugin)(
-                AttributeNormaliser::normalise($spec['label_attributes'], new LabelAttribute()),
+                $this->attributeNormaliser->normalise($spec['label_attributes'], new LabelAttribute()),
             );
             $elementAttributes = ($this->attributePlugin)(
-                AttributeNormaliser::normalise($spec['attributes'], new InputAttribute()),
+                $this->attributeNormaliser->normalise($spec['attributes'], new InputAttribute()),
             );
 
             $input = sprintf('<input %s>', $elementAttributes);

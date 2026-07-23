@@ -9,6 +9,7 @@ use Laminas\Form\Element\MultiCheckbox as MultiCheckElement;
 use Laminas\Form\Element\Radio;
 use Looker\Form\Plugin\Exception\MultiCheckBoxCannotBeRendered;
 use Looker\Form\Plugin\MultiCheckBox;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\Value\Doctype;
 use Override;
@@ -28,6 +29,7 @@ final class MultiCheckBoxTest extends TestCase
         $this->plugin = new MultiCheckBox(
             $escaper,
             $attributes,
+            new AttributeNormaliser(false),
             Doctype::HTML5,
         );
     }

@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "gsteel/looker",
-            "version": "0.11.0",
+            "version": "0.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gsteel/looker.git",
-                "reference": "351281f312c55d1eb6ca16d69e7869fdfbc0f1cf"
+                "reference": "ca738563659e4bce7b5b095e057fd5627fe25577"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gsteel/looker/zipball/351281f312c55d1eb6ca16d69e7869fdfbc0f1cf",
-                "reference": "351281f312c55d1eb6ca16d69e7869fdfbc0f1cf",
+                "url": "https://api.github.com/repos/gsteel/looker/zipball/ca738563659e4bce7b5b095e057fd5627fe25577",
+                "reference": "ca738563659e4bce7b5b095e057fd5627fe25577",
                 "shasum": ""
             },
             "require": {
@@ -31,12 +31,8 @@
                 "shish/safe": "<2.6.4"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^14.0.0",
-                "php-standard-library/psalm-plugin": "^2.4",
-                "phpunit/phpunit": "^13.1.13",
-                "psalm/plugin-phpunit": "^0.19.7",
-                "squizlabs/php_codesniffer": "^4.0.1",
-                "vimeo/psalm": "^6.16.1"
+                "carthage-software/mago": "^1.44",
+                "phpunit/phpunit": "^13.2.4"
             },
             "type": "library",
             "autoload": {
@@ -56,9 +52,9 @@
             ],
             "support": {
                 "issues": "https://github.com/gsteel/looker/issues",
-                "source": "https://github.com/gsteel/looker/tree/0.11.0"
+                "source": "https://github.com/gsteel/looker/tree/0.12.0"
             },
-            "time": "2026-05-28T21:03:38+00:00"
+            "time": "2026-07-23T16:35:20+00:00"
         },
         {
             "name": "laminas/laminas-escaper",

@@ -21,6 +21,7 @@ final readonly class Button
     public function __construct(
         private EscaperInterface $escaper,
         private HtmlAttributes $attributesHelper,
+        private AttributeNormaliser $attributeNormaliser,
     ) {
     }
 
@@ -50,7 +51,7 @@ final readonly class Button
             throw ButtonsNeedADescriptiveLabel::forElement($element);
         }
 
-        $attributes = AttributeNormaliser::normalise($attributes, new ButtonAttribute());
+        $attributes = $this->attributeNormaliser->normalise($attributes, new ButtonAttribute());
 
         return sprintf(
             '<button %s>%s</button>',
