@@ -129,12 +129,14 @@ sa: docker ## Run static analysis
 
 cs: docker ## Run coding standards checks
 	@$(call MK_INFO,"Checking coding standards")
-	@docker run $(DOCKER_PHP) vendor/bin/phpcs
+	@docker run $(DOCKER_PHP) vendor/bin/mago fmt --check
+	@docker run $(DOCKER_PHP) vendor/bin/mago lint --minimum-fail-level=note
 .PHONY: cs
 
 cs-fix: docker ## Fix coding standards violations
 	@$(call MK_INFO,"Fixing coding standards violations")
-	@docker run $(DOCKER_PHP) vendor/bin/phpcbf
+	@docker run $(DOCKER_PHP) vendor/bin/mago fmt
+	@docker run $(DOCKER_PHP) vendor/bin/mago lint --fix
 .PHONY: cs-fix
 
 test: docker ## Run tests
@@ -173,7 +175,6 @@ qa: cs test sa composer-require-checker unused rector docs-lint check-links muta
 clean: ## Delete caches and docs-build assets
 	@$(call MK_INFO,"Cleaning up")
 	@docker image rm $(IMAGE_NAME)
-	@rm -f .cache/phpcs
 	@rm -rf .cache/phpunit
 	@rm -f .cache/infection.log.txt
 	@rm .markdownlint.json

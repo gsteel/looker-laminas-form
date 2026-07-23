@@ -1,0 +1,132 @@
+#:schema https://mago.carthage.software/1.44.0/schema.json
+# Welcome to Mago!
+# For full documentation, see https://mago.carthage.software/1.44.0/en/tools/overview/
+version = "1"
+php-version = "8.4.0"
+
+[source]
+workspace = "."
+paths = ["src", "test"]
+includes = ["vendor"]
+excludes = []
+
+[source.glob]
+literal-separator = true
+
+[formatter]
+preset = "default"
+
+method-chain-breaking-style = "same-line"
+first-method-chain-on-new-line = false
+preserve-breaking-member-access-chain = true
+preserve-breaking-member-access-chain-first-method-on-same-line = true
+
+preserve-breaking-argument-list = true
+preserve-breaking-array-like = true
+preserve-breaking-parameter-list = true
+preserve-breaking-attribute-list = true
+preserve-breaking-conditional-expression = true
+preserve-breaking-condition-expression = true
+preserve-redundant-logical-binary-expression-parentheses = true
+
+null-type-hint = "null_pipe_last"
+
+empty-line-after-control-structure = true
+empty-line-before-dangling-comments = false
+
+# Spaces
+space-after-logical-not-unary-prefix-operator = true
+space-before-closure-parameter-list-parenthesis = true
+space-before-arrow-function-parameter-list-parenthesis = true
+
+
+empty-line-before-return = true
+
+line-before-binary-operator = true
+indent-binary-expression-continuation = true
+
+align-assignment-like = false
+
+# Braces
+inline-empty-constructor-braces = false
+inline-empty-classlike-braces = false
+
+[linter]
+integrations = [
+    "psl",
+    "phpunit",
+]
+
+[linter.rules]
+ambiguous-function-call = { enabled = false }
+literal-named-argument = { enabled = false }
+halstead = {
+    effort-threshold = 7000,
+    exclude = ["test/"],
+}
+
+# Lots of view plugins have boolean flags that alter behaviour
+no-boolean-flag-parameter = { enabled = false }
+
+# PHPUnit Style
+assertion-style = {style = "self"}
+# Don't require descriptions for all assertions:
+assert-description = { enabled = false }
+
+## Disable various PSL Rules for components we aren't using:
+psl-string-functions = { enabled = false }
+psl-array-functions = { enabled = false }
+
+# You can't have too many methods in a test:
+too-many-methods = { enabled = true, exclude = ["test/"] }
+
+# Allow lots of parameters in constructors
+excessive-parameter-list = {
+    enabled = true,
+    constructor-threshold = 10,
+}
+
+[analyzer]
+baseline = "mago-sa-baseline.toml"
+plugins = [
+    "psl",
+    "psr-container",
+]
+
+find-unused-definitions = true
+find-unused-expressions = true
+analyze-dead-code = true
+memoize-properties = true
+check-throws = true
+unchecked-exception-classes = []
+check-missing-override = true
+find-unused-parameters = true
+strict-list-index-checks = true
+strict-array-index-existence = true
+allow-array-truthy-operand = false
+no-boolean-literal-comparison = true
+check-missing-type-hints = true
+register-super-globals = true
+
+# Exception Hierarchies to ignore
+unchecked-exceptions = [
+    "Error",
+    "LogicException",
+    "Psl\\Exception\\ExceptionInterface",
+    "Psr\\Container\\ContainerExceptionInterface",
+]
+
+ignore = [
+    # Ignore un-caught exceptions in tests
+    { code = "unhandled-thrown-type", in = ["test/"] },
+    # Invalid args are frequently tested
+    { code = "invalid-argument", in = ["test/"] },
+    # Magic methods are called on the renderer in tests
+    { code = "non-documented-method", in = ["test/"] },
+    { code = "non-documented-property", in = ["test/"] },
+    { code = "mixed-method-access", in = ["test/"] },
+    { code = "invalid-property-read", in = ["test/"] },
+    { code = "unused-statement", in = ["test/"] },
+    # Allow mixed assignment in tests, but warn for it elsewhere
+    { code = "mixed-assignment", in = ["test/"] },
+]
