@@ -11,7 +11,7 @@
         "php": "~8.4 || ~8.5"
     },
     "require-dev": {
-        "infection/infection": "^0.33.2"
+        "infection/infection": "^0.33.3"
     },
     "autoload": {
         "psr-4": {
