@@ -8,6 +8,7 @@ use Laminas\Escaper\Escaper;
 use Laminas\Escaper\EscaperInterface;
 use Looker\Form\Plugin\Fieldset;
 use Looker\Form\Plugin\FormElementRow;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
 use Psr\Container\ContainerInterface;
@@ -24,6 +25,7 @@ final class FieldsetFactory
         return new Fieldset(
             $escaper,
             $plugins->get(HtmlAttributes::class),
+            $container->get(AttributeNormaliser::class),
             $plugins->get(FormElementRow::class),
         );
     }

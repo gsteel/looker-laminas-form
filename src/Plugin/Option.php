@@ -23,6 +23,7 @@ final readonly class Option
     public function __construct(
         private EscaperInterface $escaper,
         private HtmlAttributes $attributeHelper,
+        private AttributeNormaliser $attributeNormaliser,
     ) {
     }
 
@@ -35,7 +36,7 @@ final readonly class Option
             $attributes['selected'] = true;
         }
 
-        $attributes = AttributeNormaliser::normalise($attributes, new OptionAttribute());
+        $attributes = $this->attributeNormaliser->normalise($attributes, new OptionAttribute());
 
         return sprintf(
             '<option %s>%s</option>',

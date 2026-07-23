@@ -25,6 +25,7 @@ final readonly class Fieldset
     public function __construct(
         private EscaperInterface $escaper,
         private HtmlAttributes $attributeHelper,
+        private AttributeNormaliser $attributeNormaliser,
         private FormElementRow $elementHelper,
     ) {
     }
@@ -48,7 +49,7 @@ final readonly class Fieldset
         }
 
         $attributes = ($this->attributeHelper)(
-            AttributeNormaliser::normalise(
+            $this->attributeNormaliser->normalise(
                 array_merge($fieldset->getAttributes(), $attributes),
                 new FieldsetAttribute(),
             ),
@@ -73,7 +74,7 @@ final readonly class Fieldset
         }
 
         $attributes = ($this->attributeHelper)(
-            AttributeNormaliser::normalise(
+            $this->attributeNormaliser->normalise(
                 $fieldset->getLabelAttributes(),
                 new GlobalAttribute(),
             ),

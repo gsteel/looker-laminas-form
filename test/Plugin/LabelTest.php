@@ -8,6 +8,7 @@ use Laminas\Escaper\Escaper;
 use Laminas\Form\Element\Text;
 use Looker\Form\Plugin\Exception\FormElementsMustBeNamed;
 use Looker\Form\Plugin\Label;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Override;
 use PHPUnit\Framework\TestCase;
@@ -23,6 +24,7 @@ final class LabelTest extends TestCase
         $this->helper = new Label(
             $escaper,
             new HtmlAttributes($escaper),
+            new AttributeNormaliser(false),
         );
     }
 

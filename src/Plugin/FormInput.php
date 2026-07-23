@@ -44,6 +44,7 @@ final readonly class FormInput
     public function __construct(
         private Doctype $doctype,
         private HtmlAttributes $attributeHelper,
+        private AttributeNormaliser $attributeNormaliser,
         private InvalidElementAttributeHandler $invalidElementHandler,
     ) {
     }
@@ -72,7 +73,7 @@ final readonly class FormInput
 
         $attributes = ($this->invalidElementHandler)($element, $attributes);
 
-        $attributes = AttributeNormaliser::normalise($attributes, new InputAttribute());
+        $attributes = $this->attributeNormaliser->normalise($attributes, new InputAttribute());
 
         return sprintf(
             '<input %s%s',

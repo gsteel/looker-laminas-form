@@ -7,6 +7,7 @@ namespace Looker\Form\Test;
 use Laminas\Escaper\Escaper;
 use Laminas\ServiceManager\ServiceManager;
 use Looker\Form\ConfigProvider;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager as PluginManagerInterface;
 use Psr\Container\ContainerInterface;
@@ -21,6 +22,7 @@ final class PluginManagerSetup
         $config = [
             'services' => [
                 Escaper::class => new Escaper(),
+                AttributeNormaliser::class => new AttributeNormaliser(true),
             ],
         ];
 

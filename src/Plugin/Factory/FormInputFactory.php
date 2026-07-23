@@ -6,6 +6,7 @@ namespace Looker\Form\Plugin\Factory;
 
 use Looker\Form\Plugin\FormInput;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\Factory\DefaultDoctype;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
@@ -20,6 +21,7 @@ final class FormInputFactory
         return new FormInput(
             DefaultDoctype::retrieve($container),
             $plugins->get(HtmlAttributes::class),
+            $container->get(AttributeNormaliser::class),
             $plugins->get(InvalidElementAttributeHandler::class),
         );
     }

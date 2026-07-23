@@ -10,6 +10,7 @@ use Laminas\Form\Element\Submit;
 use Looker\Form\Plugin\Button;
 use Looker\Form\Plugin\Exception\ButtonsNeedADescriptiveLabel;
 use Looker\Form\Test\Asset\StringableObject;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Override;
 use PHPUnit\Framework\TestCase;
@@ -25,6 +26,7 @@ final class ButtonTest extends TestCase
         $this->plugin = new Button(
             $escaper,
             new HtmlAttributes($escaper),
+            new AttributeNormaliser(true),
         );
     }
 

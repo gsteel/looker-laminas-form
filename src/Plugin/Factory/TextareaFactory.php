@@ -8,6 +8,7 @@ use Laminas\Escaper\Escaper;
 use Laminas\Escaper\EscaperInterface;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Form\Plugin\Textarea;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
 use Psr\Container\ContainerInterface;
@@ -25,6 +26,7 @@ final class TextareaFactory
         return new Textarea(
             $escaper,
             $plugins->get(HtmlAttributes::class),
+            $container->get(AttributeNormaliser::class),
             $plugins->get(InvalidElementAttributeHandler::class),
         );
     }

@@ -19,6 +19,7 @@ final readonly class Textarea
     public function __construct(
         private EscaperInterface $escaper,
         private HtmlAttributes $attributeHelper,
+        private AttributeNormaliser $attributeNormaliser,
         private InvalidElementAttributeHandler $invalidElementHandler,
     ) {
     }
@@ -35,7 +36,7 @@ final readonly class Textarea
         }
 
         $attributes = ($this->invalidElementHandler)($element, $attributes);
-        $attributes = AttributeNormaliser::normalise($attributes, new TextareaAttribute());
+        $attributes = $this->attributeNormaliser->normalise($attributes, new TextareaAttribute());
 
         return sprintf(
             '<textarea %s>%s</textarea>',

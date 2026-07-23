@@ -10,6 +10,7 @@ use Looker\Form\Plugin\ElementErrorList;
 use Looker\Form\Plugin\FormElement;
 use Looker\Form\Plugin\FormElementRow;
 use Looker\Form\Plugin\Label;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
 use Psr\Container\ContainerInterface;
@@ -29,6 +30,7 @@ final class FormElementRowFactory
             $plugins->get(ElementErrorList::class),
             $plugins->get(FormElement::class),
             $plugins->get(HtmlAttributes::class),
+            $container->get(AttributeNormaliser::class),
         );
     }
 }

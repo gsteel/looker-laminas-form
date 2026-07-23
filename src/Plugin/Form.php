@@ -21,6 +21,7 @@ final readonly class Form
 {
     public function __construct(
         private HtmlAttributes $attributePlugin,
+        private AttributeNormaliser $attributeNormaliser,
         private FormElementRow $elementHelper,
     ) {
     }
@@ -54,7 +55,7 @@ final readonly class Form
         }
 
         $attributes = ($this->attributePlugin)(
-            AttributeNormaliser::normalise(
+            $this->attributeNormaliser->normalise(
                 array_merge($form->getAttributes(), $attributes),
                 new FormAttribute(),
             ),

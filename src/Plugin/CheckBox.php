@@ -20,6 +20,7 @@ final readonly class CheckBox
 {
     public function __construct(
         private HtmlAttributes $attributePlugin,
+        private AttributeNormaliser $attributeNormaliser,
         private InvalidElementAttributeHandler $invalidElementHandler,
         private Doctype $doctype,
     ) {
@@ -47,7 +48,7 @@ final readonly class CheckBox
             $attributes['checked'] = true;
         }
 
-        $attributes = AttributeNormaliser::normalise($attributes, new InputAttribute());
+        $attributes = $this->attributeNormaliser->normalise($attributes, new InputAttribute());
 
         $elementMarkup = sprintf('<input %s%s', ($this->attributePlugin)($attributes), $closingBracket);
 

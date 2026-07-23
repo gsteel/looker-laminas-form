@@ -7,6 +7,7 @@ namespace Looker\Form\Plugin\Factory;
 use Laminas\Escaper\Escaper;
 use Laminas\Escaper\EscaperInterface;
 use Looker\Form\Plugin\Button;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
 use Psr\Container\ContainerInterface;
@@ -24,6 +25,7 @@ final class ButtonFactory
         return new Button(
             $escaper,
             $plugins->get(HtmlAttributes::class),
+            $container->get(AttributeNormaliser::class),
         );
     }
 }

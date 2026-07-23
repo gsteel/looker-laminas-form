@@ -7,6 +7,7 @@ namespace Looker\Form\Plugin\Factory;
 use Laminas\Escaper\Escaper;
 use Laminas\Escaper\EscaperInterface;
 use Looker\Form\Plugin\Option;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
 use Psr\Container\ContainerInterface;
@@ -21,6 +22,10 @@ final class OptionFactory
 
         $plugins = $container->get(PluginManager::class);
 
-        return new Option($escaper, $plugins->get(HtmlAttributes::class));
+        return new Option(
+            $escaper,
+            $plugins->get(HtmlAttributes::class),
+            $container->get(AttributeNormaliser::class),
+        );
     }
 }

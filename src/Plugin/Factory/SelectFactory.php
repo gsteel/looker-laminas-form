@@ -9,6 +9,7 @@ use Laminas\Escaper\EscaperInterface;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Form\Plugin\Option;
 use Looker\Form\Plugin\Select;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\PluginManager;
 use Psr\Container\ContainerInterface;
@@ -26,6 +27,7 @@ final class SelectFactory
         return new Select(
             $escaper,
             $plugins->get(HtmlAttributes::class),
+            $container->get(AttributeNormaliser::class),
             $plugins->get(Option::class),
             $plugins->get(InvalidElementAttributeHandler::class),
         );

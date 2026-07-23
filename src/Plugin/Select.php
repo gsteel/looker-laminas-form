@@ -28,6 +28,7 @@ final readonly class Select
     public function __construct(
         private EscaperInterface $escaper,
         private HtmlAttributes $attributeHelper,
+        private AttributeNormaliser $attributeNormaliser,
         private Option $optionHelper,
         private InvalidElementAttributeHandler $invalidElementHandler,
     ) {
@@ -50,7 +51,7 @@ final readonly class Select
 
         $attributes = ($this->invalidElementHandler)($element, $attributes);
 
-        $attributes = AttributeNormaliser::normalise($attributes, new SelectAttribute());
+        $attributes = $this->attributeNormaliser->normalise($attributes, new SelectAttribute());
 
         return sprintf(
             '<select %1$s>%3$s%2$s%3$s</select>',

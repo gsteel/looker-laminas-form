@@ -10,6 +10,7 @@ use Looker\Form\Plugin\Exception\SelectElementCannotBeRendered;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Form\Plugin\Option;
 use Looker\Form\Plugin\Select;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Override;
 use PHPUnit\Framework\TestCase;
@@ -26,7 +27,12 @@ final class SelectTest extends TestCase
         $this->helper    = new Select(
             $escaper,
             $attributeHelper,
-            new Option($escaper, $attributeHelper),
+            new AttributeNormaliser(false),
+            new Option(
+                $escaper,
+                $attributeHelper,
+                new AttributeNormaliser(false),
+            ),
             new InvalidElementAttributeHandler(),
         );
     }

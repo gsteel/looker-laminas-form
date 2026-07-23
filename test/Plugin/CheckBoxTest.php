@@ -9,6 +9,7 @@ use Laminas\Form\Element\Checkbox as CheckboxElement;
 use Looker\Form\Plugin\CheckBox;
 use Looker\Form\Plugin\InvalidElementAttributeHandler;
 use Looker\Form\Test\Asset\StringableObject;
+use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 use Looker\Value\Doctype;
 use Override;
@@ -27,6 +28,7 @@ final class CheckBoxTest extends TestCase
             new HtmlAttributes(
                 new Escaper(),
             ),
+            new AttributeNormaliser(true),
             new InvalidElementAttributeHandler(),
             Doctype::HTML5,
         );
@@ -121,14 +123,14 @@ final class CheckBoxTest extends TestCase
         );
     }
 
-    public function testInvalidAttributesAreIgnored(): void
+    public function testInvalidAttributesAreNotIgnored(): void
     {
         $element = new CheckboxElement('foo');
 
         self::assertSame(
             <<<'HTML'
-            <input name="foo" type="hidden" value="0">
-            <input name="foo" type="checkbox" value="1">
+            <input goats="monkeys" name="foo" type="hidden" value="0">
+            <input goats="monkeys" name="foo" type="checkbox" value="1">
             HTML,
             $this->plugin->__invoke($element, ['goats' => 'monkeys']),
         );
@@ -153,6 +155,7 @@ final class CheckBoxTest extends TestCase
             new HtmlAttributes(
                 new Escaper(),
             ),
+            new AttributeNormaliser(true),
             new InvalidElementAttributeHandler(),
             Doctype::XHTML1Strict,
         );
