@@ -63,7 +63,7 @@ final readonly class Form
 
         return sprintf(
             '<form%s%s>',
-            $attributes === '' ? '' :  ' ',
+            $attributes === '' ? '' : ' ',
             $attributes,
         );
     }

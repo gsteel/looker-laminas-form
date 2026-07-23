@@ -14,8 +14,8 @@ use function strtolower;
 
 final class FormAttribute implements AttributeInformation
 {
-    private const array BOOLEAN    = ['novalidate'];
-    private const array STRING     = ['accept', 'accept-charset', 'name', 'rel', 'action', 'target'];
+    private const array BOOLEAN = ['novalidate'];
+    private const array STRING = ['accept', 'accept-charset', 'name', 'rel', 'action', 'target'];
     private const array ENUMERATED = [
         'autocapitalize' => ['none', 'sentences', 'words', 'characters'],
         'autocomplete' => ['on', 'off'],
@@ -38,9 +38,11 @@ final class FormAttribute implements AttributeInformation
     {
         $name = strtolower($name);
 
-        return in_array($name, self::STRING)
+        return (
+            in_array($name, self::STRING, true)
             || self::isBoolean($name)
             || array_key_exists($name, self::ENUMERATED)
-            || GlobalAttribute::exists($name);
+            || GlobalAttribute::exists($name)
+        );
     }
 }

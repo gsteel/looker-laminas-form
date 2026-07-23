@@ -15,8 +15,8 @@ use function strtolower;
 /** @psalm-internal Looker */
 final class TextareaAttribute implements AttributeInformation
 {
-    private const array STRING     = ['cols', 'maxlength', 'minlength', 'name', 'placeholder', 'rows'];
-    private const array BOOLEAN    = ['disabled', 'readonly', 'required'];
+    private const array STRING = ['cols', 'maxlength', 'minlength', 'name', 'placeholder', 'rows'];
+    private const array BOOLEAN = ['disabled', 'readonly', 'required'];
     private const array ENUMERATED = [
         'autocomplete' => ['on', 'off'],
         'autocorrect' => ['on', 'off'],
@@ -39,9 +39,11 @@ final class TextareaAttribute implements AttributeInformation
     {
         $name = strtolower($name);
 
-        return in_array($name, self::STRING)
+        return (
+            in_array($name, self::STRING, true)
             || array_key_exists($name, self::ENUMERATED)
             || self::isBoolean($name)
-            || GlobalAttribute::exists($name);
+            || GlobalAttribute::exists($name)
+        );
     }
 }

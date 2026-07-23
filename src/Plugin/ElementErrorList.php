@@ -30,7 +30,7 @@ final readonly class ElementErrorList
     public function __invoke(ElementInterface $element, array $listAttributes = []): string
     {
         $messages = $element->getMessages();
-        $list     = [];
+        $list = [];
         array_walk_recursive($messages, static function (string $message) use (&$list): void {
             $list[] = $message;
         });

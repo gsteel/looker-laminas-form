@@ -64,8 +64,8 @@ final readonly class FormInput
             $attributes['name'] = $name;
         }
 
-        $attributes          = array_merge($element->getAttributes(), $attributes);
-        $attributes['type']  = self::TYPE_MAP[$elementClass];
+        $attributes = array_merge($element->getAttributes(), $attributes);
+        $attributes['type'] = self::TYPE_MAP[$elementClass];
         $attributes['value'] = (string) $element->getValue();
         if ($element instanceof Password) {
             unset($attributes['value']);

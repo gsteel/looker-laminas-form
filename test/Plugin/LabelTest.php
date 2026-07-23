@@ -20,7 +20,7 @@ final class LabelTest extends TestCase
     #[Override]
     protected function setUp(): void
     {
-        $escaper      = new Escaper();
+        $escaper = new Escaper();
         $this->helper = new Label(
             $escaper,
             new HtmlAttributes($escaper),

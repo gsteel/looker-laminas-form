@@ -45,7 +45,10 @@ final readonly class Option
         );
     }
 
-    /** @return list<string> */
+    /**
+     * @return list<string>
+     * @mago-expect lint:halstead
+     */
     private function normaliseSelectedValues(SelectElement $element): array
     {
         $value = $element->getValue();

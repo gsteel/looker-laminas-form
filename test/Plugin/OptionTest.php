@@ -21,8 +21,8 @@ final class OptionTest extends TestCase
     #[Override]
     protected function setUp(): void
     {
-        $escaper       = new Escaper();
-        $this->helper  = new Option(
+        $escaper = new Escaper();
+        $this->helper = new Option(
             $escaper,
             new HtmlAttributes($escaper),
             new AttributeNormaliser(false),

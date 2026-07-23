@@ -16,6 +16,7 @@ use Looker\Value\Doctype;
 use Throwable;
 
 use function array_filter;
+use function array_key_exists;
 use function array_map;
 use function array_merge;
 use function array_unshift;
@@ -42,10 +43,11 @@ use const PHP_EOL;
  *     attributes: array<string, scalar|null>,
  *     label_attributes: array<string, scalar|null>,
  * }
+ * @mago-expect lint:cyclomatic-complexity
  */
 final readonly class MultiCheckBox
 {
-    public const string APPEND  = 'append';
+    public const string APPEND = 'append';
     public const string PREPEND = 'prepend';
 
     public function __construct(
@@ -83,9 +85,9 @@ final readonly class MultiCheckBox
         foreach ($element->getValueOptions() as $key => $value) {
             if (is_scalar($value)) {
                 $options[] = [
-                    'value'            => (string) $key,
-                    'label'            => $value,
-                    'attributes'       => [
+                    'value' => (string) $key,
+                    'label' => $value,
+                    'attributes' => [
                         'value' => (string) $key,
                     ],
                     'label_attributes' => [],
@@ -99,9 +101,9 @@ final readonly class MultiCheckBox
                 throw MultiCheckBoxCannotBeRendered::becauseOfAnInvalidOptionSpec($value);
             }
 
-            $disabled        = isset($value['disabled']) && $value['disabled'];
-            $checked         = isset($value['selected']) && $value['selected'];
-            $attributes      = $value['attributes'] ?? [];
+            $disabled = array_key_exists('disabled', $value) && $value['disabled'];
+            $checked = array_key_exists('selected', $value) && $value['selected'];
+            $attributes = $value['attributes'] ?? [];
             $labelAttributes = $value['label_attributes'] ?? [];
 
             try {
@@ -114,14 +116,14 @@ final readonly class MultiCheckBox
             }
 
             $attributes['disabled'] = $disabled;
-            $attributes['checked']  = $checked;
-            $attributes['value']    = $value['value'];
+            $attributes['checked'] = $checked;
+            $attributes['value'] = $value['value'];
 
             /** @psalm-var OptionSpec */
             $options[] = [
-                'value'            => $value['value'],
-                'label'            => $value['label'],
-                'attributes'       => $attributes,
+                'value' => $value['value'],
+                'label' => $value['label'],
+                'attributes' => $attributes,
                 'label_attributes' => $labelAttributes,
             ];
         }
@@ -133,7 +135,7 @@ final readonly class MultiCheckBox
     private function prepareValueOptions(MultiCheckboxElement|Radio $element): array
     {
         $options = [];
-        $name    = $element->getName();
+        $name = $element->getName();
         assert($name !== null && $name !== '');
         if (! str_ends_with($name, '[]') && ! $element instanceof Radio) {
             $name .= '[]';
@@ -143,7 +145,7 @@ final readonly class MultiCheckBox
 
         foreach ($this->normaliseValueOptions($element) as $spec) {
             // Merge in attributes defined on the main element:
-            $spec['attributes']         = array_merge($element->getAttributes(), $spec['attributes']);
+            $spec['attributes'] = array_merge($element->getAttributes(), $spec['attributes']);
             $spec['attributes']['name'] = $name;
             $spec['attributes']['type'] = $element instanceof Radio ? 'radio' : 'checkbox';
             // Only the first element should carry the ID, if any.
@@ -173,7 +175,7 @@ final readonly class MultiCheckBox
         $markup = [];
 
         foreach ($this->prepareValueOptions($element) as $spec) {
-            $labelAttributes   = ($this->attributePlugin)(
+            $labelAttributes = ($this->attributePlugin)(
                 $this->attributeNormaliser->normalise($spec['label_attributes'], new LabelAttribute()),
             );
             $elementAttributes = ($this->attributePlugin)(

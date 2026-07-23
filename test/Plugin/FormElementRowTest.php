@@ -23,24 +23,24 @@ final class FormElementRowTest extends TestCase
          * Because the `FormElement` plugin has a dependency on a plugin manager, it's easier to just build this
          * instance via its factory, otherwise, we have a _lot_ of plugins to set up.
          */
-        $container    = PluginManagerSetup::getContainer();
-        $plugins      = $container->get(PluginManager::class);
+        $container = PluginManagerSetup::getContainer();
+        $plugins = $container->get(PluginManager::class);
         $this->plugin = $plugins->get(FormElementRow::class);
     }
 
     public function testDefaultBehaviour(): void
     {
         $element = new Text('foo', ['label' => 'Some Input']);
-        $markup  = $this->plugin->__invoke($element);
+        $markup = $this->plugin->__invoke($element);
         self::assertSame(
             <<<'HTML'
-            <div>
-            <label for="foo">
-            Some Input
-            </label>
-            <input name="foo" type="text" value="">
-            </div>
-            HTML,
+                <div>
+                <label for="foo">
+                Some Input
+                </label>
+                <input name="foo" type="text" value="">
+                </div>
+                HTML,
             $markup,
         );
     }
@@ -48,16 +48,16 @@ final class FormElementRowTest extends TestCase
     public function testThatWrapperAttributesAreApplied(): void
     {
         $element = new Text('foo', ['label' => 'Some Input']);
-        $markup  = $this->plugin->__invoke($element, [], [], [], ['class' => 'foo']);
+        $markup = $this->plugin->__invoke($element, [], [], [], ['class' => 'foo']);
         self::assertSame(
             <<<'HTML'
-            <div class="foo">
-            <label for="foo">
-            Some Input
-            </label>
-            <input name="foo" type="text" value="">
-            </div>
-            HTML,
+                <div class="foo">
+                <label for="foo">
+                Some Input
+                </label>
+                <input name="foo" type="text" value="">
+                </div>
+                HTML,
             $markup,
         );
     }
@@ -65,16 +65,16 @@ final class FormElementRowTest extends TestCase
     public function testThatElementAttributesAreApplied(): void
     {
         $element = new Text('foo', ['label' => 'Some Input']);
-        $markup  = $this->plugin->__invoke($element, ['class' => 'input']);
+        $markup = $this->plugin->__invoke($element, ['class' => 'input']);
         self::assertSame(
             <<<'HTML'
-            <div>
-            <label for="foo">
-            Some Input
-            </label>
-            <input class="input" name="foo" type="text" value="">
-            </div>
-            HTML,
+                <div>
+                <label for="foo">
+                Some Input
+                </label>
+                <input class="input" name="foo" type="text" value="">
+                </div>
+                HTML,
             $markup,
         );
     }
@@ -82,16 +82,16 @@ final class FormElementRowTest extends TestCase
     public function testThatLabelAttributesAreApplied(): void
     {
         $element = new Text('foo', ['label' => 'Some Input']);
-        $markup  = $this->plugin->__invoke($element, [], ['class' => 'label']);
+        $markup = $this->plugin->__invoke($element, [], ['class' => 'label']);
         self::assertSame(
             <<<'HTML'
-            <div>
-            <label class="label" for="foo">
-            Some Input
-            </label>
-            <input name="foo" type="text" value="">
-            </div>
-            HTML,
+                <div>
+                <label class="label" for="foo">
+                Some Input
+                </label>
+                <input name="foo" type="text" value="">
+                </div>
+                HTML,
             $markup,
         );
     }
@@ -99,16 +99,16 @@ final class FormElementRowTest extends TestCase
     public function testLabelAppendDoesNotAppendWithoutWrap(): void
     {
         $element = new Text('foo', ['label' => 'Some Input']);
-        $markup  = $this->plugin->__invoke($element, [], [], [], [], FormElementRow::APPEND);
+        $markup = $this->plugin->__invoke($element, [], [], [], [], FormElementRow::APPEND);
         self::assertSame(
             <<<'HTML'
-            <div>
-            <label for="foo">
-            Some Input
-            </label>
-            <input name="foo" type="text" value="">
-            </div>
-            HTML,
+                <div>
+                <label for="foo">
+                Some Input
+                </label>
+                <input name="foo" type="text" value="">
+                </div>
+                HTML,
             $markup,
         );
     }
@@ -116,7 +116,7 @@ final class FormElementRowTest extends TestCase
     public function testLabelIsAppendedWhenWrapped(): void
     {
         $element = new Text('foo', ['label' => 'Some Input']);
-        $markup  = $this->plugin->__invoke(
+        $markup = $this->plugin->__invoke(
             $element,
             [],
             [],
@@ -128,13 +128,13 @@ final class FormElementRowTest extends TestCase
         );
         self::assertSame(
             <<<'HTML'
-            <div>
-            <label for="foo">
-            <input name="foo" type="text" value="">
-            Some Input
-            </label>
-            </div>
-            HTML,
+                <div>
+                <label for="foo">
+                <input name="foo" type="text" value="">
+                Some Input
+                </label>
+                </div>
+                HTML,
             $markup,
         );
     }
@@ -142,7 +142,7 @@ final class FormElementRowTest extends TestCase
     public function testLabelIsPrependedWhenWrapped(): void
     {
         $element = new Text('foo', ['label' => 'Some Input']);
-        $markup  = $this->plugin->__invoke(
+        $markup = $this->plugin->__invoke(
             $element,
             [],
             [],
@@ -154,13 +154,13 @@ final class FormElementRowTest extends TestCase
         );
         self::assertSame(
             <<<'HTML'
-            <div>
-            <label for="foo">
-            Some Input
-            <input name="foo" type="text" value="">
-            </label>
-            </div>
-            HTML,
+                <div>
+                <label for="foo">
+                Some Input
+                <input name="foo" type="text" value="">
+                </label>
+                </div>
+                HTML,
             $markup,
         );
     }
@@ -172,16 +172,16 @@ final class FormElementRowTest extends TestCase
         $markup = $this->plugin->__invoke($element);
         self::assertSame(
             <<<'HTML'
-            <div>
-            <label for="foo">
-            Some Input
-            </label>
-            <input aria-invalid="true" name="foo" type="text" value="">
-            <ul class="error-list">
-            <li>Bad News</li>
-            </ul>
-            </div>
-            HTML,
+                <div>
+                <label for="foo">
+                Some Input
+                </label>
+                <input aria-invalid="true" name="foo" type="text" value="">
+                <ul class="error-list">
+                <li>Bad News</li>
+                </ul>
+                </div>
+                HTML,
             $markup,
         );
     }
@@ -193,16 +193,16 @@ final class FormElementRowTest extends TestCase
         $markup = $this->plugin->__invoke($element, errorPosition: 'prepend');
         self::assertSame(
             <<<'HTML'
-            <div>
-            <label for="foo">
-            Some Input
-            </label>
-            <ul class="error-list">
-            <li>Bad News</li>
-            </ul>
-            <input aria-invalid="true" name="foo" type="text" value="">
-            </div>
-            HTML,
+                <div>
+                <label for="foo">
+                Some Input
+                </label>
+                <ul class="error-list">
+                <li>Bad News</li>
+                </ul>
+                <input aria-invalid="true" name="foo" type="text" value="">
+                </div>
+                HTML,
             $markup,
         );
     }
@@ -216,16 +216,16 @@ final class FormElementRowTest extends TestCase
         $markup = $this->plugin->__invoke($fieldset);
         self::assertSame(
             <<<'HTML'
-            <fieldset name="fields">
-            <legend>Some Fields</legend>
-            <div>
-            <label for="foo">
-            Some Input
-            </label>
-            <input name="foo" type="text" value="">
-            </div>
-            </fieldset>
-            HTML,
+                <fieldset name="fields">
+                <legend>Some Fields</legend>
+                <div>
+                <label for="foo">
+                Some Input
+                </label>
+                <input name="foo" type="text" value="">
+                </div>
+                </fieldset>
+                HTML,
             $markup,
         );
     }

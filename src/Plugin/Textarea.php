@@ -28,8 +28,8 @@ final readonly class Textarea
     public function __invoke(TextareaInput $element, array $attributes = []): string
     {
         $attributes = array_merge($element->getAttributes(), $attributes);
-        $name       = $attributes['name'] ?? null;
-        $name       = $element->getName() ?? $name;
+        $name = $attributes['name'] ?? null;
+        $name = $element->getName() ?? $name;
         unset($attributes['name']);
         if (is_string($name) && $name !== '') {
             $attributes['name'] = $name;

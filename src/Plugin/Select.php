@@ -11,6 +11,7 @@ use Looker\Form\Plugin\Exception\SelectElementCannotBeRendered;
 use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 
+use function array_key_exists;
 use function array_merge;
 use function array_unshift;
 use function assert;
@@ -23,6 +24,7 @@ use function str_contains;
 
 use const PHP_EOL;
 
+/** @mago-expect lint:cyclomatic-complexity */
 final readonly class Select
 {
     public function __construct(
@@ -38,8 +40,8 @@ final readonly class Select
     public function __invoke(SelectElement $element, array $attributes = []): string
     {
         $attributes = array_merge($element->getAttributes(), $attributes);
-        $name       = $attributes['name'] ?? null;
-        $name       = $element->getName() ?? $name;
+        $name = $attributes['name'] ?? null;
+        $name = $element->getName() ?? $name;
         unset($attributes['name']);
         if (is_string($name) && $name !== '') {
             if ($element->isMultiple() && ! str_contains($name, '[]')) {
@@ -63,13 +65,13 @@ final readonly class Select
 
     private function renderOptions(SelectElement $element): string
     {
-        $options       = $element->getValueOptions();
+        $options = $element->getValueOptions();
         $optionStrings = [];
 
         /** @psalm-var mixed $option */
         foreach ($options as $key => $option) {
-            if (is_array($option) && isset($option['options']) && is_array($option['options'])) {
-                $label           = isset($option['label']) && is_scalar($option['label'])
+            if (is_array($option) && array_key_exists('options', $option) && is_array($option['options'])) {
+                $label = array_key_exists('label', $option) && is_scalar($option['label'])
                     ? (string) $option['label']
                     : '';
                 $optionStrings[] = $this->renderOptGroup($element, $label, $option['options']);
@@ -95,8 +97,8 @@ final readonly class Select
 
         if (
             is_array($option)
-            && isset($option['label'])
-            && isset($option['value'])
+            && array_key_exists('label', $option)
+            && array_key_exists('value', $option)
             && is_scalar($option['label'])
             && is_scalar($option['value'])
         ) {

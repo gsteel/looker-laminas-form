@@ -28,17 +28,17 @@ final class PluginManagerSetup
 
         $container = new ServiceManager($config);
         $container->setService(PluginManagerInterface::class, self::buildPluginManager($container));
-        $container->setService('config', (new ConfigProvider())->__invoke());
+        $container->setService('config', new ConfigProvider()->__invoke());
 
         return $container;
     }
 
     private static function buildPluginManager(ContainerInterface $container): PluginManager
     {
-        $config = (new ConfigProvider())->__invoke()['looker'] ?? [];
+        $config = new ConfigProvider()->__invoke()['looker'] ?? [];
         assertIsArray($config);
         /** @psalm-var ServiceManagerConfiguration $pluginConfig */
-        $pluginConfig             = $config['plugins'] ?? [];
+        $pluginConfig = $config['plugins'] ?? [];
         $pluginConfig['services'] = [
             HtmlAttributes::class => new HtmlAttributes(new Escaper()),
         ];

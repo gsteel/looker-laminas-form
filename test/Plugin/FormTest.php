@@ -24,8 +24,8 @@ final class FormTest extends TestCase
          * Because the `FormElementRow` plugin has a dependency on a plugin manager, it's easier to just build this
          * instance via its factory, otherwise, we have a _lot_ of plugins to set up.
          */
-        $container    = PluginManagerSetup::getContainer();
-        $plugins      = $container->get(PluginManager::class);
+        $container = PluginManagerSetup::getContainer();
+        $plugins = $container->get(PluginManager::class);
         $this->plugin = $plugins->get(Form::class);
     }
 
@@ -98,15 +98,15 @@ final class FormTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <form method="POST">
-            <div>
-            <label for="fred">
-            Fred
-            </label>
-            <input name="fred" type="text" value="">
-            </div>
-            </form>
-            HTML,
+                <form method="POST">
+                <div>
+                <label for="fred">
+                Fred
+                </label>
+                <input name="fred" type="text" value="">
+                </div>
+                </form>
+                HTML,
             $this->plugin->__invoke($form),
         );
     }
@@ -119,15 +119,15 @@ final class FormTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <form method="POST" name="stuff">
-            <div>
-            <label for="stuff&#x5B;fred&#x5D;">
-            Fred
-            </label>
-            <input name="stuff&#x5B;fred&#x5D;" type="text" value="">
-            </div>
-            </form>
-            HTML,
+                <form method="POST" name="stuff">
+                <div>
+                <label for="stuff&#x5B;fred&#x5D;">
+                Fred
+                </label>
+                <input name="stuff&#x5B;fred&#x5D;" type="text" value="">
+                </div>
+                </form>
+                HTML,
             $this->plugin->__invoke($form),
         );
     }
@@ -141,9 +141,9 @@ final class FormTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <form method="POST" name="stuff">
-            </form>
-            HTML,
+                <form method="POST" name="stuff">
+                </form>
+                HTML,
             $markup,
         );
     }

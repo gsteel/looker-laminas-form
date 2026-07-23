@@ -57,10 +57,10 @@ final readonly class Fieldset
 
         return sprintf(
             <<<'HTML'
-            <fieldset%s>
-            %s
-            </fieldset>
-            HTML,
+                <fieldset%s>
+                %s
+                </fieldset>
+                HTML,
             $attributes === '' ? '' : ' ' . $attributes,
             $fieldsetContent,
         );
@@ -92,7 +92,7 @@ final readonly class Fieldset
         $buffer = [];
         foreach ($fieldset as $element) {
             if ($element instanceof FormFieldset) {
-                $buffer[] = ($this)($element);
+                $buffer[] = $this($element);
                 continue;
             }
 

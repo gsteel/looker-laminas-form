@@ -22,7 +22,7 @@ final class ButtonTest extends TestCase
     #[Override]
     protected function setUp(): void
     {
-        $escaper      = new Escaper();
+        $escaper = new Escaper();
         $this->plugin = new Button(
             $escaper,
             new HtmlAttributes($escaper),

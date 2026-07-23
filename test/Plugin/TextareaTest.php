@@ -20,7 +20,7 @@ final class TextareaTest extends TestCase
     #[Override]
     protected function setUp(): void
     {
-        $escaper      = new Escaper();
+        $escaper = new Escaper();
         $this->helper = new Textarea(
             $escaper,
             new HtmlAttributes($escaper),
@@ -106,7 +106,7 @@ final class TextareaTest extends TestCase
     public function testTheElementIsRenderedWithoutAName(): void
     {
         $element = new Element();
-        $markup  = $this->helper->__invoke($element);
+        $markup = $this->helper->__invoke($element);
         self::assertSame('<textarea ></textarea>', $markup);
     }
 

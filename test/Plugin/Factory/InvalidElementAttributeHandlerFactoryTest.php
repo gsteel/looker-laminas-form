@@ -106,7 +106,7 @@ final class InvalidElementAttributeHandlerFactoryTest extends TestCase
             ],
         ]);
 
-        $handler = (new InvalidElementAttributeHandlerFactory())->__invoke($container);
+        $handler = new InvalidElementAttributeHandlerFactory()->__invoke($container);
 
         $element = new Text('foo');
         $element->setMessages(['bad' => 'news']);

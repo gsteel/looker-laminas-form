@@ -22,9 +22,9 @@ final class SelectTest extends TestCase
     #[Override]
     protected function setUp(): void
     {
-        $escaper         = new Escaper();
+        $escaper = new Escaper();
         $attributeHelper = new HtmlAttributes($escaper);
-        $this->helper    = new Select(
+        $this->helper = new Select(
             $escaper,
             $attributeHelper,
             new AttributeNormaliser(false),
@@ -50,11 +50,11 @@ final class SelectTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <select name="test">
-            <option value="a">A</option>
-            <option value="b">B</option>
-            </select>
-            HTML,
+                <select name="test">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                </select>
+                HTML,
             $markup,
         );
     }
@@ -80,11 +80,11 @@ final class SelectTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <select name="test">
-            <option id="aa" value="a">A</option>
-            <option id="bb" value="b">B</option>
-            </select>
-            HTML,
+                <select name="test">
+                <option id="aa" value="a">A</option>
+                <option id="bb" value="b">B</option>
+                </select>
+                HTML,
             $markup,
         );
     }
@@ -107,13 +107,13 @@ final class SelectTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <select name="test">
-            <optgroup label="Stuff">
-            <option value="a">A</option>
-            <option value="b">B</option>
-            </optgroup>
-            </select>
-            HTML,
+                <select name="test">
+                <optgroup label="Stuff">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                </optgroup>
+                </select>
+                HTML,
             $markup,
         );
     }
@@ -144,13 +144,13 @@ final class SelectTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <select name="test">
-            <optgroup label="Stuff">
-            <option id="aa" value="a">A</option>
-            <option id="bb" value="b">B</option>
-            </optgroup>
-            </select>
-            HTML,
+                <select name="test">
+                <optgroup label="Stuff">
+                <option id="aa" value="a">A</option>
+                <option id="bb" value="b">B</option>
+                </optgroup>
+                </select>
+                HTML,
             $markup,
         );
     }
@@ -183,13 +183,13 @@ final class SelectTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <select name="test">
-            <optgroup label="Stuff">
-            <option disabled id="aa" value="a">A</option>
-            <option id="bb" lang="en" value="b">B</option>
-            </optgroup>
-            </select>
-            HTML,
+                <select name="test">
+                <optgroup label="Stuff">
+                <option disabled id="aa" value="a">A</option>
+                <option id="bb" lang="en" value="b">B</option>
+                </optgroup>
+                </select>
+                HTML,
             $markup,
         );
     }
@@ -217,7 +217,7 @@ final class SelectTest extends TestCase
     public function testThatAnElementWithoutANameIsRendered(): void
     {
         $element = new SelectElement();
-        $markup  = $this->helper->__invoke($element);
+        $markup = $this->helper->__invoke($element);
         self::assertSame("<select >\n\n</select>", $markup);
     }
 
@@ -227,10 +227,10 @@ final class SelectTest extends TestCase
         $element->setAttribute('multiple', true);
         self::assertSame(
             <<<'HTML'
-            <select multiple name="test&#x5B;&#x5D;">
-            
-            </select>
-            HTML,
+                <select multiple name="test&#x5B;&#x5D;">
+
+                </select>
+                HTML,
             $this->helper->__invoke($element),
         );
     }
@@ -241,10 +241,10 @@ final class SelectTest extends TestCase
         $element->setAttribute('multiple', true);
         self::assertSame(
             <<<'HTML'
-            <select multiple name="test&#x5B;&#x5D;">
-            
-            </select>
-            HTML,
+                <select multiple name="test&#x5B;&#x5D;">
+
+                </select>
+                HTML,
             $this->helper->__invoke($element),
         );
     }
@@ -255,10 +255,10 @@ final class SelectTest extends TestCase
         $element->setAttribute('multiple', false);
         self::assertSame(
             <<<'HTML'
-            <select name="test">
-            
-            </select>
-            HTML,
+                <select name="test">
+
+                </select>
+                HTML,
             $this->helper->__invoke($element),
         );
     }
@@ -269,10 +269,10 @@ final class SelectTest extends TestCase
         $element->setAttribute('disabled', true);
         self::assertSame(
             <<<'HTML'
-            <select disabled name="test">
-            
-            </select>
-            HTML,
+                <select disabled name="test">
+
+                </select>
+                HTML,
             $this->helper->__invoke($element),
         );
     }
@@ -283,10 +283,10 @@ final class SelectTest extends TestCase
         $element->setAttribute('boats', 'float');
         self::assertSame(
             <<<'HTML'
-            <select name="test">
-            
-            </select>
-            HTML,
+                <select name="test">
+
+                </select>
+                HTML,
             $this->helper->__invoke($element),
         );
     }
@@ -297,10 +297,10 @@ final class SelectTest extends TestCase
         $element->setAttribute('autocomplete', 'off');
         self::assertSame(
             <<<'HTML'
-            <select autocomplete="goats" name="test">
-            
-            </select>
-            HTML,
+                <select autocomplete="goats" name="test">
+
+                </select>
+                HTML,
             $this->helper->__invoke($element, ['autocomplete' => 'goats']),
         );
     }
@@ -313,11 +313,11 @@ final class SelectTest extends TestCase
         $element->setEmptyOption('Pick One…');
         self::assertSame(
             <<<'HTML'
-            <select name="test">
-            <option value="">Pick One…</option>
-            <option value="a">A</option>
-            </select>
-            HTML,
+                <select name="test">
+                <option value="">Pick One…</option>
+                <option value="a">A</option>
+                </select>
+                HTML,
             $this->helper->__invoke($element),
         );
     }
@@ -361,13 +361,13 @@ final class SelectTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <select name="test">
-            <optgroup label="">
-            <option value="a">A</option>
-            <option value="b">B</option>
-            </optgroup>
-            </select>
-            HTML,
+                <select name="test">
+                <optgroup label="">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                </optgroup>
+                </select>
+                HTML,
             $this->helper->__invoke($element),
         );
     }

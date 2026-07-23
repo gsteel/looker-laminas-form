@@ -15,7 +15,7 @@ final class InvalidElementAttributeHandlerTest extends TestCase
         $element = new Text();
         $element->setMessages(['Bad News']);
 
-        $attributes = (new InvalidElementAttributeHandler())->__invoke($element, []);
+        $attributes = new InvalidElementAttributeHandler()->__invoke($element, []);
 
         self::assertSame(['aria-invalid' => 'true'], $attributes);
     }
@@ -40,13 +40,13 @@ final class InvalidElementAttributeHandlerTest extends TestCase
             return $attributes;
         };
 
-        $attributes = (new InvalidElementAttributeHandler($handler))->__invoke($element, []);
+        $attributes = new InvalidElementAttributeHandler($handler)->__invoke($element, []);
         self::assertSame(['class' => 'error'], $attributes);
     }
 
     public function testThatAttributesAreNotModifiedWhenTheElementIsNotInAnErrorState(): void
     {
-        $attributes = (new InvalidElementAttributeHandler())->__invoke(new Text(), []);
+        $attributes = new InvalidElementAttributeHandler()->__invoke(new Text(), []);
         self::assertSame([], $attributes);
     }
 }

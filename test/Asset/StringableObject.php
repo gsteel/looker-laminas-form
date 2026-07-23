@@ -9,8 +9,9 @@ use Stringable;
 
 final readonly class StringableObject implements Stringable
 {
-    public function __construct(private string $value)
-    {
+    public function __construct(
+        private string $value,
+    ) {
     }
 
     #[Override]
