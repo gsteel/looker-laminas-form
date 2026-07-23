@@ -23,8 +23,8 @@ final class FieldsetTest extends TestCase
          * Because the `FormElement` plugin has a dependency on a plugin manager, it's easier to just build this
          * instance via its factory, otherwise, we have a _lot_ of plugins to set up.
          */
-        $container    = PluginManagerSetup::getContainer();
-        $plugins      = $container->get(PluginManager::class);
+        $container = PluginManagerSetup::getContainer();
+        $plugins = $container->get(PluginManager::class);
         $this->plugin = $plugins->get(FieldsetPlugin::class);
     }
 
@@ -42,16 +42,16 @@ final class FieldsetTest extends TestCase
         $markup = $this->plugin->__invoke($fieldset);
         self::assertSame(
             <<<'HTML'
-            <fieldset name="fields">
-            <legend>Some Fields</legend>
-            <div>
-            <label for="foo">
-            Some Input
-            </label>
-            <input name="foo" type="text" value="">
-            </div>
-            </fieldset>
-            HTML,
+                <fieldset name="fields">
+                <legend>Some Fields</legend>
+                <div>
+                <label for="foo">
+                Some Input
+                </label>
+                <input name="foo" type="text" value="">
+                </div>
+                </fieldset>
+                HTML,
             $markup,
         );
     }
@@ -65,15 +65,15 @@ final class FieldsetTest extends TestCase
         $markup = $this->plugin->__invoke($fieldset);
         self::assertSame(
             <<<'HTML'
-            <fieldset name="fields">
-            <div>
-            <label for="foo">
-            Some Input
-            </label>
-            <input name="foo" type="text" value="">
-            </div>
-            </fieldset>
-            HTML,
+                <fieldset name="fields">
+                <div>
+                <label for="foo">
+                Some Input
+                </label>
+                <input name="foo" type="text" value="">
+                </div>
+                </fieldset>
+                HTML,
             $markup,
         );
     }
@@ -87,13 +87,13 @@ final class FieldsetTest extends TestCase
         $markup = $this->plugin->__invoke($fieldset);
         self::assertSame(
             <<<'HTML'
-            <div>
-            <label for="foo">
-            Some Input
-            </label>
-            <input name="foo" type="text" value="">
-            </div>
-            HTML,
+                <div>
+                <label for="foo">
+                Some Input
+                </label>
+                <input name="foo" type="text" value="">
+                </div>
+                HTML,
             $markup,
         );
     }
@@ -115,25 +115,25 @@ final class FieldsetTest extends TestCase
         $markup = $this->plugin->__invoke($fieldset1);
         self::assertSame(
             <<<'HTML'
-            <fieldset name="fields1">
-            <legend>Some Fields</legend>
-            <div>
-            <label for="foo">
-            Some Input
-            </label>
-            <input name="foo" type="text" value="">
-            </div>
-            <fieldset name="fields2">
-            <legend>More Fields</legend>
-            <div>
-            <label for="bar">
-            More Input
-            </label>
-            <input name="bar" type="text" value="">
-            </div>
-            </fieldset>
-            </fieldset>
-            HTML,
+                <fieldset name="fields1">
+                <legend>Some Fields</legend>
+                <div>
+                <label for="foo">
+                Some Input
+                </label>
+                <input name="foo" type="text" value="">
+                </div>
+                <fieldset name="fields2">
+                <legend>More Fields</legend>
+                <div>
+                <label for="bar">
+                More Input
+                </label>
+                <input name="bar" type="text" value="">
+                </div>
+                </fieldset>
+                </fieldset>
+                HTML,
             $markup,
         );
     }
@@ -144,7 +144,7 @@ final class FieldsetTest extends TestCase
             'label' => 'Some Fields',
             'data-baz' => 'bar',
         ]);
-        $element  = new Text('foo', ['label' => 'Some Input']);
+        $element = new Text('foo', ['label' => 'Some Input']);
         $fieldset->add($element);
 
         $markup = $this->plugin->__invoke($fieldset, ['data-baz' => 'bing']);

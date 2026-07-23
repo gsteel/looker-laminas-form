@@ -18,6 +18,7 @@ use function is_bool;
 use function is_string;
 use function sprintf;
 
+/** @mago-expect lint:cyclomatic-complexity */
 final readonly class Label
 {
     public function __construct(
@@ -77,7 +78,7 @@ final readonly class Label
         $id = is_string($id) ? $id : $element->getName();
         /** @psalm-var mixed $id */
         $id = $attributes['for'] ?? $id;
-        if (! is_string($id) || $id  === '') {
+        if (! is_string($id) || $id === '') {
             throw FormElementsMustBeNamed::forLabelling();
         }
 

@@ -38,11 +38,11 @@ final readonly class CheckBox
             $attributes['name'] = $name;
         }
 
-        $attributes          = array_merge($element->getAttributes(), $attributes);
-        $attributes['type']  = 'checkbox';
+        $attributes = array_merge($element->getAttributes(), $attributes);
+        $attributes['type'] = 'checkbox';
         $attributes['value'] = $element->getCheckedValue();
-        $closingBracket      = $this->doctype->isXhtml() ? ' />' : '>';
-        $attributes          = ($this->invalidElementHandler)($element, $attributes);
+        $closingBracket = $this->doctype->isXhtml() ? ' />' : '>';
+        $attributes = ($this->invalidElementHandler)($element, $attributes);
 
         if ((string) $element->getValue() === $element->getCheckedValue()) {
             $attributes['checked'] = true;
@@ -58,8 +58,8 @@ final readonly class CheckBox
 
         unset($attributes['id'], $attributes['checked']);
         $attributes['value'] = $element->getUncheckedValue();
-        $attributes['type']  = 'hidden';
-        $hiddenMarkup        = sprintf('<input %s%s', ($this->attributePlugin)($attributes), $closingBracket);
+        $attributes['type'] = 'hidden';
+        $hiddenMarkup = sprintf('<input %s%s', ($this->attributePlugin)($attributes), $closingBracket);
 
         return $hiddenMarkup . PHP_EOL . $elementMarkup;
     }

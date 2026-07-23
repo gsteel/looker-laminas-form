@@ -29,7 +29,6 @@ final class LabelAttribute implements AttributeInformation
     {
         $name = strtolower($name);
 
-        return in_array($name, self::STRING)
-            || GlobalAttribute::exists($name);
+        return in_array($name, self::STRING, true) || GlobalAttribute::exists($name);
     }
 }

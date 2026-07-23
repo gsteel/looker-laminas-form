@@ -40,7 +40,8 @@ final class ConfigProvider
                 Plugin\FormElement::class => Plugin\Factory\FormElementFactory::class,
                 Plugin\FormElementRow::class => Plugin\Factory\FormElementRowFactory::class,
                 Plugin\FormInput::class => Plugin\Factory\FormInputFactory::class,
-                Plugin\InvalidElementAttributeHandler::class => Plugin\Factory\InvalidElementAttributeHandlerFactory::class,
+                Plugin\InvalidElementAttributeHandler::class =>
+                    Plugin\Factory\InvalidElementAttributeHandlerFactory::class,
                 Plugin\Label::class => Plugin\Factory\LabelFactory::class,
                 Plugin\MultiCheckBox::class => Plugin\Factory\MultiCheckBoxFactory::class,
                 Plugin\Option::class => Plugin\Factory\OptionFactory::class,

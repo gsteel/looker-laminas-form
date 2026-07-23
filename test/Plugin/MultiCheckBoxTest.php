@@ -23,7 +23,7 @@ final class MultiCheckBoxTest extends TestCase
     #[Override]
     protected function setUp(): void
     {
-        $escaper    = new Escaper();
+        $escaper = new Escaper();
         $attributes = new HtmlAttributes($escaper);
 
         $this->plugin = new MultiCheckBox(
@@ -50,9 +50,9 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
-            HTML,
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -67,9 +67,9 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <label><input name="foo" type="radio" value="a"> Foo</label>
-            <label><input name="foo" type="radio" value="b"> Bar</label>
-            HTML,
+                <label><input name="foo" type="radio" value="a"> Foo</label>
+                <label><input name="foo" type="radio" value="b"> Bar</label>
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -84,9 +84,9 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <label>Foo <input name="foo&#x5B;&#x5D;" type="checkbox" value="a"></label>
-            <label>Bar <input name="foo&#x5B;&#x5D;" type="checkbox" value="b"></label>
-            HTML,
+                <label>Foo <input name="foo&#x5B;&#x5D;" type="checkbox" value="a"></label>
+                <label>Bar <input name="foo&#x5B;&#x5D;" type="checkbox" value="b"></label>
+                HTML,
             $this->plugin->__invoke($element, MultiCheckBox::PREPEND),
         );
     }
@@ -102,10 +102,10 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input name="foo" type="hidden" value="">
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
-            HTML,
+                <input name="foo" type="hidden" value="">
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -118,8 +118,8 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input name="foo" type="hidden" value="nope">
-            HTML,
+                <input name="foo" type="hidden" value="nope">
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -136,10 +136,10 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <label><input checked name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
-            <label><input checked name="foo&#x5B;&#x5D;" type="checkbox" value="c"> Baz</label>
-            HTML,
+                <label><input checked name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
+                <label><input checked name="foo&#x5B;&#x5D;" type="checkbox" value="c"> Baz</label>
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -155,10 +155,10 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <label><input checked name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="c"> Baz</label>
-            HTML,
+                <label><input checked name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="c"> Baz</label>
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -175,10 +175,10 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
-            <label><input checked name="foo&#x5B;&#x5D;" type="checkbox" value="c"> Baz</label>
-            HTML,
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
+                <label><input checked name="foo&#x5B;&#x5D;" type="checkbox" value="c"> Baz</label>
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -205,9 +205,9 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
-            HTML,
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -223,9 +223,9 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
-            <label><input checked name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
-            HTML,
+                <label><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
+                <label><input checked name="foo&#x5B;&#x5D;" type="checkbox" value="b"> Bar</label>
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -239,7 +239,7 @@ final class MultiCheckBoxTest extends TestCase
         ]);
         $element->setValue((object) ['foo' => 1]);
         $this->expectException(MultiCheckBoxCannotBeRendered::class);
-        $this->expectExceptionMessage('is a multi-checkbox, but its selected value is not iterable');
+        $this->expectExceptionMessageIsOrContains('is a multi-checkbox, but its selected value is not iterable');
         $this->plugin->__invoke($element);
     }
 
@@ -251,18 +251,19 @@ final class MultiCheckBoxTest extends TestCase
             (object) ['a' => 'b'],
         ]);
         $this->expectException(MultiCheckBoxCannotBeRendered::class);
-        $this->expectExceptionMessage(
+        $this->expectExceptionMessageIsOrContains(
             'Value options should be simple scalar key-value pairs, or a specification that conforms to the following:'
             . <<<'SPEC'
-            array{
-              value: scalar,
-              label: scalar,
-              disabled?: bool,
-              selected?: bool,
-              attributes?: array<string, scalar>,
-              label_attributes?: array<string, scalar>,
-            }
-            SPEC . 'but… stdClass was received',
+                array{
+                  value: scalar,
+                  label: scalar,
+                  disabled?: bool,
+                  selected?: bool,
+                  attributes?: array<string, scalar>,
+                  label_attributes?: array<string, scalar>,
+                }
+                SPEC
+            . 'but… stdClass was received',
         );
         $this->expectExceptionCode(0);
 
@@ -285,8 +286,8 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <label><input class="boo" id="bing" name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
-            HTML,
+                <label><input class="boo" id="bing" name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -307,8 +308,8 @@ final class MultiCheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <label class="boo" id="bing"><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
-            HTML,
+                <label class="boo" id="bing"><input name="foo&#x5B;&#x5D;" type="checkbox" value="a"> Foo</label>
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -316,7 +317,6 @@ final class MultiCheckBoxTest extends TestCase
     public function testExceptionThrownForInvalidOptionSpec(): void
     {
         $element = new MultiCheckElement('foo');
-        /** @psalm-suppress InvalidArgument */
         $element->setValueOptions([
             [
                 'label' => (object) ['a' => 'b'],
@@ -324,7 +324,9 @@ final class MultiCheckBoxTest extends TestCase
             ],
         ]);
         $this->expectException(MultiCheckBoxCannotBeRendered::class);
-        $this->expectExceptionMessage('Value options should be simple scalar key-value pairs, or a specification');
+        $this->expectExceptionMessageIsOrContains(
+            'Value options should be simple scalar key-value pairs, or a specification',
+        );
         $this->plugin->__invoke($element);
     }
 }

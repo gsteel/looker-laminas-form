@@ -15,7 +15,7 @@ use function strtolower;
 final class SelectAttribute implements AttributeInformation
 {
     private const array BOOLEAN = ['disabled', 'multiple', 'required'];
-    private const array STRING  = ['autocomplete', 'form', 'name', 'size'];
+    private const array STRING = ['autocomplete', 'form', 'name', 'size'];
 
     /** @param non-empty-string $name */
     #[Override]
@@ -32,8 +32,6 @@ final class SelectAttribute implements AttributeInformation
     {
         $name = strtolower($name);
 
-        return in_array($name, self::STRING)
-            || self::isBoolean($name)
-            || GlobalAttribute::exists($name);
+        return in_array($name, self::STRING, true) || self::isBoolean($name) || GlobalAttribute::exists($name);
     }
 }

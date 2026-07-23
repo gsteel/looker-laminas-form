@@ -27,7 +27,10 @@ final readonly class Option
     ) {
     }
 
-    /** @param array<string, scalar|null> $attributes */
+    /**
+     * @param array<string, scalar|null> $attributes
+     * @throws SelectElementCannotBeRendered
+     */
     public function __invoke(SelectElement $element, string $value, string $label, array $attributes): string
     {
         $attributes['value'] = $value;
@@ -45,9 +48,14 @@ final readonly class Option
         );
     }
 
-    /** @return list<string> */
+    /**
+     * @return list<string>
+     * @mago-expect lint:halstead
+     * @throws SelectElementCannotBeRendered
+     */
     private function normaliseSelectedValues(SelectElement $element): array
     {
+        /** @var mixed $value */
         $value = $element->getValue();
         if ($value === null || $value === '') {
             return [];
@@ -68,6 +76,7 @@ final readonly class Option
         return array_values(array_map(static fn (int|float|string $value): string => (string) $value, $value));
     }
 
+    /** @throws SelectElementCannotBeRendered */
     private function isSelected(string $value, SelectElement $element): bool
     {
         return in_array($value, $this->normaliseSelectedValues($element), true);

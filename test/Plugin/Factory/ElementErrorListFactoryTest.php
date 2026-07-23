@@ -126,7 +126,7 @@ final class ElementErrorListFactoryTest extends TestCase
     {
         self::assertInstanceOf(
             ElementErrorList::class,
-            (new ElementErrorListFactory())->__invoke($container),
+            new ElementErrorListFactory()->__invoke($container),
         );
     }
 
@@ -154,7 +154,7 @@ final class ElementErrorListFactoryTest extends TestCase
         ]);
 
         $this->expectException(Throwable::class);
-        (new ElementErrorListFactory())->__invoke($container);
+        new ElementErrorListFactory()->__invoke($container);
     }
 
     public function testValidConfigIsUsedForThePlugin(): void
@@ -173,7 +173,7 @@ final class ElementErrorListFactoryTest extends TestCase
             ]),
         ]);
 
-        $plugin  = (new ElementErrorListFactory())->__invoke($container);
+        $plugin = new ElementErrorListFactory()->__invoke($container);
         $element = new Text('foo');
         $element->setMessages(['bad' => 'news']);
         $markup = $plugin->__invoke($element);

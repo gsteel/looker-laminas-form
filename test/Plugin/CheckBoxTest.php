@@ -40,9 +40,9 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input name="foo" type="hidden" value="0">
-            <input name="foo" type="checkbox" value="1">
-            HTML,
+                <input name="foo" type="hidden" value="0">
+                <input name="foo" type="checkbox" value="1">
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -53,9 +53,9 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input name="bar" type="hidden" value="0">
-            <input name="bar" type="checkbox" value="1">
-            HTML,
+                <input name="bar" type="hidden" value="0">
+                <input name="bar" type="checkbox" value="1">
+                HTML,
             $this->plugin->__invoke($element, ['name' => 'bar']),
         );
     }
@@ -63,7 +63,7 @@ final class CheckBoxTest extends TestCase
     public function testElementWithoutNameIsRendered(): void
     {
         $element = new CheckboxElement();
-        $markup  = $this->plugin->__invoke($element);
+        $markup = $this->plugin->__invoke($element);
         self::assertSame(
             '<input type="hidden" value="0">' . PHP_EOL . '<input type="checkbox" value="1">',
             $markup,
@@ -76,9 +76,9 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input name="foo" type="hidden" value="0">
-            <input name="foo" type="checkbox" value="1">
-            HTML,
+                <input name="foo" type="hidden" value="0">
+                <input name="foo" type="checkbox" value="1">
+                HTML,
             $this->plugin->__invoke($element, ['name' => 'bar', 'type' => 'radio', 'value' => 99]),
         );
     }
@@ -90,9 +90,9 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input aria-invalid="true" name="foo" type="hidden" value="0">
-            <input aria-invalid="true" name="foo" type="checkbox" value="1">
-            HTML,
+                <input aria-invalid="true" name="foo" type="hidden" value="0">
+                <input aria-invalid="true" name="foo" type="checkbox" value="1">
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -103,9 +103,9 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input name="foo" type="hidden" value="0">
-            <input name="foo" type="checkbox" value="1">
-            HTML,
+                <input name="foo" type="hidden" value="0">
+                <input name="foo" type="checkbox" value="1">
+                HTML,
             $this->plugin->__invoke($element, ['disabled' => false]),
         );
     }
@@ -116,9 +116,9 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input disabled name="foo" type="hidden" value="0">
-            <input disabled name="foo" type="checkbox" value="1">
-            HTML,
+                <input disabled name="foo" type="hidden" value="0">
+                <input disabled name="foo" type="checkbox" value="1">
+                HTML,
             $this->plugin->__invoke($element, ['disabled' => true]),
         );
     }
@@ -129,9 +129,9 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input goats="monkeys" name="foo" type="hidden" value="0">
-            <input goats="monkeys" name="foo" type="checkbox" value="1">
-            HTML,
+                <input goats="monkeys" name="foo" type="hidden" value="0">
+                <input goats="monkeys" name="foo" type="checkbox" value="1">
+                HTML,
             $this->plugin->__invoke($element, ['goats' => 'monkeys']),
         );
     }
@@ -143,15 +143,15 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input name="foo" type="checkbox" value="1">
-            HTML,
+                <input name="foo" type="checkbox" value="1">
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
 
     public function testXhtmlOutput(): void
     {
-        $plugin  = new CheckBox(
+        $plugin = new CheckBox(
             new HtmlAttributes(
                 new Escaper(),
             ),
@@ -163,9 +163,9 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input name="foo" type="hidden" value="0" />
-            <input name="foo" type="checkbox" value="1" />
-            HTML,
+                <input name="foo" type="hidden" value="0" />
+                <input name="foo" type="checkbox" value="1" />
+                HTML,
             $plugin->__invoke($element),
         );
     }
@@ -177,9 +177,9 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input name="foo" type="hidden" value="0">
-            <input id="baz" name="foo" type="checkbox" value="1">
-            HTML,
+                <input name="foo" type="hidden" value="0">
+                <input id="baz" name="foo" type="checkbox" value="1">
+                HTML,
             $this->plugin->__invoke($element),
         );
     }
@@ -191,9 +191,9 @@ final class CheckBoxTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <input name="foo" type="hidden" value="0">
-            <input checked name="foo" type="checkbox" value="1">
-            HTML,
+                <input name="foo" type="hidden" value="0">
+                <input checked name="foo" type="checkbox" value="1">
+                HTML,
             $this->plugin->__invoke($element),
         );
     }

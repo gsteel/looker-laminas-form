@@ -95,9 +95,11 @@ final class InputAttribute implements AttributeInformation
     {
         $name = strtolower($name);
 
-        return in_array($name, self::STRING)
+        return (
+            in_array($name, self::STRING, true)
             || array_key_exists($name, self::ENUMERATED)
             || self::isBoolean($name)
-            || GlobalAttribute::exists($name);
+            || GlobalAttribute::exists($name)
+        );
     }
 }

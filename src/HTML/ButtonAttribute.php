@@ -15,8 +15,8 @@ use function strtolower;
 /** @psalm-internal Looker */
 final class ButtonAttribute implements AttributeInformation
 {
-    private const array BOOLEAN    = ['disabled', 'formnovalidate'];
-    private const array STRING     = [
+    private const array BOOLEAN = ['disabled', 'formnovalidate'];
+    private const array STRING = [
         'autocomplete',
         'form',
         'formaction',
@@ -47,9 +47,11 @@ final class ButtonAttribute implements AttributeInformation
     {
         $name = strtolower($name);
 
-        return in_array($name, self::STRING)
+        return (
+            in_array($name, self::STRING, true)
             || self::isBoolean($name)
             || array_key_exists($name, self::ENUMERATED)
-            || GlobalAttribute::exists($name);
+            || GlobalAttribute::exists($name)
+        );
     }
 }

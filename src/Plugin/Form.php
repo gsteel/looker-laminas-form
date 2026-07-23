@@ -7,6 +7,7 @@ namespace Looker\Form\Plugin;
 use Laminas\Form\Form as LaminasForm;
 use Laminas\Form\FormInterface;
 use Looker\Form\HTML\FormAttribute;
+use Looker\Form\Plugin\Exception\ElementCannotBeRendered;
 use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
 
@@ -30,6 +31,7 @@ final readonly class Form
      * @param array<string, scalar|null> $attributes
      *
      * @return ($form is null ? self : string)
+     * @throws ElementCannotBeRendered
      */
     public function __invoke(FormInterface|null $form = null, array $attributes = []): string|self
     {
@@ -63,7 +65,7 @@ final readonly class Form
 
         return sprintf(
             '<form%s%s>',
-            $attributes === '' ? '' :  ' ',
+            $attributes === '' ? '' : ' ',
             $attributes,
         );
     }

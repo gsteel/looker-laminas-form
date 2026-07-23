@@ -21,8 +21,8 @@ final class ElementErrorListTest extends TestCase
     protected function setUp(): void
     {
         $this->element = new Text();
-        $escaper       = new Escaper();
-        $this->plugin  = new ElementErrorList(
+        $escaper = new Escaper();
+        $this->plugin = new ElementErrorList(
             $escaper,
             new HtmlAttributes($escaper),
         );
@@ -39,10 +39,10 @@ final class ElementErrorListTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <ul>
-            <li>1 &amp; 2</li>
-            </ul>
-            HTML,
+                <ul>
+                <li>1 &amp; 2</li>
+                </ul>
+                HTML,
             $this->plugin->__invoke($this->element),
         );
     }
@@ -53,10 +53,10 @@ final class ElementErrorListTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <ul class="baz">
-            <li>1 &amp; 2</li>
-            </ul>
-            HTML,
+                <ul class="baz">
+                <li>1 &amp; 2</li>
+                </ul>
+                HTML,
             $this->plugin->__invoke($this->element, ['class' => 'baz']),
         );
     }
@@ -76,13 +76,13 @@ final class ElementErrorListTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <ul>
-            <li>a</li>
-            <li>b</li>
-            <li>c</li>
-            <li>d</li>
-            </ul>
-            HTML,
+                <ul>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+                <li>d</li>
+                </ul>
+                HTML,
             $this->plugin->__invoke($this->element),
         );
     }
@@ -90,7 +90,7 @@ final class ElementErrorListTest extends TestCase
     public function testThatDefaultAttributesWillBeApplied(): ElementErrorList
     {
         $escaper = new Escaper();
-        $plugin  = new ElementErrorList(
+        $plugin = new ElementErrorList(
             $escaper,
             new HtmlAttributes($escaper),
             ['class' => 'errors'],
@@ -99,10 +99,10 @@ final class ElementErrorListTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <ul class="errors">
-            <li>foo</li>
-            </ul>
-            HTML,
+                <ul class="errors">
+                <li>foo</li>
+                </ul>
+                HTML,
             $plugin->__invoke($this->element),
         );
 
@@ -116,10 +116,10 @@ final class ElementErrorListTest extends TestCase
 
         self::assertSame(
             <<<'HTML'
-            <ul class="goats">
-            <li>foo</li>
-            </ul>
-            HTML,
+                <ul class="goats">
+                <li>foo</li>
+                </ul>
+                HTML,
             $plugin->__invoke($this->element, ['class' => 'goats']),
         );
     }

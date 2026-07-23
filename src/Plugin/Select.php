@@ -10,7 +10,9 @@ use Looker\Form\HTML\SelectAttribute;
 use Looker\Form\Plugin\Exception\SelectElementCannotBeRendered;
 use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
+use Psl\Type;
 
+use function array_key_exists;
 use function array_merge;
 use function array_unshift;
 use function assert;
@@ -23,6 +25,7 @@ use function str_contains;
 
 use const PHP_EOL;
 
+/** @mago-expect lint:cyclomatic-complexity */
 final readonly class Select
 {
     public function __construct(
@@ -34,12 +37,15 @@ final readonly class Select
     ) {
     }
 
-    /** @param array<string, scalar|null> $attributes */
+    /**
+     * @param array<string, scalar|null> $attributes
+     * @throws SelectElementCannotBeRendered
+     */
     public function __invoke(SelectElement $element, array $attributes = []): string
     {
         $attributes = array_merge($element->getAttributes(), $attributes);
-        $name       = $attributes['name'] ?? null;
-        $name       = $element->getName() ?? $name;
+        $name = $attributes['name'] ?? null;
+        $name = $element->getName() ?? $name;
         unset($attributes['name']);
         if (is_string($name) && $name !== '') {
             if ($element->isMultiple() && ! str_contains($name, '[]')) {
@@ -61,15 +67,16 @@ final readonly class Select
         );
     }
 
+    /** @throws SelectElementCannotBeRendered */
     private function renderOptions(SelectElement $element): string
     {
-        $options       = $element->getValueOptions();
+        $options = $element->getValueOptions();
         $optionStrings = [];
 
         /** @psalm-var mixed $option */
         foreach ($options as $key => $option) {
-            if (is_array($option) && isset($option['options']) && is_array($option['options'])) {
-                $label           = isset($option['label']) && is_scalar($option['label'])
+            if (is_array($option) && array_key_exists('options', $option) && is_array($option['options'])) {
+                $label = array_key_exists('label', $option) && is_scalar($option['label'])
                     ? (string) $option['label']
                     : '';
                 $optionStrings[] = $this->renderOptGroup($element, $label, $option['options']);
@@ -87,6 +94,7 @@ final readonly class Select
         return implode(PHP_EOL, $optionStrings);
     }
 
+    /** @throws SelectElementCannotBeRendered */
     private function renderOption(SelectElement $element, string|int|null $key, mixed $option): string
     {
         if (is_scalar($option)) {
@@ -95,25 +103,35 @@ final readonly class Select
 
         if (
             is_array($option)
-            && isset($option['label'])
-            && isset($option['value'])
+            && array_key_exists('label', $option)
+            && array_key_exists('value', $option)
             && is_scalar($option['label'])
             && is_scalar($option['value'])
         ) {
+            /** @var mixed|array $attributes */
             $attributes = $option['attributes'] ?? [];
             assert(is_array($attributes));
             unset($option['attributes']);
 
+            /** @var array<array-key, mixed> $attributes */
             $attributes = array_merge($attributes, $option);
             unset($attributes['label'], $attributes['value']);
 
-            return ($this->optionHelper)($element, (string) $option['value'], (string) $option['label'], $attributes);
+            return ($this->optionHelper)(
+                $element,
+                (string) $option['value'],
+                (string) $option['label'],
+                Type\dict(Type\string(), Type\scalar())->coerce($attributes),
+            );
         }
 
         throw SelectElementCannotBeRendered::becauseOptionsCannotBeCoerced($element);
     }
 
-    /** @param array<array-key, mixed> $options */
+    /**
+     * @param array<array-key, mixed> $options
+     * @throws SelectElementCannotBeRendered
+     */
     private function renderOptGroup(SelectElement $element, string $label, array $options): string
     {
         $out = [

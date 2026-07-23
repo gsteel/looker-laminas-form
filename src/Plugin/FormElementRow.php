@@ -7,6 +7,7 @@ namespace Looker\Form\Plugin;
 use Laminas\Escaper\EscaperInterface;
 use Laminas\Form\ElementInterface;
 use Laminas\Form\Fieldset as FormFieldset;
+use Looker\Form\Plugin\Exception\ElementCannotBeRendered;
 use Looker\HTML\AttributeNormaliser;
 use Looker\HTML\GlobalAttribute;
 use Looker\Plugin\HtmlAttributes;
@@ -21,7 +22,7 @@ use const PHP_EOL;
 final readonly class FormElementRow
 {
     public const string PREPEND = 'prepend';
-    public const string APPEND  = 'append';
+    public const string APPEND = 'append';
 
     public function __construct(
         private EscaperInterface $escaper,
@@ -40,6 +41,8 @@ final readonly class FormElementRow
      * @param array<string, scalar|null> $wrapperAttributes
      * @param self::APPEND|self::PREPEND $labelPosition
      * @param self::APPEND|self::PREPEND $errorPosition
+     * @mago-expect lint:excessive-parameter-list
+     * @throws ElementCannotBeRendered
      */
     public function __invoke(
         ElementInterface $element,
@@ -57,10 +60,10 @@ final readonly class FormElementRow
             return $elementMarkup;
         }
 
-        $labelOpenTag  = $this->labelPlugin->openTag($element, $labelAttributes);
-        $label         = $this->escaper->escapeHtml((string) $element->getLabel());
+        $labelOpenTag = $this->labelPlugin->openTag($element, $labelAttributes);
+        $label = $this->escaper->escapeHtml((string) $element->getLabel());
         $labelCloseTag = $this->labelPlugin->closeTag($element);
-        $errorList     = ($this->errorListPlugin)($element, $errorListAttributes);
+        $errorList = ($this->errorListPlugin)($element, $errorListAttributes);
 
         $markup = [
             $labelOpenTag,

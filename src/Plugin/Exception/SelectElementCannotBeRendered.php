@@ -10,7 +10,7 @@ use RuntimeException;
 use function get_debug_type;
 use function sprintf;
 
-final class SelectElementCannotBeRendered extends RuntimeException
+final class SelectElementCannotBeRendered extends RuntimeException implements ElementCannotBeRendered
 {
     public static function becauseItIsNotMultipleAndTheValueIsNotScalar(Select $element): self
     {

@@ -29,8 +29,9 @@ final readonly class ElementErrorList
     /** @param array<string, scalar|null> $listAttributes */
     public function __invoke(ElementInterface $element, array $listAttributes = []): string
     {
+        /** @mago-expect analysis:unhandled-thrown-type */
         $messages = $element->getMessages();
-        $list     = [];
+        $list = [];
         array_walk_recursive($messages, static function (string $message) use (&$list): void {
             $list[] = $message;
         });

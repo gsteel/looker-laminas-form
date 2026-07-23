@@ -20,6 +20,7 @@ use function sprintf;
 
 final readonly class FormInput
 {
+    /** @var array<class-string<Element>, non-empty-string> */
     private const array TYPE_MAP = [
         Element\Color::class => 'color',
         Element\Date::class => 'date',
@@ -64,8 +65,8 @@ final readonly class FormInput
             $attributes['name'] = $name;
         }
 
-        $attributes          = array_merge($element->getAttributes(), $attributes);
-        $attributes['type']  = self::TYPE_MAP[$elementClass];
+        $attributes = array_merge($element->getAttributes(), $attributes);
+        $attributes['type'] = self::TYPE_MAP[$elementClass];
         $attributes['value'] = (string) $element->getValue();
         if ($element instanceof Password) {
             unset($attributes['value']);
