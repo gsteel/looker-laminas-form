@@ -10,7 +10,7 @@ use Laminas\Form\Element\Submit;
 
 use function sprintf;
 
-final class ButtonsNeedADescriptiveLabel extends InvalidArgumentException
+final class ButtonsNeedADescriptiveLabel extends InvalidArgumentException implements ElementCannotBeRendered
 {
     public static function forElement(Button|Submit $element): self
     {

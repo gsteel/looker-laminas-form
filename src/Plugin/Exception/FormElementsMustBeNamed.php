@@ -6,7 +6,7 @@ namespace Looker\Form\Plugin\Exception;
 
 use InvalidArgumentException;
 
-final class FormElementsMustBeNamed extends InvalidArgumentException
+final class FormElementsMustBeNamed extends InvalidArgumentException implements ElementCannotBeRendered
 {
     public static function forLabelling(): self
     {

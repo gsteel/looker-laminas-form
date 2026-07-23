@@ -9,7 +9,7 @@ use Laminas\Form\ElementInterface;
 
 use function sprintf;
 
-final class InvalidElementType extends InvalidArgumentException
+final class InvalidElementType extends InvalidArgumentException implements ElementCannotBeRendered
 {
     /** @param class-string $pluginClass */
     public static function becauseOfUnHandledType(ElementInterface $element, string $pluginClass): self

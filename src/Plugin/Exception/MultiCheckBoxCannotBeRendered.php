@@ -11,7 +11,7 @@ use Throwable;
 use function get_debug_type;
 use function sprintf;
 
-final class MultiCheckBoxCannotBeRendered extends RuntimeException
+final class MultiCheckBoxCannotBeRendered extends RuntimeException implements ElementCannotBeRendered
 {
     public static function becauseItIsMultipleAndTheValueIsNotIterable(MultiCheckbox $element): self
     {
