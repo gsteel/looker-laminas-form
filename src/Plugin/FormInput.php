@@ -20,6 +20,7 @@ use function sprintf;
 
 final readonly class FormInput
 {
+    /** @var array<class-string<Element>, non-empty-string> */
     private const array TYPE_MAP = [
         Element\Color::class => 'color',
         Element\Date::class => 'date',

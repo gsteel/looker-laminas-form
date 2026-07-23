@@ -10,6 +10,7 @@ use Looker\Form\HTML\SelectAttribute;
 use Looker\Form\Plugin\Exception\SelectElementCannotBeRendered;
 use Looker\HTML\AttributeNormaliser;
 use Looker\Plugin\HtmlAttributes;
+use Psl\Type;
 
 use function array_key_exists;
 use function array_merge;
@@ -36,7 +37,10 @@ final readonly class Select
     ) {
     }
 
-    /** @param array<string, scalar|null> $attributes */
+    /**
+     * @param array<string, scalar|null> $attributes
+     * @throws SelectElementCannotBeRendered
+     */
     public function __invoke(SelectElement $element, array $attributes = []): string
     {
         $attributes = array_merge($element->getAttributes(), $attributes);
@@ -63,6 +67,7 @@ final readonly class Select
         );
     }
 
+    /** @throws SelectElementCannotBeRendered */
     private function renderOptions(SelectElement $element): string
     {
         $options = $element->getValueOptions();
@@ -89,6 +94,7 @@ final readonly class Select
         return implode(PHP_EOL, $optionStrings);
     }
 
+    /** @throws SelectElementCannotBeRendered */
     private function renderOption(SelectElement $element, string|int|null $key, mixed $option): string
     {
         if (is_scalar($option)) {
@@ -102,20 +108,30 @@ final readonly class Select
             && is_scalar($option['label'])
             && is_scalar($option['value'])
         ) {
+            /** @var mixed|array $attributes */
             $attributes = $option['attributes'] ?? [];
             assert(is_array($attributes));
             unset($option['attributes']);
 
+            /** @var array<array-key, mixed> $attributes */
             $attributes = array_merge($attributes, $option);
             unset($attributes['label'], $attributes['value']);
 
-            return ($this->optionHelper)($element, (string) $option['value'], (string) $option['label'], $attributes);
+            return ($this->optionHelper)(
+                $element,
+                (string) $option['value'],
+                (string) $option['label'],
+                Type\dict(Type\string(), Type\scalar())->coerce($attributes),
+            );
         }
 
         throw SelectElementCannotBeRendered::becauseOptionsCannotBeCoerced($element);
     }
 
-    /** @param array<array-key, mixed> $options */
+    /**
+     * @param array<array-key, mixed> $options
+     * @throws SelectElementCannotBeRendered
+     */
     private function renderOptGroup(SelectElement $element, string $label, array $options): string
     {
         $out = [

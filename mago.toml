@@ -121,6 +121,7 @@ ignore = [
     { code = "unhandled-thrown-type", in = ["test/"] },
     # Invalid args are frequently tested
     { code = "invalid-argument", in = ["test/"] },
+    { code = "possibly-invalid-argument", in = ["test/"] },
     # Magic methods are called on the renderer in tests
     { code = "non-documented-method", in = ["test/"] },
     { code = "non-documented-property", in = ["test/"] },

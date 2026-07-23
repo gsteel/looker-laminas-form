@@ -11,10 +11,7 @@
     ],
     "config": {
         "sort-packages": true,
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "infection/extension-installer": true
-        },
+        "allow-plugins": {},
         "platform": {
             "php": "8.4.99"
         }
@@ -30,10 +27,7 @@
     "require-dev": {
         "carthage-software/mago": "^1.44",
         "laminas/laminas-servicemanager": "^3.24.0",
-        "php-standard-library/psalm-plugin": "^2.4",
-        "phpunit/phpunit": "^13.1.14",
-        "psalm/plugin-phpunit": "^0.19.7",
-        "vimeo/psalm": "^6.16.1"
+        "phpunit/phpunit": "^13.2.4"
     },
     "autoload": {
         "psr-4": {

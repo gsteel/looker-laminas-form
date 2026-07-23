@@ -7,6 +7,7 @@ namespace Looker\Form\Plugin;
 use Laminas\Escaper\EscaperInterface;
 use Laminas\Form\ElementInterface;
 use Laminas\Form\Fieldset as FormFieldset;
+use Looker\Form\Plugin\Exception\ElementCannotBeRendered;
 use Looker\HTML\AttributeNormaliser;
 use Looker\HTML\GlobalAttribute;
 use Looker\Plugin\HtmlAttributes;
@@ -41,6 +42,7 @@ final readonly class FormElementRow
      * @param self::APPEND|self::PREPEND $labelPosition
      * @param self::APPEND|self::PREPEND $errorPosition
      * @mago-expect lint:excessive-parameter-list
+     * @throws ElementCannotBeRendered
      */
     public function __invoke(
         ElementInterface $element,

@@ -56,7 +56,7 @@ final class ButtonTest extends TestCase
     public function testSubmitWithNoLabelAndNoContentIsExceptional(): void
     {
         $this->expectException(ButtonsNeedADescriptiveLabel::class);
-        $this->expectExceptionMessage(
+        $this->expectExceptionMessageIsOrContains(
             'Buttons should have either a label, or you should pass some content into the plugin. The element named '
             . '"fred" does not have a label and no content was provided',
         );
@@ -67,7 +67,7 @@ final class ButtonTest extends TestCase
     public function testMissingLabelExceptionWithUnNamedElement(): void
     {
         $this->expectException(ButtonsNeedADescriptiveLabel::class);
-        $this->expectExceptionMessage(
+        $this->expectExceptionMessageIsOrContains(
             'Buttons should have either a label, or you should pass some content into the plugin. The element named '
             . '"un-named" does not have a label and no content was provided',
         );

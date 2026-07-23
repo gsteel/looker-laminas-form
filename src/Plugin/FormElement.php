@@ -7,6 +7,8 @@ namespace Looker\Form\Plugin;
 use Laminas\Form;
 use Laminas\Form\ElementInterface;
 use Laminas\Form\Form as LaminasForm;
+use Looker\Form\Plugin\Exception\ElementCannotBeRendered;
+use Looker\Form\Plugin\Exception\InvalidElementType;
 use Looker\Form\Plugin\Form as FormPlugin;
 use Psr\Container\ContainerInterface;
 
@@ -17,7 +19,10 @@ final readonly class FormElement
     ) {
     }
 
-    /** @param array<string, scalar|null> $attributes */
+    /**
+     * @param array<string, scalar|null> $attributes
+     * @throws ElementCannotBeRendered
+     */
     public function __invoke(ElementInterface $element, array $attributes = []): string
     {
         return match ($element::class) {
@@ -49,6 +54,7 @@ final readonly class FormElement
             Form\Element\MultiCheckbox::class, Form\Element\Radio::class => $this->plugins->get(MultiCheckBox::class)(
                 $element,
             ),
+            default => throw InvalidElementType::becauseOfUnHandledType($element, self::class),
         };
     }
 }

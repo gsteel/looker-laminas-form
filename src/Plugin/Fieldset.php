@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace Looker\Form\Plugin;
 
 use Laminas\Escaper\EscaperInterface;
-use Laminas\Form\ElementInterface;
 use Laminas\Form\Fieldset as FormFieldset;
 use Looker\Form\HTML\FieldsetAttribute;
+use Looker\Form\Plugin\Exception\ElementCannotBeRendered;
 use Looker\HTML\AttributeNormaliser;
 use Looker\HTML\GlobalAttribute;
 use Looker\Plugin\HtmlAttributes;
 
 use function array_merge;
-use function assert;
 use function implode;
 use function sprintf;
 use function trim;
@@ -30,7 +29,10 @@ final readonly class Fieldset
     ) {
     }
 
-    /** @param array<string, scalar|null> $attributes */
+    /**
+     * @param array<string, scalar|null> $attributes
+     * @throws ElementCannotBeRendered
+     */
     public function __invoke(FormFieldset $fieldset, array $attributes = []): string
     {
         if ($fieldset->count() === 0) {
@@ -87,6 +89,7 @@ final readonly class Fieldset
         );
     }
 
+    /** @throws ElementCannotBeRendered */
     private function elements(FormFieldset $fieldset): string
     {
         $buffer = [];
@@ -95,8 +98,6 @@ final readonly class Fieldset
                 $buffer[] = $this($element);
                 continue;
             }
-
-            assert($element instanceof ElementInterface);
 
             $buffer[] = ($this->elementHelper)($element);
         }

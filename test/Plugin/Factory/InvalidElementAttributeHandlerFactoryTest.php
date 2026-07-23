@@ -114,7 +114,7 @@ final class InvalidElementAttributeHandlerFactoryTest extends TestCase
         $attribs = $handler->__invoke($element, []);
 
         self::assertArrayHasKey('data-baz', $attribs);
-        self::assertSame('bing', $attribs['data-baz']);
+        self::assertSame('bing', $attribs['data-baz'] ?? null);
         self::assertArrayNotHasKey('aria-invalid', $attribs);
     }
 }

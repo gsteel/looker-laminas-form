@@ -58,7 +58,10 @@ final readonly class MultiCheckBox
     ) {
     }
 
-    /** @param self::APPEND|self::PREPEND $labelPosition */
+    /**
+     * @param self::APPEND|self::PREPEND $labelPosition
+     * @throws MultiCheckBoxCannotBeRendered
+     */
     public function __invoke(
         MultiCheckboxElement|Radio $element,
         string $labelPosition = self::APPEND,
@@ -75,7 +78,10 @@ final readonly class MultiCheckBox
         return implode(PHP_EOL, array_filter($markup));
     }
 
-    /** @return list<OptionSpec> */
+    /**
+     * @return list<OptionSpec>
+     * @throws MultiCheckBoxCannotBeRendered
+     */
     private function normaliseValueOptions(MultiCheckboxElement|Radio $element): array
     {
         $options = [];
@@ -96,7 +102,10 @@ final readonly class MultiCheckBox
                 continue;
             }
 
-            /** @psalm-suppress DocblockTypeContradiction It is still possible for the value to be invalid */
+            /**
+             * It is still possible for the value to be invalid
+             * @mago-expect analysis:impossible-condition,redundant-type-comparison,no-value
+             */
             if (! is_array($value)) {
                 throw MultiCheckBoxCannotBeRendered::becauseOfAnInvalidOptionSpec($value);
             }
@@ -107,8 +116,8 @@ final readonly class MultiCheckBox
             $labelAttributes = $value['label_attributes'] ?? [];
 
             try {
-                union(null(), scalar())->assert($value['value'] ?? null);
-                union(null(), scalar())->assert($value['label'] ?? null);
+                union(null(), scalar())->assert($value['value']);
+                union(null(), scalar())->assert($value['label']);
                 dict(string(), union(null(), scalar()))->assert($attributes);
                 dict(string(), union(null(), scalar()))->assert($labelAttributes);
             } catch (Throwable $e) {
@@ -131,7 +140,10 @@ final readonly class MultiCheckBox
         return $options;
     }
 
-    /** @return list<OptionSpec> */
+    /**
+     * @return list<OptionSpec>
+     * @throws MultiCheckBoxCannotBeRendered
+     */
     private function prepareValueOptions(MultiCheckboxElement|Radio $element): array
     {
         $options = [];
@@ -169,7 +181,10 @@ final readonly class MultiCheckBox
         return $options;
     }
 
-    /** @param self::APPEND|self::PREPEND $labelPosition */
+    /**
+     * @param self::APPEND|self::PREPEND $labelPosition
+     * @throws MultiCheckBoxCannotBeRendered
+     */
     private function renderOptions(MultiCheckboxElement|Radio $element, string $labelPosition): string
     {
         $markup = [];
@@ -197,9 +212,13 @@ final readonly class MultiCheckBox
         return implode(PHP_EOL, $markup);
     }
 
-    /** @return list<string> */
+    /**
+     * @return list<string>
+     * @throws MultiCheckBoxCannotBeRendered
+     */
     private function normaliseSelectedValues(MultiCheckboxElement|Radio $element): array
     {
+        /** @var mixed $value */
         $value = $element->getValue();
         if ($value === null || $value === '') {
             return [];
@@ -216,6 +235,7 @@ final readonly class MultiCheckBox
         return array_values(array_map(static fn (int|float|string $value): string => (string) $value, $value));
     }
 
+    /** @throws MultiCheckBoxCannotBeRendered */
     private function isSelected(string $value, MultiCheckboxElement|Radio $element): bool
     {
         return in_array($value, $this->normaliseSelectedValues($element), true);

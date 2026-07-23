@@ -239,7 +239,7 @@ final class MultiCheckBoxTest extends TestCase
         ]);
         $element->setValue((object) ['foo' => 1]);
         $this->expectException(MultiCheckBoxCannotBeRendered::class);
-        $this->expectExceptionMessage('is a multi-checkbox, but its selected value is not iterable');
+        $this->expectExceptionMessageIsOrContains('is a multi-checkbox, but its selected value is not iterable');
         $this->plugin->__invoke($element);
     }
 
@@ -251,7 +251,7 @@ final class MultiCheckBoxTest extends TestCase
             (object) ['a' => 'b'],
         ]);
         $this->expectException(MultiCheckBoxCannotBeRendered::class);
-        $this->expectExceptionMessage(
+        $this->expectExceptionMessageIsOrContains(
             'Value options should be simple scalar key-value pairs, or a specification that conforms to the following:'
             . <<<'SPEC'
                 array{
@@ -317,7 +317,6 @@ final class MultiCheckBoxTest extends TestCase
     public function testExceptionThrownForInvalidOptionSpec(): void
     {
         $element = new MultiCheckElement('foo');
-        /** @psalm-suppress InvalidArgument */
         $element->setValueOptions([
             [
                 'label' => (object) ['a' => 'b'],
@@ -325,7 +324,9 @@ final class MultiCheckBoxTest extends TestCase
             ],
         ]);
         $this->expectException(MultiCheckBoxCannotBeRendered::class);
-        $this->expectExceptionMessage('Value options should be simple scalar key-value pairs, or a specification');
+        $this->expectExceptionMessageIsOrContains(
+            'Value options should be simple scalar key-value pairs, or a specification',
+        );
         $this->plugin->__invoke($element);
     }
 }

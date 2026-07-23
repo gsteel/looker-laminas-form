@@ -25,20 +25,19 @@ final class InvalidElementAttributeHandlerTest extends TestCase
         $element = new Text();
         $element->setMessages(['Bad News']);
 
-        /**
-         * @param array<string, scalar|null> $attributes
-         *
-         * @return array<string, scalar|null>
-         *
-         * @psalm-var callable(array<string, scalar|null>): array<string, scalar|null> $handler
-         */
-        $handler = static function (
-            array $attributes,
-        ): array {
-            $attributes['class'] = 'error';
+        $handler =
+            /**
+             * @param array<string, scalar|null> $attributes
+             *
+             * @return array<string, scalar|null>
+             */
+            static function (
+                array $attributes,
+            ): array {
+                $attributes['class'] = 'error';
 
-            return $attributes;
-        };
+                return $attributes;
+            };
 
         $attributes = new InvalidElementAttributeHandler($handler)->__invoke($element, []);
         self::assertSame(['class' => 'error'], $attributes);

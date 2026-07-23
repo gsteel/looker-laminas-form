@@ -74,7 +74,7 @@ final class OptionTest extends TestCase
     {
         $this->element->setValue(['foo', 'bar']);
         $this->expectException(SelectElementCannotBeRendered::class);
-        $this->expectExceptionMessage('is not a multi-select and it’s selected value is not scalar');
+        $this->expectExceptionMessageIsOrContains('is not a multi-select and it’s selected value is not scalar');
         $this->helper->__invoke($this->element, 'a', 'A', []);
     }
 
@@ -84,7 +84,7 @@ final class OptionTest extends TestCase
         $this->element->setValue((object) ['foo' => 'baz']);
 
         $this->expectException(SelectElementCannotBeRendered::class);
-        $this->expectExceptionMessage('is a multi-select but it’s selected value is not iterable');
+        $this->expectExceptionMessageIsOrContains('is a multi-select but it’s selected value is not iterable');
         $this->helper->__invoke($this->element, 'a', 'A', []);
     }
 

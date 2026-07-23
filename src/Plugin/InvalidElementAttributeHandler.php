@@ -23,18 +23,18 @@ final class InvalidElementAttributeHandler
             return;
         }
 
-        /**
-         * @param array<string, scalar|null> $attributes
-         *
-         * @return array<string, scalar|null>
-         *
-         * @psalm-var CallableSpec $handler
-         */
-        $handler = static function (array $attributes): array {
-            $attributes['aria-invalid'] = 'true';
+        /** @psalm-var CallableSpec $handler */
+        $handler =
+            /**
+             * @param array<string, scalar|null> $attributes
+             *
+             * @return array<string, scalar|null>
+             */
+            static function (array $attributes): array {
+                $attributes['aria-invalid'] = 'true';
 
-            return $attributes;
-        };
+                return $attributes;
+            };
 
         $this->handlers = [$handler];
     }
@@ -46,6 +46,11 @@ final class InvalidElementAttributeHandler
      */
     public function __invoke(ElementInterface $element, array $attributes): array
     {
+        /**
+         * Laminas will not throw in this situation
+         *
+         * @mago-expect analysis:unhandled-thrown-type
+         */
         if ($element->getMessages() === []) {
             return $attributes;
         }
