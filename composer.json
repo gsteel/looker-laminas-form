@@ -24,7 +24,7 @@
         "psr/container": "^1.0 || ^2.0"
     },
     "require-dev": {
-        "carthage-software/mago": "^1.44",
+        "carthage-software/mago": "^1.45.0",
         "laminas/laminas-servicemanager": "^3.24.0",
         "phpunit/phpunit": "^13.2.4"
     },
