@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "448179249ac8259d163f5b98f50491e5",
+    "content-hash": "24c2f191eb0389978a34cd25af993e3e",
     "packages": [
         {
             "name": "gsteel/looker",
@@ -1383,16 +1383,16 @@
     "packages-dev": [
         {
             "name": "carthage-software/mago",
-            "version": "1.45.0",
+            "version": "1.46.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carthage-software/mago.git",
-                "reference": "8771af7d3cdac8d2934e8fd187563d3c0464ac9a"
+                "reference": "256da8ab866491730bf402d015161876330c822d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carthage-software/mago/zipball/8771af7d3cdac8d2934e8fd187563d3c0464ac9a",
-                "reference": "8771af7d3cdac8d2934e8fd187563d3c0464ac9a",
+                "url": "https://api.github.com/repos/carthage-software/mago/zipball/256da8ab866491730bf402d015161876330c822d",
+                "reference": "256da8ab866491730bf402d015161876330c822d",
                 "shasum": ""
             },
             "require": {
@@ -1430,7 +1430,7 @@
             ],
             "support": {
                 "issues": "https://github.com/carthage-software/mago/issues",
-                "source": "https://github.com/carthage-software/mago/tree/1.45.0"
+                "source": "https://github.com/carthage-software/mago/tree/1.46.0"
             },
             "funding": [
                 {
@@ -1438,7 +1438,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-07-24T04:43:42+00:00"
+            "time": "2026-08-05T22:31:08+00:00"
         },
         {
             "name": "myclabs/deep-copy",
