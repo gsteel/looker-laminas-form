@@ -8,6 +8,6 @@
         "php": "~8.4 || ~8.5"
     },
     "require-dev": {
-        "rector/rector": "^2.6.5"
+        "rector/rector": "^2.6.6"
     }
 }
