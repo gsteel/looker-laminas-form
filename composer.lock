@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27437b2046f97e40e5354a40515e0d65",
+    "content-hash": "0825e887807aeb31573abd367f044097",
     "packages": [
         {
             "name": "gsteel/looker",
@@ -1384,16 +1384,16 @@
     "packages-dev": [
         {
             "name": "carthage-software/mago",
-            "version": "1.56.3",
+            "version": "1.57.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carthage-software/mago.git",
-                "reference": "1993be090f12ea01d8c5715154659d7e75affe25"
+                "reference": "9656cd55d51d96bd6dc57f1f1e73c15f22cb7cc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carthage-software/mago/zipball/1993be090f12ea01d8c5715154659d7e75affe25",
-                "reference": "1993be090f12ea01d8c5715154659d7e75affe25",
+                "url": "https://api.github.com/repos/carthage-software/mago/zipball/9656cd55d51d96bd6dc57f1f1e73c15f22cb7cc3",
+                "reference": "9656cd55d51d96bd6dc57f1f1e73c15f22cb7cc3",
                 "shasum": ""
             },
             "require": {
@@ -1435,7 +1435,7 @@
             ],
             "support": {
                 "issues": "https://github.com/carthage-software/mago/issues",
-                "source": "https://github.com/carthage-software/mago/tree/1.56.3"
+                "source": "https://github.com/carthage-software/mago/tree/1.57.0"
             },
             "funding": [
                 {
@@ -1443,7 +1443,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-12T07:31:58+00:00"
+            "time": "2026-10-14T07:10:47+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2065,16 +2065,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "13.4.1",
+            "version": "13.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "ccde40327c501eebff192614b0dcf11806418901"
+                "reference": "7b9ba83328f01ce299ef82161720195bd827a4bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ccde40327c501eebff192614b0dcf11806418901",
-                "reference": "ccde40327c501eebff192614b0dcf11806418901",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7b9ba83328f01ce299ef82161720195bd827a4bb",
+                "reference": "7b9ba83328f01ce299ef82161720195bd827a4bb",
                 "shasum": ""
             },
             "require": {
@@ -2145,7 +2145,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/13.4.1"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/13.4.2"
             },
             "funding": [
                 {
@@ -2153,7 +2153,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-10-05T05:51:21+00:00"
+            "time": "2026-10-12T15:29:04+00:00"
         },
         {
             "name": "revolt/event-loop",
