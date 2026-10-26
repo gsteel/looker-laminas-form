@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8bbb0b42d460988730fa9c056fd1b996",
+    "content-hash": "f4a6ceaa5d548f920a2dc74dcd5a6c07",
     "packages": [
         {
             "name": "gsteel/looker",
