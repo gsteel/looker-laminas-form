@@ -8,6 +8,6 @@
         "php": "~8.4 || ~8.5"
     },
     "require-dev": {
-        "maglnet/composer-require-checker": "^4.24.0"
+        "maglnet/composer-require-checker": "^4.25.0"
     }
 }
